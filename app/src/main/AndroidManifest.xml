@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Validin">
         <activity
+            android:name=".presentation.view.SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.view.AccountActivity"
+            android:exported="true"
+            android:label="AccountActivity"
+            android:theme="@style/Theme.Validin.NoActionBar"/>
+        <activity
             android:name=".presentation.view.RegisterActivity"
             android:exported="false" />
         <activity
@@ -22,8 +30,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="false"/>
+            android:name=".presentation.view.MainActivity"
+            android:exported="true"
+            android:label="MainActivity"
+            android:theme="@style/Theme.Validin.NoActionBar"/>
     </application>
 
 </manifest>
