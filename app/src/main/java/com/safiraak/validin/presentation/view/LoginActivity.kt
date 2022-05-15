@@ -39,5 +39,7 @@ class LoginActivity : AppCompatActivity() {
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT
         }
+
+        binding.btnLogin.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
     }
 }

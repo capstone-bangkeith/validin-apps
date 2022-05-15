@@ -14,4 +14,6 @@
     <string name="sign_in_lower">Sign In</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="user_name">User Name</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
