@@ -11,20 +11,20 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import com.safiraak.validin.R
-import com.safiraak.validin.databinding.ActivityLoginBinding
+import com.safiraak.validin.databinding.ActivityRegisterBinding
 
-class LoginActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLoginBinding
+class RegisterActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRegisterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        val registerText = SpannableString(getString(R.string.tv_regist))
+        val loginText = SpannableString(getString(R.string.tv_signin))
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(tv: View) {
-                startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+                startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
             }
 
             override fun updateDrawState(ds: TextPaint) {
@@ -33,9 +33,9 @@ class LoginActivity : AppCompatActivity() {
                 ds.isUnderlineText = false
             }
         }
-        registerText.setSpan(clickableSpan,28,36, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        loginText.setSpan(clickableSpan,25,32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.tvRegister.apply {
-            text = registerText
+            text = loginText
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT
         }
