@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Validin"
+                android:text="@string/app_name"
                 style="@style/validin_title"/>
 
         </androidx.appcompat.widget.Toolbar>
@@ -39,7 +39,8 @@
             android:src="@drawable/pierre"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/user_photo_profile" />
 
         <TextView
             android:id="@+id/uname"
@@ -47,7 +48,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="8dp"
-            android:text="Riyanto"
+            android:text="@string/username"
             style="@style/text_disp_black.bold.title"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -57,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:text="r.anto@valid.in"
+            android:text="@string/user_email"
             android:fontFamily="@font/opensans_regular"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +72,7 @@
             android:layout_marginTop="24dp"
             android:paddingHorizontal="8dp"
             android:paddingVertical="16dp"
-            android:text="Edit Profile Name"
+            android:text="@string/edit_profile_name"
             style="@style/text_disp_black"
             android:textAllCaps="false"
             android:background="@drawable/rounded_unverified_label"
@@ -87,7 +88,7 @@
             android:layout_marginTop="16dp"
             android:paddingHorizontal="8dp"
             android:paddingVertical="16dp"
-            android:text="Change Password"
+            android:text="@string/change_password"
             style="@style/text_disp_black"
             android:textAllCaps="false"
             android:background="@drawable/rounded_unverified_label"
@@ -103,7 +104,7 @@
             android:layout_marginTop="32dp"
             android:paddingHorizontal="8dp"
             android:paddingVertical="16dp"
-            android:text="Sign Out"
+            android:text="@string/sign_out"
             style="@style/text_input"
             android:textAllCaps="false"
             android:background="@drawable/rounded_unverified_label"
