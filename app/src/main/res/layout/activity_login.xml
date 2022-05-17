@@ -136,6 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_register" />
 
     <Button
+        android:id="@+id/btn_google_login"
         style="@style/button_google_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
