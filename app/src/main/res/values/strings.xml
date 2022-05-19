@@ -16,4 +16,27 @@
     <string name="user_name">User Name</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="next">Next</string>
+    <string name="your_ktp">KTP Capture</string>
+    <string name="req_val">Required for Validation</string>
+    <string name="nik">NIK</string>
+    <string name="jenis_kel">JENIS KELAMIN</string>
+    <string name="tgl_lhr">TGL LAHIR</string>
+    <string name="kecamatan">KECAMATAN</string>
+    <string name="kabupaten">KABUPATEN</string>
+    <string name="provinsi">PROVINSI</string>
+    <string name="rtrw">RT/RW</string>
+
+    <string name="confirm_data">Confirm Your Data</string>
+    <string name="verif2_nama">Nama</string>
+    <string name="verif2_alamat">Alamat</string>
+    <string name="verif2_rtrw">RT/RW</string>
+    <string name="verif2_keldes">Kel/Desa</string>
+    <string name="verif2_kecamatan">Kecamatan</string>
+    <string name="verif2_Agama">Agama</string>
+    <string name="verif2_status">Status\nPerkawinan</string>
+    <string name="verif2_pekerjaan">Pekerjaan</string>
+    <string name="verif2_kewarga">Kewarganegaraan</string>
+    <string name="verif2_berlaku">Berlaku Hingga</string>
+
 </resources>

@@ -34,6 +34,16 @@
             android:exported="true"
             android:label="MainActivity"
             android:theme="@style/Theme.Validin.NoActionBar"/>
+        <activity
+            android:name=".presentation.view.VerificationActivity1"
+            android:exported="false"
+            android:label="VerificationActivity1"
+            android:theme="@style/Theme.Validin.NoActionBar"/>
+        <activity
+            android:name=".presentation.view.VerificationActivity2"
+            android:exported="false"
+            android:label="VerificationActivity2"
+            android:theme="@style/Theme.Validin.NoActionBar"/>
     </application>
 
 </manifest>
