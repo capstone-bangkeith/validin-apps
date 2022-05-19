@@ -3,24 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/container_login.xml" value="0.14947916666666666" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/gradient_background.xml" value="0.14947916666666666" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/rounded_app_bar_background.xml" value="0.14947916666666666" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/rounded_unverified_label.xml" value="0.14947916666666666" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/rounded_verified_label.xml" value="0.14947916666666666" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/textview_layout.xml" value="0.14947916666666666" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_account.xml" value="0.4" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_login.xml" value="0.259375" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/main_app_bar.xml" value="0.4" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/nav_drawer.xml" value="0.13333333333333333" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/menu/nav_drawer_menu.xml" value="0.536" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/container_login.xml" value="0.1605" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/gradient_background.xml" value="0.1" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/textview_layout.xml" value="0.1605" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_account.xml" value="0.2" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_main.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_register.xml" value="0.176" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_setting.xml" value="0.10885416666666667" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/main_app_bar.xml" value="0.264" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/nav_drawer.xml" value="0.176" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/menu/nav_drawer_menu.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/xml/style.xml" value="0.15104166666666666" />
       </map>
     </option>

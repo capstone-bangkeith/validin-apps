@@ -6,14 +6,17 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toggle: ActionBarDrawerToggle
-
     private lateinit var binding: ActivityMainBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +43,25 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_account -> startActivity(Intent(this, AccountActivity::class.java))
                 R.id.nav_setting -> startActivity(Intent(this, SettingActivity::class.java))
                 R.id.nav_user_feedback -> showMessage("Feedback Clicked")
-                R.id.logout -> startActivity(Intent(this, LoginActivity::class.java))
+                R.id.logout -> { logOut() }
             }
             true
         }
+
+        //FirebaseAuth
+        auth = Firebase.auth
+        val firebaseUser = auth.currentUser
+        if (firebaseUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
+    }
+
+    private fun logOut() {
+        auth.signOut()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
