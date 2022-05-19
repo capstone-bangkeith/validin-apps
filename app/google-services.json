@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "738079622692",
+    "project_id": "validin-452d1",
+    "storage_bucket": "validin-452d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738079622692:android:88ffc8cbc8edc78d1f3ab1",
+        "android_client_info": {
+          "package_name": "com.safiraak.validin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738079622692-6m01r5pociktvdm67d0tjl1nvmlvqcdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safiraak.validin",
+            "certificate_hash": "714b72e292cbafb18d943f7efcce7b081dd77a6c"
+          }
+        },
+        {
+          "client_id": "738079622692-a6s9l6496oeg3empclob4f0cncrhrl66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh8CuthBdQSMCVXYDLfgOavtwsjbHT6F8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738079622692-a6s9l6496oeg3empclob4f0cncrhrl66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
