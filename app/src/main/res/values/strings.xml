@@ -21,7 +21,18 @@
     <!--homepage-->
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="verify_status">Unverified</string>
+    <string name="hello">Hello!</string>
+    <string name="welcome">Welcome Back</string>
+    <string name="icon_ocr">Icon OCR</string>
+    <string name="title_verify_home">Try to verify your KTP now!</string>
+    <string name="icon_how_to_use">Icon how to use</string>
+    <string name="title_how_to_use">How\nTo\nUse</string>
+    <string name="icon_data_privacy">Icon data privacy</string>
+    <string name="title_privacy_policy">Privacy\nPolicy</string>
+    <string name="to_page_about">To page about this apps</string>
 
+    <!--verify page-->
     <string name="next">Next</string>
     <string name="your_ktp">KTP Capture</string>
     <string name="req_val">Required for Validation</string>
@@ -44,17 +55,6 @@
     <string name="verif2_pekerjaan">Pekerjaan</string>
     <string name="verif2_kewarga">Kewarganegaraan</string>
     <string name="verif2_berlaku">Berlaku Hingga</string>
-
-    <string name="verify_status">Unverified</string>
-    <string name="hello">Hello!</string>
-    <string name="welcome">Welcome Back</string>
-    <string name="icon_ocr">Icon OCR</string>
-    <string name="title_verify_home">Try to verify your KTP now!</string>
-    <string name="icon_how_to_use">Icon how to use</string>
-    <string name="title_how_to_use">How\nTo\nUse</string>
-    <string name="icon_data_privacy">Icon data privacy</string>
-    <string name="title_privacy_policy">Privacy\nPolicy</string>
-    <string name="to_page_about">To page about this apps</string>
 
     <!--account-->
     <string name="username">Riyanto</string>
