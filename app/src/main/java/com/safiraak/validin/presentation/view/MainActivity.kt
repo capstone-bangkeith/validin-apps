@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
+        binding.mainAppBar.cardCam.setOnClickListener{
+            startActivity(Intent(this, VerificationActivity1::class.java))
+        }
+
         binding.navView.itemIconTintList = null
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {

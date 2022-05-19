@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_blue_container"
+    tools:context=".presentation.view.VerificationActivity1">
+
+
+    <TextView
+        android:id="@+id/verif_textview1"
+        style="@style/verif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_ktp"
+        app:layout_constraintBottom_toTopOf="@+id/verif_guideline1v"
+        app:layout_constraintStart_toStartOf="@+id/verif_guideline1h" />
+
+    <TextView
+        android:id="@+id/verif_textview2"
+        style="@style/verif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/req_val"
+        app:layout_constraintBottom_toTopOf="@+id/verif_guideline2v"
+        app:layout_constraintStart_toStartOf="@+id/verif_guideline1h" />
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/verif_guideline6v"
+        app:layout_constraintEnd_toEndOf="@id/verif_guideline3h"
+        app:layout_constraintStart_toStartOf="@id/verif_guideline2h"
+        app:layout_constraintTop_toTopOf="@id/verif_guideline4v">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verif_guideline4h"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.06" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verif_guideline5h"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.40" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verif_guideline5v"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.26" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verif_guideline8v"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9" />
+
+            <TextView
+                android:id="@+id/verif_niktxt_obj"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nik"
+                app:layout_constraintBottom_toTopOf="@+id/verif_guideline5v"
+                app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/verif_niktxt"
+                style="@style/verif_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="7dp"
+                android:text="null"
+                app:layout_constraintBottom_toBottomOf="@id/verif_niktxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_niktxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_jeniskeltxt_obj"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jenis_kel"
+                app:layout_constraintBottom_toTopOf="@+id/verif_tgltxt_obj"
+                app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
+                app:layout_constraintTop_toBottomOf="@+id/verif_guideline5v" />
+
+            <TextView
+                android:id="@+id/verif_jeniskeltxt"
+                style="@style/verif_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="7dp"
+                android:text="null"
+                app:layout_constraintBottom_toBottomOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_jeniskeltxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_tgltxt_obj"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tgl_lhr"
+                app:layout_constraintBottom_toTopOf="@+id/verif_kecamattxt_obj"
+                app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
+                app:layout_constraintTop_toBottomOf="@+id/verif_jeniskeltxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_tgltxt"
+                style="@style/verif_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="7dp"
+                android:text="null"
+                app:layout_constraintBottom_toBottomOf="@id/verif_tgltxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_tgltxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_kecamattxt_obj"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kecamatan"
+                app:layout_constraintBottom_toTopOf="@+id/verif_kabtxt_obj"
+                app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
+                app:layout_constraintTop_toBottomOf="@+id/verif_tgltxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_kecamattxt"
+                style="@style/verif_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="7dp"
+                android:text="null"
+                app:layout_constraintBottom_toBottomOf="@id/verif_kecamattxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_kecamattxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_kabtxt_obj"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kabupaten"
+                app:layout_constraintBottom_toTopOf="@+id/verif_provtxt_obj"
+                app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
+                app:layout_constraintTop_toBottomOf="@+id/verif_kecamattxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_kabtxt"
+                style="@style/verif_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="7dp"
+                android:text="null"
+                app:layout_constraintBottom_toBottomOf="@id/verif_kabtxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_kabtxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_provtxt_obj"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/provinsi"
+                app:layout_constraintBottom_toTopOf="@+id/verif_rtrwtxt_obj"
+                app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
+                app:layout_constraintTop_toBottomOf="@+id/verif_kabtxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_provtxt"
+                style="@style/verif_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="7dp"
+                android:text="null"
+                app:layout_constraintBottom_toBottomOf="@id/verif_provtxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_provtxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_rtrwtxt_obj"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rtrw"
+                app:layout_constraintBottom_toBottomOf="@id/verif_guideline8v"
+                app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
+                app:layout_constraintTop_toBottomOf="@+id/verif_provtxt_obj" />
+
+            <TextView
+                android:id="@+id/verif_rtrwtxt"
+                style="@style/verif_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="7dp"
+                android:text="null"
+                app:layout_constraintBottom_toBottomOf="@id/verif_rtrwtxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_rtrwtxt_obj"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/is1"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/verif_rtrwtxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_rtrwtxt_obj" />
+
+            <TextView
+                android:id="@+id/is2"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/verif_provtxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_provtxt_obj" />
+
+            <TextView
+                android:id="@+id/is3"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/verif_kabtxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_kabtxt_obj" />
+
+            <TextView
+                android:id="@+id/is4"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/verif_kecamattxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_kecamattxt_obj" />
+
+            <TextView
+                android:id="@+id/is5"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/verif_tgltxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_tgltxt_obj" />
+
+            <TextView
+                android:id="@+id/is6"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_jeniskeltxt_obj" />
+
+            <TextView
+                android:id="@+id/is7"
+                style="@style/verif_obj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                app:layout_constraintBottom_toBottomOf="@id/verif_niktxt_obj"
+                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
+                app:layout_constraintTop_toTopOf="@id/verif_niktxt_obj" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline1h"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline2h"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.155" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline3h"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.82" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline1v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline2v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.415" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline3v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline4v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.435" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline6v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline7v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.782" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/verif_guideline9v"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.866" />
+
+
+    <ImageView
+        android:id="@+id/verif_ktpimage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="10dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@id/verif_guideline3v"
+        app:layout_constraintEnd_toEndOf="@id/verif_guideline3h"
+        app:layout_constraintStart_toStartOf="@id/verif_guideline2h"
+        app:layout_constraintTop_toBottomOf="@id/verif_guideline1v"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="78dp"
+        android:src="@drawable/sample1" />
+
+    <Button
+        android:id="@+id/verif_but_capagain"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/red_back"
+        style="@style/verif_obj"
+        android:textColor="@color/white"
+        android:text="Capture Again"
+        app:layout_constraintBottom_toBottomOf="@id/verif_guideline9v"
+        app:layout_constraintStart_toStartOf="@+id/verif_guideline2h"
+        app:layout_constraintTop_toTopOf="@id/verif_guideline7v" />
+
+    <Button
+        android:id="@+id/verif_but_next"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        style="@style/verif_obj"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/light_blue_back"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="@id/verif_guideline9v"
+        app:layout_constraintEnd_toEndOf="@id/verif_guideline3h"
+        app:layout_constraintEnd_toStartOf="@id/verif_guideline3h"
+        app:layout_constraintTop_toTopOf="@id/verif_guideline7v" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
