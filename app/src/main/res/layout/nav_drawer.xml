@@ -12,7 +12,8 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:src="@drawable/pierre"/>
+        android:src="@drawable/pierre"
+        android:contentDescription="@string/user_photo_profile" />
 
     <TextView
         android:id="@+id/uname"
@@ -21,7 +22,7 @@
         android:paddingTop="8dp"
         android:gravity="center"
         style="@style/text_disp_black.bold.title"
-        android:text="Riyanto"/>
+        android:text="@string/username"/>
 
     <TextView
         android:id="@+id/email"
@@ -30,7 +31,7 @@
         android:fontFamily="@font/opensans_regular"
         android:textSize="14sp"
         android:layout_gravity="center"
-        android:text="r.anto@valid.in"/>
+        android:text="@string/user_email"/>
 
     <View
         android:layout_width="match_parent"
