@@ -10,11 +10,16 @@ import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -39,5 +44,30 @@ class RegisterActivity : AppCompatActivity() {
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT
         }
+
+        //FirebaseAuth
+        auth = Firebase.auth
+
+
+        binding.btnRegist.setOnClickListener {
+            val email = binding.etEmailField.text.toString().trim()
+            val password = binding.etConfirmpasswordField.text.toString().trim()
+            if (binding.etPasswordField.text.toString() != binding.etConfirmpasswordField.text.toString()) {
+                binding.etConfirmpasswordField.error = "Password mismatch"
+                return@setOnClickListener
+            }
+            signUpWithEmailPassword(email, password)
+        }
+    }
+
+    private fun signUpWithEmailPassword(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    startActivity(Intent(this, MainActivity::class.java))
+                } else {
+                    Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 }

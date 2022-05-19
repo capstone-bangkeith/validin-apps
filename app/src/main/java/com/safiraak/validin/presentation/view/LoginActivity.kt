@@ -80,15 +80,20 @@ class LoginActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
-        //Firebase Auth
+        //FirebaseAuth
         auth = Firebase.auth
 
         binding.btnGoogleLogin.setOnClickListener {
-            signIn()
+            signInGoogle()
+        }
+        binding.btnLogin.setOnClickListener {
+            val email = binding.etEmailField.text.toString().trim()
+            val password = binding.etPasswordField.text.toString().trim()
+            firebaseAuthWithEmailPassword(email, password)
         }
     }
 
-    fun signIn() {
+    fun signInGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         resultLauncher.launch(signInIntent)
     }
@@ -104,6 +109,15 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Log.w(TAG, "SignInWithCredential : Failure", task.exception)
                     updateUI(null)
+                }
+            }
+    }
+    private fun firebaseAuthWithEmailPassword(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    updateUI(user)
                 }
             }
     }
