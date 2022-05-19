@@ -63,7 +63,7 @@ class CameraxActivity : AppCompatActivity() {
         camExecute = Executors.newSingleThreadExecutor()
 
         binding.camCapture.setOnClickListener {
-            startActivity(Intent(this, VerificationActivity1::class.java))
+            takePict()
         }
     }
 
@@ -96,11 +96,11 @@ class CameraxActivity : AppCompatActivity() {
         val outOption = ImageCapture.OutputFileOptions.Builder(file).build()
         imageCapture.takePicture(outOption, ContextCompat.getMainExecutor(this), object : ImageCapture.OnImageSavedCallback{
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                val intent = Intent()
+                val intent = Intent(this@CameraxActivity, VerificationActivity1::class.java)
                 intent.putExtra("picture", file)
                 intent.putExtra("backCam", camSelect == CameraSelector.DEFAULT_BACK_CAMERA)
-                //setResult(AddStoryActivity.CAMERAX_RESULT, intent)
-                finish()
+                setResult(VerificationActivity1.CAMERAX_RESULT, intent)
+                startActivity(intent)
             }
 
             override fun onError(exception: ImageCaptureException) {
