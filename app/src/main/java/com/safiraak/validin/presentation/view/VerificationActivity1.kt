@@ -40,7 +40,7 @@ class VerificationActivity1 : AppCompatActivity() {
 
         binding.verifButNext.setOnClickListener { startActivity(Intent(this, VerificationActivity2::class.java)) }
         binding.verifButCapagain.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, CameraxActivity::class.java))
             finish()
         }
     }

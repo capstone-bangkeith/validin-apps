@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_toastDec"
+    android:background="@drawable/toast_declinebg">
+
+    <ImageView
+        android:paddingStart="16dp"
+        android:paddingVertical="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_alert_octagon"/>
+
+    <TextView
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KTP NOT DETECTED ON CAMERA"
+        style="@style/text_disp_black.bold"
+        android:textColor="@color/red_back"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

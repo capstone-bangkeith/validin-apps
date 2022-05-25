@@ -65,19 +65,19 @@
                 android:id="@+id/img_baseprofile"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:contentDescription="@string/user_photo_profile"
                 android:src="@drawable/pierre"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/user_photo_profile" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_hello"
+                style="@style/text_disp_black.bold.title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/hello"
-                style="@style/text_disp_black.bold.title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/img_baseprofile" />
@@ -92,20 +92,20 @@
 
                 <TextView
                     android:id="@+id/tv_welcome"
+                    style="@style/text_disp_black"
                     android:layout_width="wrap_content"
                     android:layout_height="19dp"
                     android:text="@string/welcome"
-                    style="@style/text_disp_black"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_uname"
+                    style="@style/text_disp_black.bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/username"
-                    style="@style/text_disp_black.bold"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@+id/tv_welcome"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -123,8 +123,8 @@
             android:layout_marginEnd="32dp"
             android:backgroundTint="@color/blue_back"
             app:cardCornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guide_cardEnd"
+            app:layout_constraintStart_toStartOf="@id/guide_card"
             app:layout_constraintTop_toBottomOf="@+id/extend_appBar">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -148,18 +148,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_ooui_ocr"
-                        android:contentDescription="@string/icon_ocr" />
+                        android:contentDescription="@string/icon_ocr"
+                        android:src="@drawable/ic_ooui_ocr" />
 
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/tv_title_ocr"
+                    style="@style/text_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="32dp"
                     android:text="@string/title_verify_home"
-                    style="@style/text_input"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/card_iconocr"
@@ -176,7 +176,8 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/light_blue_back"
             app:cardCornerRadius="20dp"
-            app:layout_constraintStart_toStartOf="@+id/card_cam"
+            app:layout_constraintEnd_toStartOf="@+id/guide_space"
+            app:layout_constraintStart_toStartOf="@+id/guide_card"
             app:layout_constraintTop_toBottomOf="@+id/card_cam">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -200,19 +201,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_question"
-                        android:contentDescription="@string/icon_how_to_use" />
+                        android:contentDescription="@string/icon_how_to_use"
+                        android:src="@drawable/ic_question" />
 
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/tv_title_inst"
+                    style="@style/text_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="24dp"
                     android:text="@string/title_how_to_use"
-                    style="@style/text_input"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/card_iconinst"
@@ -229,8 +230,8 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/light_blue_sky"
             app:cardCornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/card_cam"
-            app:layout_constraintStart_toEndOf="@+id/card_insctruction"
+            app:layout_constraintEnd_toEndOf="@id/guide_cardEnd"
+            app:layout_constraintStart_toStartOf="@+id/guide_spaceEnd"
             app:layout_constraintTop_toBottomOf="@+id/card_cam">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -254,19 +255,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/dapro"
-                        android:contentDescription="@string/icon_data_privacy" />
+                        android:contentDescription="@string/icon_data_privacy"
+                        android:src="@drawable/dapro" />
 
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/tv_title_policy"
+                    style="@style/text_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="24dp"
                     android:text="@string/title_privacy_policy"
-                    style="@style/text_input"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -283,10 +284,38 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
             android:backgroundTint="@color/light_orange"
+            android:contentDescription="@string/to_page_about"
             android:src="@drawable/ic_information"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="@string/to_page_about" />
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.07" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_cardEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.92" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.485" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_spaceEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.515"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
