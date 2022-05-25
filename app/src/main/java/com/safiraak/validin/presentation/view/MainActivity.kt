@@ -4,15 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameListener {
 
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMainBinding
@@ -20,8 +22,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //FirebaseAuth
+        auth = Firebase.auth
+        val firebaseUser = auth.currentUser
 
         setSupportActionBar(binding.mainAppBar.mainToolbar)
 
@@ -44,13 +51,40 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        //FirebaseAuth
-        auth = Firebase.auth
+
+        if (firebaseUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
+        binding.apply {
+            mainAppBar.tvUname.text = firebaseUser.displayName
+            navView.getHeaderView(0).findViewById<TextView>(R.id.uname).text = firebaseUser.displayName
+            navView.getHeaderView(0).findViewById<TextView>(R.id.email).text = firebaseUser.email
+            Glide.with(applicationContext)
+                .load(firebaseUser.photoUrl)
+                .centerCrop()
+                .error(R.drawable.pierre)
+                .into(mainAppBar.imgBaseprofile)
+            Glide.with(applicationContext)
+                .load(firebaseUser.photoUrl)
+                .centerCrop()
+                .error(R.drawable.pierre)
+                .into(navView.getHeaderView(0).findViewById<ImageView>(R.id.img_profile))
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
         val firebaseUser = auth.currentUser
         if (firebaseUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
+        }
+        if (firebaseUser.displayName == null || firebaseUser.displayName!!.isEmpty()){
+            val popUpUsernameFragment = PopUpUsernameFragment()
+            popUpUsernameFragment.show(supportFragmentManager,"Pop Up Username")
         }
     }
 
@@ -70,5 +104,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun showMessage(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun getUsername(username: String) {
+        val firebaseUser = auth.currentUser
+        val updateUsername = userProfileChangeRequest {
+            displayName = username
+        }
+        firebaseUser?.updateProfile(updateUsername)?.addOnCompleteListener{ task ->
+            if (task.isSuccessful) {
+                Toast.makeText(applicationContext,"Username saved", Toast.LENGTH_SHORT).show()
+            }
+        }
+        binding.mainAppBar.tvUname.text = username
+        binding.navView.getHeaderView(0).findViewById<TextView>(R.id.uname).text = username
     }
 }
