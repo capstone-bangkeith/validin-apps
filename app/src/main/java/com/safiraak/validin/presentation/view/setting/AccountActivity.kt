@@ -20,11 +20,9 @@ class AccountActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.buttonEditName.setOnClickListener {
-            PopUpEditUname().show(supportFragmentManager, "PopUpEditUname")
         }
 
         binding.buttonPass.setOnClickListener {
-            PopUpEditPass().show(supportFragmentManager, "PopUpEditPass")
         }
     }
 
