@@ -87,9 +87,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_password_field"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:textAppearance="@style/text_input"
             android:layout_height="wrap_content"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            app:passwordToggleEnabled="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

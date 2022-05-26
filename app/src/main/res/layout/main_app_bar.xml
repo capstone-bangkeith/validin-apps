@@ -107,6 +107,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/username"
                     android:textSize="14sp"
+                    android:layout_marginStart="4dp"
                     app:layout_constraintStart_toEndOf="@+id/tv_welcome"
                     app:layout_constraintTop_toTopOf="parent" />
 
