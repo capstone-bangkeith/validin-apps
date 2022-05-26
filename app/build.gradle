@@ -48,9 +48,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //CameraX
-    implementation "androidx.camera:camera-camera2:1.1.0-beta03"
-    implementation "androidx.camera:camera-lifecycle:1.1.0-beta03"
-    implementation "androidx.camera:camera-view:1.1.0-beta03"
+    implementation "androidx.camera:camera-camera2:1.2.0-alpha01"
+    implementation "androidx.camera:camera-lifecycle:1.2.0-alpha01"
+    implementation "androidx.camera:camera-view:1.2.0-alpha01"
 
     //Google Auth
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
