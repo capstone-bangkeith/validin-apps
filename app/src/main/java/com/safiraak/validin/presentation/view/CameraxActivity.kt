@@ -5,7 +5,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -19,6 +21,7 @@ import com.safiraak.validin.databinding.ActivityCameraxBinding
 import com.safiraak.validin.utils.CamUtils
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import kotlin.time.Duration
 
 class CameraxActivity : AppCompatActivity() {
 
@@ -62,6 +65,8 @@ class CameraxActivity : AppCompatActivity() {
 
         camExecute = Executors.newSingleThreadExecutor()
 
+        toastInstruction()
+
         binding.camCapture.setOnClickListener {
             takePict()
         }
@@ -69,6 +74,7 @@ class CameraxActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        toastInstruction()
         startCam()
     }
 
@@ -112,6 +118,24 @@ class CameraxActivity : AppCompatActivity() {
 
     private fun showMessage(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun toastDecline() {
+        val layout : View = layoutInflater.inflate(R.layout.toast_decline, findViewById(R.id.ll_toastDec))
+        Toast(this).apply {
+            duration = Toast.LENGTH_LONG
+            setGravity(Gravity.CENTER, 0, 0)
+            view = layout
+        }.show()
+    }
+
+    private fun toastInstruction() {
+        val layout : View = layoutInflater.inflate(R.layout.toast_instruction, findViewById(R.id.ll_toastIns))
+        Toast(this).apply {
+            duration = Toast.LENGTH_LONG
+            setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+            view = layout
+        }.show()
     }
 
     companion object {
