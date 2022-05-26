@@ -1,4 +1,4 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.main
 
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -15,6 +15,10 @@ import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityMainBinding
+import com.safiraak.validin.presentation.view.setting.AccountActivity
+import com.safiraak.validin.presentation.view.verify.CameraxActivity
+import com.safiraak.validin.presentation.view.setting.SettingActivity
+import com.safiraak.validin.presentation.view.auth.LoginActivity
 import com.safiraak.validin.utils.CamUtils
 import java.io.File
 

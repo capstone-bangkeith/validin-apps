@@ -1,4 +1,4 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +18,14 @@ class AccountActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.buttonEditName.setOnClickListener {
+            PopUpEditUname().show(supportFragmentManager, "PopUpEditUname")
+        }
+
+        binding.buttonPass.setOnClickListener {
+            PopUpEditPass().show(supportFragmentManager, "PopUpEditPass")
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -27,4 +35,5 @@ class AccountActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
 }

@@ -1,4 +1,4 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

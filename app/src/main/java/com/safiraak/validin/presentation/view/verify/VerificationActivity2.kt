@@ -1,4 +1,4 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.verify
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

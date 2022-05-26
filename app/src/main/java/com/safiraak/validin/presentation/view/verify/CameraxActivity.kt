@@ -1,4 +1,4 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.verify
 
 import android.Manifest
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
@@ -21,7 +20,6 @@ import com.safiraak.validin.databinding.ActivityCameraxBinding
 import com.safiraak.validin.utils.CamUtils
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import kotlin.time.Duration
 
 class CameraxActivity : AppCompatActivity() {
 

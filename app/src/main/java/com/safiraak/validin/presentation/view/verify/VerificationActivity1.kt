@@ -1,12 +1,10 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.verify
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.TypedValue
 import com.safiraak.validin.databinding.ActivityVerification1Binding
 import com.safiraak.validin.utils.CamUtils
 import java.io.File
