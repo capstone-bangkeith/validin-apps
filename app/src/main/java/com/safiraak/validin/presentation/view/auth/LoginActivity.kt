@@ -1,4 +1,4 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.auth
 
 import android.app.Activity
 import android.content.Intent
@@ -24,6 +24,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityLoginBinding
+import com.safiraak.validin.presentation.view.main.MainActivity
 import java.lang.Exception
 
 class LoginActivity : AppCompatActivity() {

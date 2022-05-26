@@ -1,4 +1,4 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.auth
 
 import android.content.Intent
 import android.graphics.Color
@@ -16,6 +16,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityRegisterBinding
+import com.safiraak.validin.presentation.view.main.MainActivity
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding

@@ -14,23 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Validin">
         <activity
-            android:name=".presentation.view.SettingActivity"
+            android:name=".presentation.view.setting.SettingActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.view.CameraxActivity"
+            android:name=".presentation.view.verify.CameraxActivity"
             android:exported="true"
             android:label="CameraxActivity"
             android:theme="@style/Theme.Validin.NoActionBar"/>
         <activity
-            android:name=".presentation.view.AccountActivity"
+            android:name=".presentation.view.setting.AccountActivity"
             android:exported="true"
             android:label="AccountActivity"
             android:theme="@style/Theme.Validin.NoActionBar"/>
         <activity
-            android:name=".presentation.view.RegisterActivity"
+            android:name=".presentation.view.auth.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.view.LoginActivity"
+            android:name=".presentation.view.auth.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,17 +39,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.view.MainActivity"
+            android:name=".presentation.view.main.MainActivity"
             android:exported="true"
             android:label="MainActivity"
             android:theme="@style/Theme.Validin.NoActionBar"/>
         <activity
-            android:name=".presentation.view.VerificationActivity1"
+            android:name=".presentation.view.verify.VerificationActivity1"
             android:exported="false"
             android:label="VerificationActivity1"
             android:theme="@style/Theme.Validin.NoActionBar"/>
         <activity
-            android:name=".presentation.view.VerificationActivity2"
+            android:name=".presentation.view.verify.VerificationActivity2"
             android:exported="false"
             android:label="VerificationActivity2"
             android:theme="@style/Theme.Validin.NoActionBar"/>
