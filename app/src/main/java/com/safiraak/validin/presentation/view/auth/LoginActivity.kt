@@ -92,6 +92,10 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPasswordField.text.toString().trim()
             firebaseAuthWithEmailPassword(email, password)
         }
+
+        binding.tvForgetpassword.setOnClickListener {
+            PopUpForgetPass().show(supportFragmentManager, "PopUpFP")
+        }
     }
 
     fun signInGoogle() {
