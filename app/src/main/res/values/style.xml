@@ -108,4 +108,25 @@
     <style name="text_disp_black.bold.title">
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="verif_title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/opensans_bold</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="verif_obj">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/opensans_bold</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="verif_text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
 </resources>
