@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
             true
         }
 
+        binding.mainAppBar.cardInsctruction.setOnClickListener { startActivity(Intent(this, TutorialActivity::class.java)) }
 
         if (firebaseUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))

@@ -13,8 +13,10 @@
         <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/toast_declinebg.xml" value="0.2712820512820513" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/toast_instructbg.xml" value="0.2712820512820513" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout-sw600dp/main_app_bar.xml" value="0.264" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_account.xml" value="0.13385416666666666" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_login.xml" value="0.12613981762917933" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_main.xml" value="0.12228260869565218" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_tutorial.xml" value="0.264" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_1.xml" value="0.24864130434782608" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_2.xml" value="0.259375" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/fragment_pop_up_username.xml" value="0.23822463768115942" />
