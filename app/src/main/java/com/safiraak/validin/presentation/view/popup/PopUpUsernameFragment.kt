@@ -1,4 +1,4 @@
-package com.safiraak.validin.presentation.view
+package com.safiraak.validin.presentation.view.popup
 
 import android.content.Context
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import com.safiraak.validin.databinding.FragmentPopUpUsernameBinding
 
 
-class PopUpUsernameFragment : AppCompatDialogFragment() {
+class PopUpUsernameFragment(val title: String) : AppCompatDialogFragment() {
     private var listener: PopUpUsernameListener? = null
 
     private var _binding: FragmentPopUpUsernameBinding? = null
@@ -19,6 +19,7 @@ class PopUpUsernameFragment : AppCompatDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPopUpUsernameBinding.inflate(inflater, container, false)
+        binding.title.text = title
         return binding.root
 
     }

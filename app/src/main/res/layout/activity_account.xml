@@ -32,7 +32,7 @@
         android:layout_marginTop="?attr/actionBarSize">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/img_profile"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="32dp"
@@ -44,13 +44,14 @@
 
         <TextView
             android:id="@+id/uname"
+            style="@style/text_disp_black.bold.title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="8dp"
             android:text="@string/username"
-            style="@style/text_disp_black.bold.title"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/img_profile"
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/email"
