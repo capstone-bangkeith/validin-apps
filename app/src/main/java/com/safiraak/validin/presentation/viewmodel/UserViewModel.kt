@@ -16,9 +16,9 @@ class UserViewModel @Inject constructor(
     private val repository: UserRepository
 ) : ViewModel() {
 
-    private var _user = repository._user
+    private val _user = repository.user
     val user : LiveData<FirebaseUser> = _user
-    private var _isLogout = repository._isLogout
+    private val _isLogout = repository.isLogout
     val isLogout : LiveData<Boolean> = _isLogout
 
     fun userLogin (email: String, password: String) {

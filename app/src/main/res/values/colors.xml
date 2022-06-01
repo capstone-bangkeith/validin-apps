@@ -14,4 +14,5 @@
     <color name="light_blue_container">#E0F9FF</color>
     <color name="light_orange">#FB8D39</color>
     <color name="red_back">#EA2020</color>
+    <color name="red_light">#FCDADA</color>
 </resources>
