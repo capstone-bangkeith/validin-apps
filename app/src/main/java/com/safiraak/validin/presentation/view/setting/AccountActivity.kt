@@ -45,7 +45,6 @@ class AccountActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsername
                 }
             }
         }
-
         binding = ActivityAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -53,6 +52,12 @@ class AccountActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsername
 
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        
+        binding.buttonEditName.setOnClickListener {
+        }
+
+        binding.buttonPass.setOnClickListener {
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

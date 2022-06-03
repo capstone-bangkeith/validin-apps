@@ -36,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
     private val userViewModel: UserViewModel by viewModels()
-
     private var resultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -113,6 +112,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPasswordField.text.toString().trim()
             //firebaseAuthWithEmailPassword(email, password)
             userViewModel.userLogin(email, password)
+
         }
 
         binding.tvForgetpassword.setOnClickListener {
@@ -124,6 +124,7 @@ class LoginActivity : AppCompatActivity() {
         val signInIntent = googleSignInClient.signInIntent
         resultLauncher.launch(signInIntent)
     }
+
 
     override fun onBackPressed() {
         super.onBackPressed()

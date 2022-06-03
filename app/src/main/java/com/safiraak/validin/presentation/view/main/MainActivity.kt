@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     private var getFile: File? = null
     private val userViewModel: UserViewModel by viewModels()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -75,7 +76,6 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
                 finish()
             }
         }
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 

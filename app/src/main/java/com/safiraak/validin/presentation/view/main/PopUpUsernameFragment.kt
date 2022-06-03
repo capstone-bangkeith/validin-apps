@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDialogFragment
 import com.safiraak.validin.databinding.FragmentPopUpUsernameBinding
 
-
 class PopUpUsernameFragment(val title: String) : AppCompatDialogFragment() {
     private var listener: PopUpUsernameListener? = null
 
@@ -20,6 +19,7 @@ class PopUpUsernameFragment(val title: String) : AppCompatDialogFragment() {
     ): View {
         _binding = FragmentPopUpUsernameBinding.inflate(inflater, container, false)
         binding.title.text = title
+
         return binding.root
 
     }
