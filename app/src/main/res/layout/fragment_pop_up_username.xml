@@ -2,11 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
-    android:layout_height="300dp"
-    android:background="@drawable/container_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".presentation.view.main.PopUpUsernameFragment">
 
+    <View
+        android:id="@+id/container_background"
+        android:layout_width="348dp"
+        android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:alpha="0.5"
+        android:background="@drawable/container_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/title"
         style="@style/alert"
@@ -15,9 +26,9 @@
         android:layout_marginTop="32dp"
         android:text="@string/input_username_message"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/container_background"
+        app:layout_constraintStart_toStartOf="@id/container_background"
+        app:layout_constraintTop_toTopOf="@id/container_background" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pw_username_layout"
