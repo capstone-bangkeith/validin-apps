@@ -13,6 +13,7 @@ import android.text.style.ClickableSpan
 import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -24,14 +25,17 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityLoginBinding
+import com.safiraak.validin.presentation.viewmodel.UserViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import com.safiraak.validin.presentation.view.main.MainActivity
 import java.lang.Exception
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-
+    private val userViewModel: UserViewModel by viewModels()
     private var resultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -40,7 +44,9 @@ class LoginActivity : AppCompatActivity() {
             try {
                 val account = task.getResult(ApiException::class.java)
                 Log.d(TAG,"FirebaseAuth : " + account.id)
-                account.idToken?.let { firebaseAuthWithGoogle(it) }
+                account.idToken?.let {
+                    userViewModel.userLoginGoogle(it)
+                }
             } catch (e: Exception) {
                 Log.w(TAG, "Sign in failed", e)
             }
@@ -63,6 +69,20 @@ class LoginActivity : AppCompatActivity() {
                 super.updateDrawState(ds)
                 ds.color = Color.BLUE
                 ds.isUnderlineText = false
+            }
+        }
+
+        userViewModel.user.observe(this) {
+            if (it != null) {
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                finish()
+            }
+        }
+
+        userViewModel.isLogout.observe(this) {
+            if (!it) {
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                finish()
             }
         }
         registerText.setSpan(clickableSpan,28,36, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -90,7 +110,9 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmailField.text.toString().trim()
             val password = binding.etPasswordField.text.toString().trim()
-            firebaseAuthWithEmailPassword(email, password)
+            //firebaseAuthWithEmailPassword(email, password)
+            userViewModel.userLogin(email, password)
+
         }
 
         binding.tvForgetpassword.setOnClickListener {
@@ -103,41 +125,10 @@ class LoginActivity : AppCompatActivity() {
         resultLauncher.launch(signInIntent)
     }
 
-    private fun firebaseAuthWithGoogle(idToken: String) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) {task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "SignInWithCredential : Success")
-                    val user = auth.currentUser
-                    updateUI(user)
-                } else {
-                    Log.w(TAG, "SignInWithCredential : Failure", task.exception)
-                    updateUI(null)
-                }
-            }
-    }
-    private fun firebaseAuthWithEmailPassword(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    updateUI(user)
-                }
-            }
-    }
 
-    private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser != null) {
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-            finish()
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     companion object {

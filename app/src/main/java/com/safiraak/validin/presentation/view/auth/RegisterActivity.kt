@@ -11,22 +11,33 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityRegisterBinding
+import com.safiraak.validin.presentation.viewmodel.UserViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import com.safiraak.validin.presentation.view.main.MainActivity
 
+@AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
+
+    private val userViewModel: UserViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        userViewModel.user.observe(this) {
+            if (it != null) {
+                startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
+            }
+        }
         val loginText = SpannableString(getString(R.string.tv_signin))
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(tv: View) {
@@ -57,18 +68,7 @@ class RegisterActivity : AppCompatActivity() {
                 binding.etConfirmpasswordField.error = "Password mismatch"
                 return@setOnClickListener
             }
-            signUpWithEmailPassword(email, password)
+            userViewModel.userRegister(email, password)
         }
-    }
-
-    private fun signUpWithEmailPassword(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    startActivity(Intent(this, MainActivity::class.java))
-                } else {
-                    Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
-                }
-            }
     }
 }
