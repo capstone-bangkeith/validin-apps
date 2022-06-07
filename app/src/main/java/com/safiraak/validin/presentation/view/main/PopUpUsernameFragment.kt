@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDialogFragment
+import com.safiraak.validin.R
 import com.safiraak.validin.databinding.FragmentPopUpUsernameBinding
 
-
-class PopUpUsernameFragment : AppCompatDialogFragment() {
+class PopUpUsernameFragment(val title: String) : AppCompatDialogFragment() {
     private var listener: PopUpUsernameListener? = null
 
     private var _binding: FragmentPopUpUsernameBinding? = null
@@ -19,6 +19,8 @@ class PopUpUsernameFragment : AppCompatDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPopUpUsernameBinding.inflate(inflater, container, false)
+        binding.title.text = title
+        dialog!!.window?.setBackgroundDrawableResource(R.drawable.container_login)
         return binding.root
 
     }

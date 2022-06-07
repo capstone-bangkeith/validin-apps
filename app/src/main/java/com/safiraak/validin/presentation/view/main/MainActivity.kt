@@ -7,11 +7,11 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityMainBinding
@@ -19,15 +19,20 @@ import com.safiraak.validin.presentation.view.setting.AccountActivity
 import com.safiraak.validin.presentation.view.verify.CameraxActivity
 import com.safiraak.validin.presentation.view.setting.SettingActivity
 import com.safiraak.validin.presentation.view.auth.LoginActivity
+import com.safiraak.validin.presentation.viewmodel.UserViewModel
 import com.safiraak.validin.utils.CamUtils
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameListener {
 
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     private var getFile: File? = null
+    private val userViewModel: UserViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,12 +51,39 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
         binding.homeDrawerAct.addDrawerListener(toggle)
         toggle.syncState()
 
+        userViewModel.user.observe(this) { user ->
+            if (user != null) {
+                binding.apply {
+                    mainAppBar.tvUname.text = user.displayName
+                    navView.getHeaderView(0).findViewById<TextView>(R.id.uname).text = user.displayName
+                    navView.getHeaderView(0).findViewById<TextView>(R.id.email).text = user.email
+                    Glide.with(applicationContext)
+                        .load(user.photoUrl)
+                        .centerCrop()
+                        .error(R.drawable.pierre)
+                        .into(mainAppBar.imgBaseprofile)
+                    Glide.with(applicationContext)
+                        .load(user.photoUrl)
+                        .centerCrop()
+                        .error(R.drawable.pierre)
+                        .into(navView.getHeaderView(0).findViewById<ImageView>(R.id.img_profile))
+                }
+            }
+        }
+        userViewModel.isLogout.observe(this) {
+            if (it) {
+                startActivity(Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                finish()
+            }
+        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.mainAppBar.cardCam.setOnClickListener{
             cameraXGo()
         }
+        
+        binding.mainAppBar.cardInsctruction.setOnClickListener { startActivity(Intent(this, TutorialActivity::class.java)) }
 
         binding.navView.itemIconTintList = null
         binding.navView.setNavigationItemSelectedListener {
@@ -63,49 +95,47 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
             }
             true
         }
+    }
 
-        binding.mainAppBar.cardInsctruction.setOnClickListener { startActivity(Intent(this, TutorialActivity::class.java)) }
-
-        if (firebaseUser == null) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-            return
+    override fun onResume() {
+        super.onResume()
+        userViewModel.user.observe(this) { user ->
+            if (user != null) {
+                binding.apply {
+                    mainAppBar.tvUname.text = user.displayName
+                    navView.getHeaderView(0).findViewById<TextView>(R.id.uname).text = user.displayName
+                    navView.getHeaderView(0).findViewById<TextView>(R.id.email).text = user.email
+                    Glide.with(applicationContext)
+                        .load(user.photoUrl)
+                        .centerCrop()
+                        .error(R.drawable.pierre)
+                        .into(mainAppBar.imgBaseprofile)
+                    Glide.with(applicationContext)
+                        .load(user.photoUrl)
+                        .centerCrop()
+                        .error(R.drawable.pierre)
+                        .into(navView.getHeaderView(0).findViewById<ImageView>(R.id.img_profile))
+                }
+            }
         }
-        binding.apply {
-            mainAppBar.tvUname.text = firebaseUser.displayName
-            navView.getHeaderView(0).findViewById<TextView>(R.id.uname).text = firebaseUser.displayName
-            navView.getHeaderView(0).findViewById<TextView>(R.id.email).text = firebaseUser.email
-            Glide.with(applicationContext)
-                .load(firebaseUser.photoUrl)
-                .centerCrop()
-                .error(R.drawable.pierre)
-                .into(mainAppBar.imgBaseprofile)
-            Glide.with(applicationContext)
-                .load(firebaseUser.photoUrl)
-                .centerCrop()
-                .error(R.drawable.pierre)
-                .into(navView.getHeaderView(0).findViewById<ImageView>(R.id.img_profile))
+        userViewModel.isLogout.observe(this) {
+            if (it) {
+                startActivity(Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                finish()
+            }
         }
     }
 
     override fun onStart() {
         super.onStart()
-        val firebaseUser = auth.currentUser
-        if (firebaseUser == null) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-            return
-        }
-        if (firebaseUser.displayName == null || firebaseUser.displayName!!.isEmpty()){
-            val popUpUsernameFragment = PopUpUsernameFragment()
+        if (auth.currentUser?.displayName == null || auth.currentUser?.displayName!!.isEmpty()){
+            val popUpUsernameFragment = PopUpUsernameFragment(getString(R.string.input_username_message))
             popUpUsernameFragment.show(supportFragmentManager,"Pop Up Username")
         }
     }
 
     private fun logOut() {
-        auth.signOut()
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
+        userViewModel.userLogout()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -143,15 +173,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     }
 
     override fun getUsername(username: String) {
-        val firebaseUser = auth.currentUser
-        val updateUsername = userProfileChangeRequest {
-            displayName = username
-        }
-        firebaseUser?.updateProfile(updateUsername)?.addOnCompleteListener{ task ->
-            if (task.isSuccessful) {
-                Toast.makeText(applicationContext,"Username saved", Toast.LENGTH_SHORT).show()
-            }
-        }
+        userViewModel.editUserName(username)
         binding.mainAppBar.tvUname.text = username
         binding.navView.getHeaderView(0).findViewById<TextView>(R.id.uname).text = username
     }
