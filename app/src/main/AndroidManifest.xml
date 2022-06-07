@@ -15,18 +15,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Validin">
         <activity
+            android:name=".presentation.view.main.TutorialActivity"
+            android:exported="true"
+            android:label="TutorialActivity"
+            android:theme="@style/Theme.Validin.NoActionBar"/>
+        <activity
             android:name=".presentation.view.setting.SettingActivity"
             android:exported="true" />
         <activity
             android:name=".presentation.view.verify.CameraxActivity"
             android:exported="true"
             android:label="CameraxActivity"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.setting.AccountActivity"
             android:exported="true"
             android:label="AccountActivity"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.auth.RegisterActivity"
             android:exported="false" />
@@ -43,17 +48,17 @@
             android:name=".presentation.view.main.MainActivity"
             android:exported="true"
             android:label="MainActivity"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.verify.VerificationActivity1"
             android:exported="false"
             android:label="VerificationActivity1"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.verify.VerificationActivity2"
             android:exported="false"
             android:label="VerificationActivity2"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
     </application>
 
 </manifest>

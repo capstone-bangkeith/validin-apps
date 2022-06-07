@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_blue_container"
+    app:layoutDescription="@xml/activity_tutorial_scene"
+    tools:context=".presentation.view.main.TutorialActivity">
+
+    <ImageView
+        android:id="@+id/img_tutorial1"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/tutorialp1_img_desc"
+        android:src="@drawable/ocr_button_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/tv_tutorial1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        style="@style/text_disp_black"
+        android:gravity="center_horizontal"
+        android:text="@string/tutorial_p1"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@id/img_tutorial1"
+        app:layout_constraintStart_toStartOf="@id/img_tutorial1"
+        app:layout_constraintBottom_toBottomOf="@id/img_tutorial1"/>
+
+    <ImageView
+        android:id="@+id/img_tutorial2.1"
+        android:layout_width="0dp"
+        android:layout_height="520dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/tutorialp2.1_img_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ktp_detect"/>
+
+    <TextView
+        android:id="@+id/tv_tutorial2.1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        style="@style/text_disp_black"
+        android:gravity="center_horizontal"
+        android:text="@string/tutorial_p2.1"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/img_tutorial2.2"
+        app:layout_constraintEnd_toEndOf="@id/img_tutorial2.1"
+        app:layout_constraintStart_toStartOf="@id/img_tutorial2.1"/>
+
+    <ImageView
+        android:id="@+id/img_tutorial2.2"
+        android:layout_width="0dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/tutorialp2.2_img_desc"
+        app:layout_constraintEnd_toEndOf="@+id/img_tutorial2.1"
+        app:layout_constraintStart_toStartOf="@+id/img_tutorial2.1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tutorial2.1"
+        android:src="@drawable/ktp_detected"/>
+
+    <TextView
+        android:id="@+id/tv_tutorial2.2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        style="@style/text_disp_black"
+        android:gravity="center_horizontal"
+        android:text="@string/tutorial_p2.2"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/img_tutorial2.1"
+        app:layout_constraintEnd_toEndOf="@id/img_tutorial2.2"
+        app:layout_constraintStart_toStartOf="@id/img_tutorial2.2"
+        app:layout_constraintTop_toBottomOf="@+id/img_tutorial2.2"/>
+
+    <ImageView
+        android:id="@+id/img_tutorial3"
+        android:layout_width="0dp"
+        android:layout_height="430dp"
+        android:contentDescription="@string/tutorialp3_img_desc"
+        android:src="@drawable/ocr"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/tv_tutorial3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        style="@style/text_disp_black"
+        android:gravity="center_horizontal"
+        android:text="@string/tutorial_p3"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@id/img_tutorial3"
+        app:layout_constraintStart_toStartOf="@id/img_tutorial3"
+        app:layout_constraintBottom_toBottomOf="@id/img_tutorial3"/>
+    
+    <ImageView
+        android:id="@+id/img_tutorial4.1"
+        android:layout_width="0dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/tutorialp4.1_img_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/confirm_form"/>
+
+    <TextView
+        android:id="@+id/tv_tutorial4.1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        style="@style/text_disp_black"
+        android:gravity="center_horizontal"
+        android:text="@string/tutorial_p4.1"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@id/img_tutorial4.1"
+        app:layout_constraintStart_toStartOf="@id/img_tutorial4.1"
+        app:layout_constraintBottom_toBottomOf="@id/img_tutorial4.1"/>
+
+    <ImageView
+        android:id="@+id/img_tutorial4.2"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/tutorialp4.2_img_desc"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_tutorial4.1"
+        android:src="@drawable/confirm_button"/>
+
+    <TextView
+        android:id="@+id/tv_tutorial4.2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        style="@style/text_disp_black"
+        android:gravity="center_horizontal"
+        android:text="@string/tutorial_p4.2"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@id/img_tutorial4.2"
+        app:layout_constraintStart_toStartOf="@id/img_tutorial4.2"
+        app:layout_constraintBottom_toBottomOf="@id/img_tutorial4.2"/>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/ifv_page1"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        app:altSrc="@drawable/ic_onpage_tutorial"
+        app:layout_constraintEnd_toStartOf="@+id/ifv_page2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_circle_tutorial" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/ifv_page2"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        app:altSrc="@drawable/ic_onpage_tutorial"
+        app:layout_constraintBottom_toBottomOf="@+id/ifv_page1"
+        app:layout_constraintEnd_toStartOf="@id/ifv_page3"
+        app:layout_constraintStart_toEndOf="@+id/ifv_page1"
+        app:layout_constraintTop_toTopOf="@+id/ifv_page1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_circle_tutorial"/>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/ifv_page3"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        app:altSrc="@drawable/ic_onpage_tutorial"
+        app:layout_constraintBottom_toBottomOf="@+id/ifv_page2"
+        app:layout_constraintEnd_toStartOf="@id/ifv_page4"
+        app:layout_constraintStart_toEndOf="@+id/ifv_page2"
+        app:layout_constraintTop_toTopOf="@+id/ifv_page2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_circle_tutorial"/>
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/ifv_page4"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="32dp"
+        app:altSrc="@drawable/ic_onpage_tutorial"
+        app:layout_constraintBottom_toBottomOf="@+id/ifv_page3"
+       app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ifv_page3"
+        app:layout_constraintTop_toTopOf="@+id/ifv_page3"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_circle_tutorial"/>
+
+    <Button
+        android:id="@+id/button_back_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:alpha="0"
+        android:backgroundTint="@color/blue_back"
+        android:text="@string/back_button"
+        app:layout_constraintBottom_toTopOf="@id/ifv_page2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

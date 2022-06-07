@@ -3,6 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/card_overlay.xml" value="0.2712820512820513" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/container_login.xml" value="0.14947916666666666" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/gradient_background.xml" value="0.2712820512820513" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/rounded_app_bar_background.xml" value="0.2712820512820513" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/rounded_unverified_label.xml" value="0.2712820512820513" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/rounded_verified_label.xml" value="0.2712820512820513" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/textview_layout.xml" value="0.2712820512820513" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/toast_declinebg.xml" value="0.2712820512820513" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/drawable/toast_instructbg.xml" value="0.2712820512820513" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout-sw600dp/main_app_bar.xml" value="0.264" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_account.xml" value="0.13385416666666666" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_login.xml" value="0.12613981762917933" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_main.xml" value="0.12228260869565218" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_tutorial.xml" value="0.264" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_1.xml" value="0.24864130434782608" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_2.xml" value="0.259375" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/fragment_pop_up_username.xml" value="0.23822463768115942" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/main_app_bar.xml" value="0.264" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/nav_drawer.xml" value="0.12228260869565218" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/popup_edit_uname.xml" value="0.259375" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/popup_forgetpass.xml" value="0.259375" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/toast_decline.xml" value="0.4" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/toast_instruction.xml" value="0.259375" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/container_login.xml" value="0.1605" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/gradient_background.xml" value="0.1" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/textview_layout.xml" value="0.1605" />

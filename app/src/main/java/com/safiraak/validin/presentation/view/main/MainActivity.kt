@@ -82,6 +82,8 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
         binding.mainAppBar.cardCam.setOnClickListener{
             cameraXGo()
         }
+        
+        binding.mainAppBar.cardInsctruction.setOnClickListener { startActivity(Intent(this, TutorialActivity::class.java)) }
 
         binding.navView.itemIconTintList = null
         binding.navView.setNavigationItemSelectedListener {
