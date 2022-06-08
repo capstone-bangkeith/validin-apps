@@ -19,6 +19,7 @@ import com.safiraak.validin.presentation.view.setting.AccountActivity
 import com.safiraak.validin.presentation.view.verify.CameraxActivity
 import com.safiraak.validin.presentation.view.setting.SettingActivity
 import com.safiraak.validin.presentation.view.auth.LoginActivity
+import com.safiraak.validin.presentation.view.verify.CameraTempActivity
 import com.safiraak.validin.presentation.viewmodel.UserViewModel
 import com.safiraak.validin.utils.CamUtils
 import dagger.hilt.android.AndroidEntryPoint
@@ -147,7 +148,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     }
 
     private fun cameraXGo() {
-        val intent = Intent(this, CameraxActivity::class.java)
+        val intent = Intent(this, CameraTempActivity::class.java)
         cameraLauncher.launch(intent)
     }
 
