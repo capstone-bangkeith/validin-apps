@@ -32,7 +32,6 @@ class VerificationActivity1 : AppCompatActivity() {
                 var result = CamUtils().rotateBitmap(
                     BitmapFactory.decodeFile(it.photo.path),
                 )
-                //ABheight = resources.getDimension(android.R.attr.actionBarSize).toInt()
                 result = Bitmap.createBitmap(result, 16, (result.height/2)-125-56, result.width-16, (result.height/2)+125-56)
                 val backFile = CamUtils().bitmap2File(this, result)
                 getFile = backFile

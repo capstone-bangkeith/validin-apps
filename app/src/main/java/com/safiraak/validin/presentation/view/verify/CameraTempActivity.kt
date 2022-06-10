@@ -81,7 +81,7 @@ class CameraTempActivity : AppCompatActivity() {
         recogViewModel.recognitionData.observe(this) {
             binding.recognitionName.text = it.label
             binding.recognitionProb.text = it.probabilityString
-            if (it.confidence > 0.99) {
+            if (it.confidence > 0.97) {
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (!alreadyTaken){
                         takePhoto(it.location)
