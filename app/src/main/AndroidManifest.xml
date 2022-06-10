@@ -15,8 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Validin">
         <activity
+            android:name=".presentation.view.main.CheckDataActivity"
+            android:exported="true"
+            android:label="CheckDataActivity"
+            android:theme="@style/Theme.Validin.NoActionBar"/>
+        <activity
             android:name=".presentation.view.verify.CameraTempActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="CameraTempActivity"
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.main.TutorialActivity"
             android:exported="true"
@@ -24,7 +31,9 @@
             android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.setting.SettingActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="SettingActivity"
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.verify.CameraxActivity"
             android:exported="true"

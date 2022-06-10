@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/tempcam_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="top"
@@ -38,6 +38,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:layout_marginVertical="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/logo_app"

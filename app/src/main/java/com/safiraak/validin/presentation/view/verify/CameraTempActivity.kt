@@ -18,6 +18,7 @@ import android.util.Log
 import android.util.Size
 import android.view.ViewGroup
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
@@ -44,8 +45,6 @@ import java.util.*
 import java.util.concurrent.Executors
 import kotlin.math.min
 
-
-
 typealias RecognitionListener = (recognition: RecognitionData) -> Unit
 
 @AndroidEntryPoint
@@ -67,11 +66,10 @@ class CameraTempActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
         binding = ActivityCameraTempBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+
         if (allPermissionGranted()) {
             startCamera()
         } else {
@@ -132,7 +130,7 @@ class CameraTempActivity : AppCompatActivity() {
             imageCapture = ImageCapture.Builder().build()
 
 
-            val cameraSelector =
+            val camSelect =
                 if (cameraProvider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA))
                     CameraSelector.DEFAULT_BACK_CAMERA else CameraSelector.DEFAULT_FRONT_CAMERA
 
