@@ -40,7 +40,8 @@ class AccountActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsername
                         popUpUsernameFragment.show(supportFragmentManager,"Pop Up Username")
                     }
                     buttonPass.setOnClickListener {
-                        //EDIT PASSWORD
+                        val popupPass = PopUpEditPass()
+                        popupPass.show(supportFragmentManager, "Pop Up Password")
                     }
                 }
             }
@@ -52,12 +53,6 @@ class AccountActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsername
 
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        
-        binding.buttonEditName.setOnClickListener {
-        }
-
-        binding.buttonPass.setOnClickListener {
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

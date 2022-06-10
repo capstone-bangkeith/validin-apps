@@ -3,6 +3,7 @@ package com.safiraak.validin.presentation.view.verify
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Matrix
@@ -10,6 +11,7 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Size
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
@@ -22,15 +24,16 @@ import com.safiraak.validin.R
 import com.safiraak.validin.ml.DetectWithMetadata
 import com.safiraak.validin.presentation.viewmodel.Recognition
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
+import com.safiraak.validin.utils.CamUtils
 import com.safiraak.validin.utils.YuvToRgbConverter
 import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.model.Model
 import java.util.concurrent.Executors
 
-private const val MAX_RESULT_DISPLAY = 3 // Maximum number of results displayed
-private const val TAG = "TFL Classify" // Name for logging
-private const val REQUEST_CODE_PERMISSIONS = 999 // Return code after asking for permission
+private const val MAX_RESULT_DISPLAY = 3
+private const val TAG = "TFL Classify"
+private const val REQUEST_CODE_PERMISSIONS = 999
 private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
 
 typealias RecognitionListener = (recognition: List<Recognition>) -> Unit
@@ -52,6 +55,12 @@ class CameraTempActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera_temp)
+
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.tempcam_toolbar)
+
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         if (allPermissionGranted()) {
             startCamera()
@@ -105,14 +114,14 @@ class CameraTempActivity : AppCompatActivity() {
                     })
                 }
 
-            val cameraSelector =
+            val camSelect =
                 if (cameraProvider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA))
                     CameraSelector.DEFAULT_BACK_CAMERA else CameraSelector.DEFAULT_FRONT_CAMERA
 
             try {
                 cameraProvider.unbindAll()
                 camera =
-                    cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageAnalyzer)
+                    cameraProvider.bindToLifecycle(this, camSelect, preview, imageAnalyzer)
                 preview.setSurfaceProvider(viewFinder.surfaceProvider)
             } catch (exc: Exception) {
                 Log.e(TAG, "Uses case binding failed", exc)

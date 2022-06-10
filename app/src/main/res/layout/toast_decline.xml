@@ -6,6 +6,7 @@
     android:background="@drawable/toast_declinebg">
 
     <ImageView
+        android:contentDescription="Decline Logo"
         android:paddingStart="16dp"
         android:paddingVertical="8dp"
         android:layout_width="wrap_content"

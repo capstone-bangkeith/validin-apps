@@ -367,6 +367,7 @@
         android:layout_height="0dp"
         android:paddingTop="10dp"
         android:scaleType="fitXY"
+        android:contentDescription="Captured KTP"
         app:layout_constraintBottom_toBottomOf="@id/verif_guideline3v"
         app:layout_constraintEnd_toEndOf="@id/verif_guideline3h"
         app:layout_constraintStart_toStartOf="@id/verif_guideline2h"
