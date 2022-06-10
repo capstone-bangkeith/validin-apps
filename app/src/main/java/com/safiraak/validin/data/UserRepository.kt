@@ -15,9 +15,9 @@ import javax.inject.Inject
 class UserRepository @Inject constructor (val application: Application) {
 
     private val auth = Firebase.auth
-    val _isLogout = MutableLiveData<Boolean>()
+    private val _isLogout = MutableLiveData<Boolean>()
     val isLogout : LiveData<Boolean> = _isLogout
-    val _user = MutableLiveData<FirebaseUser>()
+    private val _user = MutableLiveData<FirebaseUser>()
     val user : LiveData<FirebaseUser> = _user
 
     init {
@@ -32,11 +32,8 @@ class UserRepository @Inject constructor (val application: Application) {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     _user.postValue(auth.currentUser)
-//                    val userData = UserData(user?.uid, user?.displayName, user?.email, user?.photoUrl)
-//                    Result.Success(userData)
                     _isLogout.postValue(false)
                 } else {
-//                    Result.Error("Login : " + task.exception?.message)
                 }
             }
     }
@@ -46,10 +43,8 @@ class UserRepository @Inject constructor (val application: Application) {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     _user.postValue(auth.currentUser)
-//                    Result.Success(user)
                     _isLogout.postValue(false)
                 } else {
-//                    Result.Error("Login : " + task.exception?.message)
                 }
             }
     }
@@ -61,10 +56,8 @@ class UserRepository @Inject constructor (val application: Application) {
                 if (task.isSuccessful) {
                     Log.d(TAG, "SignInWithCredential : Success")
                     _user.postValue(auth.currentUser)
-//                    Result.Success(user)
                 } else {
                     Log.w(TAG, "SignInWithCredential : Failure", task.exception)
-//                    Result.Error("SignInWithCredential : Failure" + task.exception)
                 }
             }
     }

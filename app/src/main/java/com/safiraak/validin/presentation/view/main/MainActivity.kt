@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
 
         //FirebaseAuth
         auth = Firebase.auth
-        val firebaseUser = auth.currentUser
 
         setSupportActionBar(binding.mainAppBar.mainToolbar)
 
