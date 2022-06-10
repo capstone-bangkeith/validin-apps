@@ -15,10 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Validin">
         <activity
+            android:name=".presentation.view.verify.CameraTempActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.view.main.TutorialActivity"
             android:exported="true"
             android:label="TutorialActivity"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.setting.SettingActivity"
             android:exported="true" />
