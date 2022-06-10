@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -43,12 +44,11 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
 
         //FirebaseAuth
         auth = Firebase.auth
-        val firebaseUser = auth.currentUser
 
         setSupportActionBar(binding.mainAppBar.mainToolbar)
 
         toggle = ActionBarDrawerToggle(this, binding.homeDrawerAct, R.string.open, R.string.close)
-        toggle.drawerArrowDrawable.color = resources.getColor(R.color.black)
+        toggle.drawerArrowDrawable.color = ContextCompat.getColor(applicationContext, R.color.black)
         binding.homeDrawerAct.addDrawerListener(toggle)
         toggle.syncState()
 

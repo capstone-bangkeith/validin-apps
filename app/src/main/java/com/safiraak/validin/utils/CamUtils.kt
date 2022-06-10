@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class CamUtils {
-    val FILENAME_FORMAT = "dd-MMM-yyyy"
+    val FILENAME_FORMAT = "yyyy-MM-dd-HH-ss"
 
     val timeStamp: String = SimpleDateFormat(
         FILENAME_FORMAT,

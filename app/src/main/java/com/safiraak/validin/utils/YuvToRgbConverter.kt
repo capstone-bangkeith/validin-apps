@@ -18,7 +18,7 @@ class YuvToRgbConverter(context: Context) {
     private lateinit var inputAllocation: Allocation
     private lateinit var outputAllocation: Allocation
 
-    fun yuv2Rgb(image: Image, output: Bitmap) {
+    fun yuvToRgb(image: Image, output: Bitmap) {
         if (!::yuvBuffer.isInitialized) {
             pixelCount = image.cropRect.width() * image.cropRect.height()
             val pixelSizeBits = ImageFormat.getBitsPerPixel(ImageFormat.YUV_420_888)
@@ -27,7 +27,7 @@ class YuvToRgbConverter(context: Context) {
 
         yuvBuffer.rewind()
 
-        image2ByteBuffer(image, yuvBuffer.array())
+        imageToByteBuffer(image, yuvBuffer.array())
 
         if (!::inputAllocation.isInitialized) {
             val elemType = Type.Builder(rs, Element.YUV(rs)).setYuvFormat(ImageFormat.NV21).create()
@@ -43,7 +43,7 @@ class YuvToRgbConverter(context: Context) {
         outputAllocation.copyTo(output)
     }
 
-    private fun image2ByteBuffer(image: Image, outputBuffer: ByteArray) {
+    private fun imageToByteBuffer(image: Image, outputBuffer: ByteArray) {
         if (BuildConfig.DEBUG && image.format != ImageFormat.YUV_420_888) {
             error("Assertion failed")
         }

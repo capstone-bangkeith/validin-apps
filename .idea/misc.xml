@@ -26,6 +26,7 @@
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/textview_layout.xml" value="0.1605" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/toast_declinebg.xml" value="0.1" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_account.xml" value="0.2" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_camera_temp.xml" value="0.152" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_camerax.xml" value="0.264" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_main.xml" value="0.176" />
@@ -36,6 +37,7 @@
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/fragment_pop_up_username.xml" value="0.1" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/main_app_bar.xml" value="0.2" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/nav_drawer.xml" value="0.176" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/recognition_item.xml" value="0.152" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/toast_decline.xml" value="0.264" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/toast_instruction.xml" value="0.4" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/username_popupwindow.xml" value="0.24895833333333334" />

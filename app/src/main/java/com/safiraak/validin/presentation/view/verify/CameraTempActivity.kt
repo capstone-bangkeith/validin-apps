@@ -2,14 +2,21 @@ package com.safiraak.validin.presentation.view.verify
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import android.graphics.RectF
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
+import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.activity.viewModels
@@ -19,48 +26,49 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.safiraak.validin.R
+import com.safiraak.validin.data.RecognitionData
+import com.safiraak.validin.databinding.ActivityCameraTempBinding
 import com.safiraak.validin.ml.DetectWithMetadata
-import com.safiraak.validin.presentation.viewmodel.Recognition
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
 import com.safiraak.validin.utils.CamUtils
+import com.safiraak.validin.utils.ImageAnalyzer
 import com.safiraak.validin.utils.YuvToRgbConverter
+import dagger.hilt.android.AndroidEntryPoint
 import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.model.Model
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.concurrent.Executors
+import kotlin.math.min
 
-private const val MAX_RESULT_DISPLAY = 3
-private const val TAG = "TFL Classify"
-private const val REQUEST_CODE_PERMISSIONS = 999
-private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+typealias RecognitionListener = (recognition: RecognitionData) -> Unit
 
-typealias RecognitionListener = (recognition: List<Recognition>) -> Unit
-
+@AndroidEntryPoint
 class CameraTempActivity : AppCompatActivity() {
 
-    // CameraX variables
-    private lateinit var preview: Preview // Preview use case, fast, responsive view of the camera
-    private lateinit var imageAnalyzer: ImageAnalysis // Analysis use case, for running ML code
+    private var imageCapture: ImageCapture? = null
+    private lateinit var preview: Preview
+    private lateinit var imageAnalyzer: ImageAnalysis
     private lateinit var camera: Camera
+    private lateinit var binding: ActivityCameraTempBinding
     private val cameraExecutor = Executors.newSingleThreadExecutor()
-
-    private val resultRecyclerView by lazy { findViewById<RecyclerView>(R.id.recognitionResults) }
 
     private val viewFinder by lazy { findViewById<PreviewView>(R.id.viewFinder) }
 
     private val recogViewModel: RecognitionViewModel by viewModels()
+    private val captureDelay = 2000L
+    private var alreadyTaken = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_camera_temp)
 
-        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.tempcam_toolbar)
-
-        setSupportActionBar(toolbar)
-
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        binding = ActivityCameraTempBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        supportActionBar?.hide()
 
         if (allPermissionGranted()) {
             startCamera()
@@ -68,12 +76,17 @@ class CameraTempActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
-        val viewAdapter = RecognitionAdapter(this)
-        resultRecyclerView.adapter = viewAdapter
-
-        resultRecyclerView.itemAnimator = null
-
-        recogViewModel.recognitionList.observe(this, { viewAdapter.submitList(it) })
+        recogViewModel.recognitionData.observe(this) {
+            binding.recognitionName.text = it.label
+            binding.recognitionProb.text = it.probabilityString
+            if (it.confidence > 0.97) {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    if (!alreadyTaken){
+                        takePhoto(it.location)
+                        alreadyTaken = true }
+                }, captureDelay)
+            }
+        }
     }
 
     private fun allPermissionGranted() : Boolean = REQUIRED_PERMISSIONS.all {
@@ -102,8 +115,9 @@ class CameraTempActivity : AppCompatActivity() {
         cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
-            preview = Preview.Builder()
-                .build()
+            preview = Preview.Builder().build()
+
+
 
             imageAnalyzer = ImageAnalysis.Builder()
                 .setTargetResolution(Size(224, 224))
@@ -113,6 +127,8 @@ class CameraTempActivity : AppCompatActivity() {
                         recogViewModel.updateData(items)
                     })
                 }
+            imageCapture = ImageCapture.Builder().build()
+
 
             val camSelect =
                 if (cameraProvider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA))
@@ -120,73 +136,45 @@ class CameraTempActivity : AppCompatActivity() {
 
             try {
                 cameraProvider.unbindAll()
-                camera =
-                    cameraProvider.bindToLifecycle(this, camSelect, preview, imageAnalyzer)
+                camera = cameraProvider.bindToLifecycle(this, cameraSelector, preview,imageCapture, imageAnalyzer)
                 preview.setSurfaceProvider(viewFinder.surfaceProvider)
             } catch (exc: Exception) {
                 Log.e(TAG, "Uses case binding failed", exc)
             }
         }, ContextCompat.getMainExecutor(this))
     }
+    private fun takePhoto(location: RectF) {
+        val imageCapture = imageCapture ?: return
 
-    private class ImageAnalyzer(context: Context, private val listener: RecognitionListener) :
-        ImageAnalysis.Analyzer {
-            private val detectWithMetadata: DetectWithMetadata by lazy {
-                val compatList = CompatibilityList()
-                val options = if (compatList.isDelegateSupportedOnThisDevice) {
-                    Log.d(TAG, "This device is GPU Compatible")
-                    Model.Options.Builder().setDevice(Model.Device.GPU).build()
-                } else {
-                    Log.d(TAG, "This device is GPU Incompatible ")
-                    Model.Options.Builder().setNumThreads(4).build()
+        val file = CamUtils().makeFile(application)
+
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(file).build()
+
+        imageCapture.takePicture(
+            outputOptions,
+            ContextCompat.getMainExecutor(this),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onError(exc: ImageCaptureException) {
+                    Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
                 }
-                DetectWithMetadata.newInstance(context, options)
+                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                    val msg = "Photo capture succeeded: ${output.savedUri}"
+                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                    recogViewModel.photoUpload(file, location)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java))
+                    }, captureDelay)
+                    Log.d(TAG, msg)
+                }
             }
-
-        override fun analyze(imageProxy: ImageProxy) {
-            val items = mutableListOf<Recognition>()
-            val tfImage = TensorImage.fromBitmap(toBitmap(imageProxy))
-            val outputs = detectWithMetadata.process(tfImage)
-                .detectionResultList.get(0)
-            val resultLabel = outputs.categoryAsString
-            val resultScore = outputs.scoreAsFloat
-
-            items.add(Recognition(resultLabel, resultScore))
-
-            listener(items.toList())
-            imageProxy.close()
-        }
-
-        private val yuvToRgbConverter = YuvToRgbConverter(context)
-        private lateinit var bitmapBuffer: Bitmap
-        private lateinit var rotationMatrix: Matrix
-
-        @SuppressLint("UnsafeOptInUsageError")
-        private fun toBitmap(imageProxy: ImageProxy): Bitmap? {
-            val image = imageProxy.image ?: return null
-            if (!::bitmapBuffer.isInitialized) {
-                Log.d(TAG, "Initalise toBitmap()")
-                rotationMatrix = Matrix()
-                rotationMatrix.postRotate(imageProxy.imageInfo.rotationDegrees.toFloat())
-                bitmapBuffer = Bitmap.createBitmap(
-                    imageProxy.width, imageProxy.height, Bitmap.Config.ARGB_8888
-                )
-            }
-            yuvToRgbConverter.yuv2Rgb(image, bitmapBuffer)
-            return Bitmap.createBitmap(
-                bitmapBuffer,
-                0,
-                0,
-                bitmapBuffer.width,
-                bitmapBuffer.height,
-                rotationMatrix,
-                false
-            )
-        }
+        )
     }
-
     private fun showMessage(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
-
+    companion object{
+        private const val TAG = "CameraTempActivity"
+        private const val REQUEST_CODE_PERMISSIONS = 999
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+    }
 }
