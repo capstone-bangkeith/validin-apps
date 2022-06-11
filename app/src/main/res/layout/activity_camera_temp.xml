@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/logo_app"
-            android:contentDescription="Validin Apps Logo" />
+            android:contentDescription="@string/logo_image" />
 
     </androidx.appcompat.widget.Toolbar>
 

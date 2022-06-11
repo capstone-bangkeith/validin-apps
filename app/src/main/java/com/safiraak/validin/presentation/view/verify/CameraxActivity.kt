@@ -39,7 +39,7 @@ class CameraxActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQ_CODE_PERMIS) {
             if (!permissionGranted()) {
-                showMessage("Permission not granted")
+                showMessage(getString(R.string.permis_deny))
                 finish()
             }
         }
@@ -90,7 +90,7 @@ class CameraxActivity : AppCompatActivity() {
             try {
                 camProvide.unbindAll()
                 camProvide.bindToLifecycle(this, camSelect, preview, imageCapt)
-            } catch (e : Exception) { showMessage("Cant take") }
+            } catch (e : Exception) { showMessage(getString(R.string.not_taken)) }
         }, ContextCompat.getMainExecutor(this))
     }
 
@@ -108,7 +108,7 @@ class CameraxActivity : AppCompatActivity() {
             }
 
             override fun onError(exception: ImageCaptureException) {
-                showMessage("cant take")
+                showMessage(getString(R.string.not_taken))
             }
 
         })

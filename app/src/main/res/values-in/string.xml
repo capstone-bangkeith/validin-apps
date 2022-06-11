@@ -1,0 +1,121 @@
+<resources>
+    <!--general-->
+    <string name="app_name">Validin</string>
+    <string name="logo_image">gambar logo</string>
+
+    <!--login&register-->
+    <string name="sign_up">SIGN UP</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="forget_password">Lupa Password?</string>
+    <string name="login">LOGIN</string>
+    <string name="tv_regist">Belum punya akun? Sign Up!</string>
+    <string name="or">ATAU</string>
+    <string name="register">REGISTER</string>
+    <string name="tv_signin">Sudah punya akun? Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in_lower">Sign In</string>
+    <string name="confirm_password">Konfirmasi Password</string>
+    <string name="user_name">User Name</string>
+    <string name="reset_pass">Reset Password Email telah dikirim</string>
+    <string name="mismatch_pass">Salah password</string>
+    <string name="title_pass_rst">Kami akan mengirimkanmu reset email pada :</string>
+    <string name="send">Kirim</string>
+
+    <!--homepage-->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="verify_status">Unverified</string>
+    <string name="hello">Halo!</string>
+    <string name="welcome">Selamat Datang </string>
+    <string name="icon_ocr">Ikon OCR</string>
+    <string name="title_verify_home">Coba Verifikasi KTP\nsekarang!</string>
+    <string name="icon_how_to_use">Ikon cara menggunakan</string>
+    <string name="title_how_to_use">Cara\nPakai</string>
+    <string name="icon_data_privacy">Ikon privasi data</string>
+    <string name="title_privacy_policy">Privacy\nPolicy</string>
+    <string name="to_page_about">Pada halaman tentang aplikasi ini</string>
+    <string name="not_imp">tidak terimplementasi</string>
+    <string name="feedback_click">Feedback telah diklik</string>
+
+    <!--verify page-->
+    <string name="next">Lanjut</string>
+    <string name="your_ktp">Tangkap KTP</string>
+    <string name="req_val">Penting untuk Validasi</string>
+    <string name="nik">NIK</string>
+    <string name="jenis_kel">JENIS KELAMIN</string>
+    <string name="tgl_lhr">TGL LAHIR</string>
+    <string name="kecamatan">KECAMATAN</string>
+    <string name="kabupaten">KABUPATEN</string>
+    <string name="provinsi">PROVINSI</string>
+    <string name="rtrw">RT/RW</string>
+    <string name="no_data">null</string>
+    <string name="confirm_data">Konfirmasi Data</string>
+    <string name="verif2_nama">Nama</string>
+    <string name="verif2_alamat">Alamat</string>
+    <string name="verif2_rtrw">RT/RW</string>
+    <string name="verif2_keldes">Kel/Desa</string>
+    <string name="verif2_kecamatan">Kecamatan</string>
+    <string name="verif2_Agama">Agama</string>
+    <string name="verif2_status">Status\nPerkawinan</string>
+    <string name="verif2_pekerjaan">Pekerjaan</string>
+    <string name="verif2_kewarga">Kewarganegaraan</string>
+    <string name="verif2_berlaku">Berlaku Hingga</string>
+    <string name="kawin">Kawin</string>
+    <string name="no_kawin">Tidak Kawin</string>
+    <string name="wni">WNI</string>
+    <string name="wna">WNA</string>
+    <string name="verif_confirm">Konfirmasi</string>
+    <string name="dot">:</string>
+    <string name="some_text">Some text</string>
+
+    <!--account-->
+    <string name="username">Riyanto</string>
+    <string name="user_email">r.anto@valid.in</string>
+    <string name="edit_profile_name">Edit Nama Profil</string>
+    <string name="change_password">Ganti Password</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="user_photo_profile">Foto profil user</string>
+    <string name="cg_pass">Mau Ganti Password?</string>
+    <string name="done_cg_pass">Password telah diganti</string>
+    <string name="done_cg_uname">Username telah diganti</string>
+
+    <!--drawer-->
+    <string name="title_account">Akun</string>
+    <string name="title_settings">Setting</string>
+    <string name="title_user_feedback">Feedback User</string>
+    <string name="menu_profile">profil</string>
+
+    <!--popupusernameinput-->
+    <string name="input_username_message">Sebelum mulai\nBeritahu kami namamu</string>
+    <string name="save_name">Simpan nama saya</string>
+
+    <!--Tutorial page-->
+    <string name="tutorial_p1">Untuk verifikasi, tekan tombol Coba Verifikasi KTP sekarang!</string>
+    <string name="tutorial_p2.1">Letakkan KTP di dalam frame. Lalu sistem akan membaca apakah KTP yang di scan adalah KTP asli.</string>
+    <string name="tutorial_p2.2">Jika KTP telah dideteksi, maka KTP akan otomatis ditangkap sistem.</string>
+    <string name="tutorial_p4.2">Jika kamu selesai mengedit data, konfirmasi dan selesaikan proses validasi.</string>
+    <string name="back_button">Kembali ke Home</string>
+    <string name="tutorialp1_img_desc">Tekan tombol Coba Verifikasi KTP sekarang!</string>
+    <string name="tutorialp2.2_img_desc">KTP terdeteksi.</string>
+    <string name="tutorialp3_img_desc">OCR pada deteksi KTP.</string>
+    <string name="tutorialp4.1_img_desc">Isi form konfirmasi.</string>
+    <string name="tutorialp4.2_img_desc">Tekan tombol konfirmasi.</string>
+
+    <!--Camera-->
+    <string name="permis_deny">Permintaan ditolak</string>
+    <string name="not_taken">Tidak bisa menangkap</string>
+    <string name="capt_photo">Ambil foto</string>
+    <string name="capt_again">Ambil ulang</string>
+    <string name="no_detect">KTP TIDAK TERDETEKSI DI KAMERA</string>
+    <string name="instrct">Tolong letakkan KTP dalam kotak dan hindari gerakan apapun agar KTP tidak blur</string>
+
+    <!--Setting-->
+    <string name="language">Bahasa</string>
+    <string name="set_lang">Set Bahasa</string>
+    <string name="theme">Tema</string>
+    <string name="dark_mode">Beralih ke dark mode</string>
+    <string name="tutorial_p3">Setelah proses sebelumnya berhasil, data pada KTP akan diambil otomatis menggunakan OCR. Data ini akan digunakan untuk memvalidasi.</string>
+    <string name="tutorial_p4.1">Kamu dapat mengedit data yang tidak sesuai akibat pembacaan sistem. Tolong sesuaikan dengan data KTP.</string>
+    <string name="tutorialp2.1_img_desc">Kamera deteksi KTP.</string>
+</resources>

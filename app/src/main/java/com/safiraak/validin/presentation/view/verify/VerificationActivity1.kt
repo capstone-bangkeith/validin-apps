@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityVerification1Binding
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
 import com.safiraak.validin.utils.CamUtils
@@ -38,7 +39,7 @@ class VerificationActivity1 : AppCompatActivity() {
                 binding.verifKtpimage.setImageBitmap(result)
                 binding.verifNiktxt.text = it.location.toString()
             } else {
-                Toast.makeText(baseContext, "NULL", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, getString(R.string.no_data), Toast.LENGTH_SHORT).show()
             }
         }
 

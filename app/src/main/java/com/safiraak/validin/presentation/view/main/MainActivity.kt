@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
             when(it.itemId) {
                 R.id.nav_account -> startActivity(Intent(this, AccountActivity::class.java))
                 R.id.nav_setting -> startActivity(Intent(this, SettingActivity::class.java))
-                R.id.nav_user_feedback -> showMessage("Feedback Clicked")
+                R.id.nav_user_feedback -> showMessage(getString(R.string.feedback_click))
                 R.id.logout -> { logOut() }
             }
             true
@@ -117,7 +117,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
                         .load(user.photoUrl)
                         .centerCrop()
                         .error(R.drawable.pierre)
-                        .into(navView.getHeaderView(0).findViewById<ImageView>(R.id.img_profile))
+                        .into(navView.getHeaderView(0).findViewById(R.id.img_profile))
                 }
             }
         }

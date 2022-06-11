@@ -34,7 +34,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Language"
+            android:text="@string/language"
             android:textColor="@color/light_blue_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +48,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="64dp"
             android:background="@drawable/container_login"
-            android:text="Set Language"
+            android:text="@string/set_lang"
             android:textAllCaps="false"
             android:textSize="18sp"
             app:backgroundTint="@color/white"
@@ -63,7 +63,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Theme"
+            android:text="@string/theme"
             android:textColor="@color/light_blue_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_language" />
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Switch to dark mode"
+            android:text="@string/dark_mode"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_theme" />

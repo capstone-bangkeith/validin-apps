@@ -1,13 +1,8 @@
 package com.safiraak.validin.presentation.view.verify
 
 import android.Manifest
-import android.annotation.SuppressLint
-import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.Matrix
 import android.graphics.RectF
 import android.os.Build
 import android.os.Bundle
@@ -103,7 +98,7 @@ class CameraTempActivity : AppCompatActivity() {
             if (allPermissionGranted()) {
                 startCamera()
             } else {
-                showMessage("Permission denied")
+                showMessage(getString(R.string.permis_deny))
                 finish()
             }
         }
@@ -116,8 +111,6 @@ class CameraTempActivity : AppCompatActivity() {
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
             preview = Preview.Builder().build()
-
-
 
             imageAnalyzer = ImageAnalysis.Builder()
                 .setTargetResolution(Size(224, 224))
@@ -136,7 +129,7 @@ class CameraTempActivity : AppCompatActivity() {
 
             try {
                 cameraProvider.unbindAll()
-                camera = cameraProvider.bindToLifecycle(this, cameraSelector, preview,imageCapture, imageAnalyzer)
+                camera = cameraProvider.bindToLifecycle(this, camSelect, preview,imageCapture, imageAnalyzer)
                 preview.setSurfaceProvider(viewFinder.surfaceProvider)
             } catch (exc: Exception) {
                 Log.e(TAG, "Uses case binding failed", exc)
