@@ -1,5 +1,6 @@
 package com.safiraak.validin.presentation.view.main
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,12 @@ import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -17,14 +23,18 @@ import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityMainBinding
 import com.safiraak.validin.presentation.view.setting.AccountActivity
-import com.safiraak.validin.presentation.view.verify.CameraxActivity
 import com.safiraak.validin.presentation.view.setting.SettingActivity
 import com.safiraak.validin.presentation.view.auth.LoginActivity
 import com.safiraak.validin.presentation.view.verify.CameraTempActivity
+import com.safiraak.validin.presentation.viewmodel.ThemeViewModel
+import com.safiraak.validin.presentation.viewmodel.ThemeViewModelFactory
 import com.safiraak.validin.presentation.viewmodel.UserViewModel
 import com.safiraak.validin.utils.CamUtils
+import com.safiraak.validin.utils.ThemePreference
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "themes")
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameListener {
@@ -79,6 +89,8 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        getThemeS()
 
         binding.mainAppBar.cardCam.setOnClickListener{
             cameraXGo()
@@ -173,6 +185,20 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
 
     private fun showMessage(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun getThemeS() {
+        val pref = ThemePreference.getInstance(dataStore)
+        val themeViewModel = ViewModelProvider(this, ThemeViewModelFactory(pref)).get(
+            ThemeViewModel::class.java
+        )
+        themeViewModel.getThemeSet().observe(this, { isDarkMode: Boolean ->
+            if (isDarkMode) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        })
     }
 
     override fun getUsername(username: String) {
