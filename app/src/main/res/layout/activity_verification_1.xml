@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_container"
+    android:background="?attr/colorPrimary"
     tools:context=".presentation.view.verify.VerificationActivity1">
 
 
@@ -38,7 +38,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:backgroundTint="?attr/colorSecondary">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/verif_guideline4h"

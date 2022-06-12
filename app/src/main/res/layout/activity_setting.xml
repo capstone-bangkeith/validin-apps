@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_container"
+    android:background="?attr/colorPrimary"
     tools:context=".presentation.view.setting.SettingActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -51,7 +51,7 @@
             android:text="@string/set_lang"
             android:textAllCaps="false"
             android:textSize="18sp"
-            app:backgroundTint="@color/white"
+            app:backgroundTint="?attr/colorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_language" />
@@ -85,6 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
+            app:thumbTint="?attr/colorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_theme" />
 

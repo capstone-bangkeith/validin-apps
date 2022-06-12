@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_container"
+    android:background="?attr/colorPrimary"
     tools:context=".presentation.view.verify.VerificationActivity2">
 
 
@@ -121,7 +121,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_nama_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -154,7 +154,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_alamat_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -187,7 +187,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_rtrw_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -220,7 +220,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_keldes_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -253,7 +253,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_kecam_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -286,7 +286,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_pekerjaan_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -319,7 +319,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_berlaku_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -352,7 +352,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_agama_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
