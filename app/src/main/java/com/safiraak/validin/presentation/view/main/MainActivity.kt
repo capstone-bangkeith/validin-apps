@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     private lateinit var auth: FirebaseAuth
     private var getFile: File? = null
     private val userViewModel: UserViewModel by viewModels()
-    private val verifiedState: Boolean = true
+    private val verifiedState: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
