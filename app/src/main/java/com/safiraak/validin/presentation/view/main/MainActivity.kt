@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     private lateinit var auth: FirebaseAuth
     private var getFile: File? = null
     private val userViewModel: UserViewModel by viewModels()
-
+    private val verifiedState: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,11 +92,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
 
         getThemeS()
 
-        binding.mainAppBar.cardCam.setOnClickListener{
-            cameraXGo()
-        }
-
-        binding.mainAppBar.cardPolicy.setOnClickListener { startActivity(Intent(this, CheckDataActivity::class.java)) }
+        verifyState()
 
         binding.mainAppBar.cardInsctruction.setOnClickListener { startActivity(Intent(this, TutorialActivity::class.java)) }
 
@@ -199,6 +195,21 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         })
+    }
+
+    fun verifyState() {
+        if (verifiedState) {
+            binding.mainAppBar.llVerifStat.setBackgroundResource(R.drawable.rounded_verified_label)
+            binding.mainAppBar.tvVerifStat.text = getString(R.string.verify_status0)
+            binding.mainAppBar.tvTitleOcr.text = getString(R.string.title_check_data)
+            binding.mainAppBar.cardCam.setOnClickListener{
+                startActivity(Intent(this, CheckDataActivity::class.java))
+            }
+        } else if (!verifiedState) {
+            binding.mainAppBar.cardCam.setOnClickListener{
+                cameraXGo()
+            }
+        }
     }
 
     override fun getUsername(username: String) {

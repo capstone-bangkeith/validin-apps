@@ -20,6 +20,7 @@
                 style="@style/validin_title"/>
 
             <LinearLayout
+                android:id="@+id/ll_verif_stat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -27,6 +28,7 @@
                 android:background="@drawable/rounded_unverified_label">
 
                 <TextView
+                    android:id="@+id/tv_verif_stat"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="6dp"

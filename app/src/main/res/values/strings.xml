@@ -29,7 +29,7 @@
     <string name="hello">Hello!</string>
     <string name="welcome">Welcome Back </string>
     <string name="icon_ocr">Icon OCR</string>
-    <string name="title_verify_home">Try to verify your KTP now!</string>
+    <string name="title_verify_home">Try to verify your KTP\nnow!</string>
     <string name="icon_how_to_use">Icon how to use</string>
     <string name="title_how_to_use">How\nTo\nUse</string>
     <string name="icon_data_privacy">Icon data privacy</string>
@@ -37,6 +37,8 @@
     <string name="to_page_about">To page about this apps</string>
     <string name="not_imp">not implemented</string>
     <string name="feedback_click">Feedback Clicked</string>
+    <string name="verify_status0">Verified</string>
+    <string name="title_check_data">Check Verified Data\nNow!</string>
 
     <!--verify page-->
     <string name="next">Next</string>
