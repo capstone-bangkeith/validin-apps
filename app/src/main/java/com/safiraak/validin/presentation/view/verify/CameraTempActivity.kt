@@ -16,6 +16,7 @@ import android.os.Looper
 import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -29,6 +30,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.safiraak.validin.R
 import com.safiraak.validin.data.RecognitionData
+import com.safiraak.validin.data.Result
 import com.safiraak.validin.databinding.ActivityCameraTempBinding
 import com.safiraak.validin.ml.DetectWithMetadata
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
@@ -36,6 +38,9 @@ import com.safiraak.validin.utils.CamUtils
 import com.safiraak.validin.utils.ImageAnalyzer
 import com.safiraak.validin.utils.YuvToRgbConverter
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.model.Model
@@ -57,6 +62,8 @@ class CameraTempActivity : AppCompatActivity() {
     private lateinit var camera: Camera
     private lateinit var binding: ActivityCameraTempBinding
     private val cameraExecutor = Executors.newSingleThreadExecutor()
+
+    private lateinit var photoMultiPart : MultipartBody.Part
 
     private val viewFinder by lazy { findViewById<PreviewView>(R.id.viewFinder) }
 
@@ -85,12 +92,52 @@ class CameraTempActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (!alreadyTaken){
                         takePhoto(it.location)
-                        alreadyTaken = true }
+                        alreadyTaken = true
+                    }
+                }, captureDelay)
+            }
+        }
+        recogViewModel.recognitionResponse.observe(this) {
+            when(it) {
+                is Result.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java))
+                    }, captureDelay)
+                }
+                is Result.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                is Result.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this,"Error Uploading Data Try Again", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        recogViewModel.recognitionData.observe(this) {
+            binding.recognitionName.text = it.label
+            binding.recognitionProb.text = it.probabilityString
+            if (it.confidence > 0.99) {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    if (!alreadyTaken){
+                        takePhoto(it.location)
+                        alreadyTaken = true
+                    }
                 }, captureDelay)
             }
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        cameraExecutor.isShutdown
+        imageAnalyzer.clearAnalyzer()
+        finish()
+    }
     private fun allPermissionGranted() : Boolean = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
@@ -118,8 +165,6 @@ class CameraTempActivity : AppCompatActivity() {
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
             preview = Preview.Builder().build()
-
-
 
             imageAnalyzer = ImageAnalysis.Builder()
                 .setTargetResolution(Size(224, 224))
@@ -149,6 +194,9 @@ class CameraTempActivity : AppCompatActivity() {
         val imageCapture = imageCapture ?: return
 
         val file = CamUtils().makeFile(application)
+        val requestPhoto = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+
+        photoMultiPart = MultipartBody.Part.createFormData("ktp", file.name, requestPhoto)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(file).build()
 
@@ -161,11 +209,9 @@ class CameraTempActivity : AppCompatActivity() {
                 }
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
-                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-                    recogViewModel.photoUpload(file, location)
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java))
-                    }, captureDelay)
+                    Toast.makeText(baseContext, "$location", Toast.LENGTH_SHORT).show()
+                    recogViewModel.photoUpload(photoMultiPart)
+
                     Log.d(TAG, msg)
                 }
             }

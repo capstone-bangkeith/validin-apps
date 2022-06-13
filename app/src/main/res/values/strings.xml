@@ -88,4 +88,5 @@
     <string name="tutorialp3_img_desc">OCR on detected KTP.</string>
     <string name="tutorialp4.1_img_desc">Fill form confirmation</string>
     <string name="tutorialp4.2_img_desc">Press confirm button.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

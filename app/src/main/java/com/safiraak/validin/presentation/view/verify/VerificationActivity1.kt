@@ -27,21 +27,21 @@ class VerificationActivity1 : AppCompatActivity() {
 
 //        val file = intent.extras?.get("picture") as File?
 //        val backCam = intent.extras?.get("backCam") as Boolean
-        recogViewModel.uploadRequest.observe(this) {
-            if (it != null) {
-                var result = CamUtils().rotateBitmap(
-                    BitmapFactory.decodeFile(it.photo.path),
-                )
-                //ABheight = resources.getDimension(android.R.attr.actionBarSize).toInt()
-                result = Bitmap.createBitmap(result, 16, (result.height/2)-125-56, result.width-16, (result.height/2)+125-56)
-                val backFile = CamUtils().bitmap2File(this, result)
-                getFile = backFile
-                binding.verifKtpimage.setImageBitmap(result)
-                binding.verifNiktxt.text = it.location.toString()
-            } else {
-                Toast.makeText(baseContext, "NULL", Toast.LENGTH_SHORT).show()
-            }
-        }
+//        recogViewModel.recognitionRequest.observe(this) {
+//            if (it != null) {
+//                var result = CamUtils().rotateBitmap(
+//                    BitmapFactory.decodeFile(it.photo.path),
+//                )
+//                //ABheight = resources.getDimension(android.R.attr.actionBarSize).toInt()
+//                result = Bitmap.createBitmap(result, 16, (result.height/2)-125-56, result.width-16, (result.height/2)+125-56)
+//                val backFile = CamUtils().bitmap2File(this, result)
+//                getFile = backFile
+//                binding.verifKtpimage.setImageBitmap(result)
+//                binding.verifNiktxt.text = it.location.toString()
+//            } else {
+//                Toast.makeText(baseContext, "NULL", Toast.LENGTH_SHORT).show()
+//            }
+//        }
 
 
         binding.verifButNext.setOnClickListener { startActivity(Intent(this, VerificationActivity2::class.java)) }
