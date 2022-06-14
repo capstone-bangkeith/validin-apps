@@ -55,10 +55,4 @@ object NetworkModule {
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun provideDataKtp() : SetDataKtp {
-        return SetDataKtp(null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-    }
-
 }

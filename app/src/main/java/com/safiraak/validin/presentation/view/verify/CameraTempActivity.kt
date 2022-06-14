@@ -115,9 +115,9 @@ class CameraTempActivity : AppCompatActivity() {
                     val rtrw = it.data?.data?.ktp?.rtRw
                     val keldes = it.data?.data?.ktp?.kelDesa
                     val ktpUrl = it.data?.data?.user?.ktpUrl
-                    recogViewModel.setDataKtp(SetDataKtp(nik,prov, kab, kec, nama, jk, ttl, agama, statPer, pek, kwn, ktpUrl,rtrw, keldes))
                     Handler(Looper.getMainLooper()).postDelayed({
-                        startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java))
+                        startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java)
+                            .putExtra(VerificationActivity1.EXTRA_DATA_KTP, SetDataKtp(nik,prov, kab, kec, nama, jk, ttl, agama, statPer, pek, kwn, ktpUrl,rtrw, keldes)))
                     }, captureDelay)
                 }
                 is Result.Loading -> {

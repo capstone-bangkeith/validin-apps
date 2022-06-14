@@ -17,15 +17,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RecognitionViewModel @Inject constructor(
-    private val repository: RecognitionRepository
+    private val repository: RecognitionRepository,
 ) : ViewModel() {
     private val _recognitionData = repository.recognitionData
     val recognitionData: LiveData<RecognitionData> = _recognitionData
     private val _recognitionResponse = MutableLiveData<Result<RecognitionResponse>>()
     val recognitionResponse: LiveData<Result<RecognitionResponse>> = _recognitionResponse
-
-    private val _setDataKtpResponse = MutableLiveData<SetDataKtp>()
-    val setDataKtpResponse: LiveData<SetDataKtp> = _setDataKtpResponse
 
 
     fun updateData(recognitions: RecognitionData) {
@@ -38,11 +35,6 @@ class RecognitionViewModel @Inject constructor(
         _recognitionResponse.postValue(Result.Loading())
         viewModelScope.launch {
             _recognitionResponse.postValue(repository.photoUpload(photo, left, top, right, bottom))
-        }
-    }
-    fun setDataKtp(dataKtp: SetDataKtp) {
-        viewModelScope.launch {
-            _setDataKtpResponse.postValue(dataKtp)
         }
     }
 }

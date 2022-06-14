@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.safiraak.validin.R
 import com.safiraak.validin.data.Result
+import com.safiraak.validin.data.SetDataKtp
 import com.safiraak.validin.databinding.ActivityVerification1Binding
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,37 +19,28 @@ class VerificationActivity1 : AppCompatActivity() {
     private val recogViewModel: RecognitionViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityVerification1Binding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-
-        recogViewModel.setDataKtpResponse.observe(this) {
-            if(it != null) {
-                binding.verifNiktxtObj.text = it.nik
-                binding.verifJeniskeltxtObj.text = it.jk
-                binding.verifTgltxtObj.text = it.ttl
-                binding.verifKabtxtObj.text = it.kabupaten
-                binding.verifProvtxtObj.text = it.provinsi
-                Glide.with(this)
-                    .load(it.url)
-                    .error(R.drawable.ktp_detected)
-                    .into(binding.verifKtpimage)
-            }else{
-                binding.verifNiktxtObj.text = "-"
-                binding.verifJeniskeltxtObj.text = "-"
-                binding.verifTgltxtObj.text = "-"
-                binding.verifKabtxtObj.text = "-"
-                binding.verifProvtxtObj.text = "-"
-                binding.verifKtpimage.setImageResource(R.drawable.ktp_detected)
-            }
-        }
+        val ktp = intent.getParcelableExtra<SetDataKtp>(EXTRA_DATA_KTP) as SetDataKtp
+        dataKtp(setDataKtp = ktp)
         binding.verifButNext.setOnClickListener { startActivity(Intent(this, VerificationActivity2::class.java)) }
         binding.verifButCapagain.setOnClickListener {
             startActivity(Intent(this, CameraTempActivity::class.java))
             finish()
         }
-        }
+    }
+    private fun dataKtp(setDataKtp: SetDataKtp) {
+        binding.verifNiktxt.text = setDataKtp.nik
+        binding.verifJeniskeltxt.text = setDataKtp.jk
+        binding.verifTgltxt.text = setDataKtp.ttl
+        binding.verifKabtxt.text = setDataKtp.kabupaten
+        binding.verifProvtxt.text = setDataKtp.provinsi
+        Glide.with(this)
+            .load(setDataKtp.url)
+            .error(R.drawable.ktp_detected)
+            .into(binding.verifKtpimage)
+    }
 
     companion object {
         private val TAG = "VerificationActivity1"
