@@ -103,7 +103,7 @@ class CameraTempActivity : AppCompatActivity() {
                     val nama = it.data?.data?.ktp?.nama
                     val nik = it.data?.data?.ktp?.nik
                     val alamat = it.data?.data?.ktp?.alamat
-                    val ttl = it.data?.data?.ktp?.ttl
+                    val tl = it.data?.data?.ktp?.tanggalLahir
                     val jk = it.data?.data?.ktp?.jenisKelamin
                     val prov = it.data?.data?.ktp?.provinsi
                     val kab = it.data?.data?.ktp?.kota
@@ -117,7 +117,7 @@ class CameraTempActivity : AppCompatActivity() {
                     val ktpUrl = it.data?.data?.user?.ktpUrl
                     Handler(Looper.getMainLooper()).postDelayed({
                         startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java)
-                            .putExtra(VerificationActivity1.EXTRA_DATA_KTP, SetDataKtp(nik,prov, kab, kec, nama, jk, ttl, agama, statPer, pek, kwn, ktpUrl,rtrw, keldes)))
+                            .putExtra(VerificationActivity1.EXTRA_DATA_KTP, SetDataKtp(nik,prov, kab, kec, nama, jk, tl, agama, statPer, pek, kwn, ktpUrl,rtrw, keldes)))
                     }, captureDelay)
                 }
                 is Result.Loading -> {

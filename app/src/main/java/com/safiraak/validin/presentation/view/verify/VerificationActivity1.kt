@@ -34,6 +34,7 @@ class VerificationActivity1 : AppCompatActivity() {
         binding.verifNiktxt.text = setDataKtp.nik
         binding.verifJeniskeltxt.text = setDataKtp.jk
         binding.verifTgltxt.text = setDataKtp.ttl
+        binding.verifKecamattxt.text = setDataKtp.kecamatan
         binding.verifKabtxt.text = setDataKtp.kabupaten
         binding.verifProvtxt.text = setDataKtp.provinsi
         Glide.with(this)

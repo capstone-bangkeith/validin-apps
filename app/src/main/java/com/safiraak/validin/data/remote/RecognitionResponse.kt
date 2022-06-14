@@ -50,7 +50,10 @@ data class Ktp(
 	val rtRw: String? = null,
 
 	@field:SerializedName("status_perkawinan")
-	val statusPerkawinan: String? = null
+	val statusPerkawinan: String? = null,
+
+	@field:SerializedName("tanggal_lahir")
+	val tanggalLahir: String? = null
 )
 
 data class Data(
