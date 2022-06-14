@@ -27,11 +27,6 @@
             android:name=".presentation.view.setting.SettingActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.view.verify.CameraxActivity"
-            android:exported="true"
-            android:label="CameraxActivity"
-            android:theme="@style/Theme.Validin.NoActionBar" />
-        <activity
             android:name=".presentation.view.setting.AccountActivity"
             android:exported="true"
             android:label="AccountActivity"

@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.safiraak.validin.R
 import com.safiraak.validin.data.RecognitionData
 import com.safiraak.validin.data.Result
+import com.safiraak.validin.data.SetDataKtp
 import com.safiraak.validin.databinding.ActivityCameraTempBinding
 import com.safiraak.validin.ml.DetectWithMetadata
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
@@ -99,6 +100,22 @@ class CameraTempActivity : AppCompatActivity() {
             when(it) {
                 is Result.Success -> {
                     binding.progressBar.visibility = View.GONE
+                    val nama = it.data?.data?.ktp?.nama
+                    val nik = it.data?.data?.ktp?.nik
+                    val alamat = it.data?.data?.ktp?.alamat
+                    val ttl = it.data?.data?.ktp?.ttl
+                    val jk = it.data?.data?.ktp?.jenisKelamin
+                    val prov = it.data?.data?.ktp?.provinsi
+                    val kab = it.data?.data?.ktp?.kota
+                    val kec = it.data?.data?.ktp?.kecamatan
+                    val agama = it.data?.data?.ktp?.agama
+                    val statPer = it.data?.data?.ktp?.statusPerkawinan
+                    val pek = it.data?.data?.ktp?.pekerjaan
+                    val kwn = it.data?.data?.ktp?.kewarganegaraan
+                    val rtrw = it.data?.data?.ktp?.rtRw
+                    val keldes = it.data?.data?.ktp?.kelDesa
+                    val ktpUrl = it.data?.data?.user?.ktpUrl
+                    recogViewModel.setDataKtp(SetDataKtp(nik,prov, kab, kec, nama, jk, ttl, agama, statPer, pek, kwn, ktpUrl,rtrw, keldes))
                     Handler(Looper.getMainLooper()).postDelayed({
                         startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java))
                     }, captureDelay)
@@ -108,7 +125,7 @@ class CameraTempActivity : AppCompatActivity() {
                 }
                 is Result.Error -> {
                     binding.progressBar.visibility = View.GONE
-                    Toast.makeText(this,"Error Uploading Data Try Again", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -116,6 +133,7 @@ class CameraTempActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        alreadyTaken = false
         recogViewModel.recognitionData.observe(this) {
             binding.recognitionName.text = it.label
             binding.recognitionProb.text = it.probabilityString
@@ -174,7 +192,6 @@ class CameraTempActivity : AppCompatActivity() {
                 }
             imageCapture = ImageCapture.Builder().build()
 
-
             val cameraSelector =
                 if (cameraProvider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA))
                     CameraSelector.DEFAULT_BACK_CAMERA else CameraSelector.DEFAULT_FRONT_CAMERA
@@ -197,7 +214,10 @@ class CameraTempActivity : AppCompatActivity() {
         photoMultiPart = MultipartBody.Part.createFormData("ktp", file.name, requestPhoto)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(file).build()
-
+        val left = location.left
+        val top = location.top
+        val right = location.right
+        val bottom = location.bottom
         imageCapture.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
@@ -209,7 +229,7 @@ class CameraTempActivity : AppCompatActivity() {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
                     Toast.makeText(baseContext, "$location", Toast.LENGTH_SHORT).show()
                     Log.d("LOCATION","$location")
-                    recogViewModel.photoUpload(photoMultiPart)
+                    recogViewModel.photoUpload(photoMultiPart, left, top, right, bottom)
 
                     Log.d(TAG, msg)
                 }

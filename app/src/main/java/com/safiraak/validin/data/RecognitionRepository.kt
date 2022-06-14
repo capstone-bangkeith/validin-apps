@@ -13,17 +13,15 @@ import javax.inject.Inject
 class RecognitionRepository @Inject constructor(retrofit: Retrofit){
     private val _recognitionData = MutableLiveData<RecognitionData>()
     val recognitionData: LiveData<RecognitionData> = _recognitionData
-    private val _uploadRequest = MutableLiveData<RecognitionRequest>()
-    val recognitionRequest: LiveData<RecognitionRequest> = _uploadRequest
 
     private val retrofitRecogService = retrofit.create(RecognitionService::class.java)
 
     fun updateData(recognitions: RecognitionData) {
         _recognitionData.postValue(recognitions)
     }
-    suspend fun photoUpload(photo: MultipartBody.Part) : Result<RecognitionResponse> {
+    suspend fun photoUpload(photo: MultipartBody.Part, left: Float, top: Float, right: Float, bottom: Float) : Result<RecognitionResponse> {
         return try {
-         val response = retrofitRecogService.postRecognitionFile(photo)
+         val response = retrofitRecogService.postRecognitionFile(photo, left, top, right, bottom)
             if (response.isSuccessful) {
                 val body = response.body()
                 if (body != null) {

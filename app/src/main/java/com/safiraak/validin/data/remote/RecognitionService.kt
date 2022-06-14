@@ -12,7 +12,10 @@ interface RecognitionService {
     @Multipart
     @POST("/ktp/ocr2")
     suspend fun postRecognitionFile(
-        @Part file: MultipartBody.Part,
-//        @Part("location") location: RectF,
+        @Part ktp: MultipartBody.Part,
+        @Part("left") left: Float,
+        @Part("top") top: Float,
+        @Part("right") right: Float,
+        @Part("bottom") bottom: Float
     ) : Response<RecognitionResponse>
 }

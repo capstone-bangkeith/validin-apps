@@ -8,15 +8,6 @@ data class RecognitionResponse(
 	val data: Data? = null
 )
 
-data class Data(
-
-	@field:SerializedName("ktp")
-	val ktp: Ktp? = null,
-
-	@field:SerializedName("user")
-	val user: User? = null
-)
-
 data class Ktp(
 
 	@field:SerializedName("provinsi")
@@ -62,7 +53,22 @@ data class Ktp(
 	val statusPerkawinan: String? = null
 )
 
+data class Data(
+
+	@field:SerializedName("ktp")
+	val ktp: Ktp? = null,
+
+	@field:SerializedName("user")
+	val user: User? = null
+)
+
 data class User(
+
+	@field:SerializedName("provinsi")
+	val provinsi: String? = null,
+
+	@field:SerializedName("kota")
+	val kota: String? = null,
 
 	@field:SerializedName("ktpUrl")
 	val ktpUrl: String? = null,
