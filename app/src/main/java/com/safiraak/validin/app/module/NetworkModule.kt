@@ -1,4 +1,5 @@
 package com.safiraak.validin.app.module
+
 import com.safiraak.validin.BuildConfig
 import com.safiraak.validin.app.Config
 import com.safiraak.validin.data.AuthInterceptor
@@ -10,6 +11,8 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
+
 
 @InstallIn(SingletonComponent::class)
 @Module
@@ -24,23 +27,31 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideOkHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor
+   fun provideOkHttpClient(
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        authInterceptor: AuthInterceptor
     ): OkHttpClient {
-        val token: String?
-        token = Config.getToken()
         return OkHttpClient.Builder()
-            .addInterceptor(AuthInterceptor(token))
+            .addInterceptor(authInterceptor)
             .addInterceptor(httpLoggingInterceptor)
             .build()
     }
 
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    @Singleton
+    fun provideAuthInterceptor() : AuthInterceptor {
+        return AuthInterceptor(null)
+    }
+
+    @Provides
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(Config.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
     }
+
 }

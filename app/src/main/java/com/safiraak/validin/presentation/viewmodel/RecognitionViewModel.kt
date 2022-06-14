@@ -5,6 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.auth.api.Auth
+import com.google.firebase.auth.FirebaseAuth
+import com.safiraak.validin.data.AuthInterceptor
 import com.safiraak.validin.data.RecognitionData
 import com.safiraak.validin.data.RecognitionRepository
 import com.safiraak.validin.data.Result
@@ -32,16 +35,12 @@ class RecognitionViewModel @Inject constructor(
         }
     }
 
-//    fun photoUpload(photo: File, location: RectF, uid: String) {
-//        viewModelScope.launch {
-//            return@launch repository.photoUpload(photo, location, uid)
-//        }
-//    }
     fun photoUpload(photo: MultipartBody.Part) {
-    _recognitionResponse.postValue(Result.Loading())
-    viewModelScope.launch {
-        _recognitionResponse.postValue(repository.photoUpload(photo))
+        _recognitionResponse.postValue(Result.Loading())
+        viewModelScope.launch {
+            _recognitionResponse.postValue(repository.photoUpload(photo))
         }
     }
 }
+
 

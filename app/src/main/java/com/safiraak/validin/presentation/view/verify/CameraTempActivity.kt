@@ -74,8 +74,6 @@ class CameraTempActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
         binding = ActivityCameraTempBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
@@ -210,6 +208,7 @@ class CameraTempActivity : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
                     Toast.makeText(baseContext, "$location", Toast.LENGTH_SHORT).show()
+                    Log.d("LOCATION","$location")
                     recogViewModel.photoUpload(photoMultiPart)
 
                     Log.d(TAG, msg)

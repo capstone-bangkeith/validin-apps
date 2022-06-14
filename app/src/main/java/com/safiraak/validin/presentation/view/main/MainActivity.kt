@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
         auth = Firebase.auth
 
         setSupportActionBar(binding.mainAppBar.mainToolbar)
-
+        userViewModel.getIdTokenForUser()
         toggle = ActionBarDrawerToggle(this, binding.homeDrawerAct, R.string.open, R.string.close)
         toggle.drawerArrowDrawable.color = ContextCompat.getColor(applicationContext, R.color.black)
         binding.homeDrawerAct.addDrawerListener(toggle)
