@@ -7,6 +7,7 @@
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout-v29/activity_account.xml" value="0.2115036231884058" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_account.xml" value="0.12613981762917933" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_camera_temp.xml" value="0.1" />
+<<<<<<< Updated upstream
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_check_data.xml" value="0.4" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_login.xml" value="0.10144927536231885" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_main.xml" value="0.16197916666666667" />
@@ -15,6 +16,9 @@
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_tutorial.xml" value="0.1" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_1.xml" value="0.4" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_2.xml" value="0.4" />
+=======
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_2.xml" value="0.19021739130434784" />
+>>>>>>> Stashed changes
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/fragment_pop_up_username.xml" value="0.24139492753623187" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/main_app_bar.xml" value="0.16197916666666667" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/nav_drawer.xml" value="0.12613981762917933" />
@@ -26,6 +30,10 @@
         <entry key="..\:/Kotlin/Validin/app/src/main/res/menu/nav_drawer_menu.xml" value="0.259375" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/container_login.xml" value="0.1605" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/gradient_background.xml" value="0.1" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/ic_lock.xml" value="0.17" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/ic_person.xml" value="0.17" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/ic_question.xml" value="0.17" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/rounded_verified_label.xml" value="0.17" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/textview_layout.xml" value="0.1605" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/drawable/toast_declinebg.xml" value="0.1" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_account.xml" value="0.2" />
@@ -35,8 +43,9 @@
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_register.xml" value="0.176" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_setting.xml" value="0.10885416666666667" />
-        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_verification_1.xml" value="0.264" />
-        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_verification_2.xml" value="0.2" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_verification_1.xml" value="0.536" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/activity_verification_2.xml" value="0.4" />
+        <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/fragment_about_app.xml" value="0.17316409791477788" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/fragment_pop_up_username.xml" value="0.1" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/main_app_bar.xml" value="0.2" />
         <entry key="..\:/Users/codif/AndroidStudioProjects/validin-apps/app/src/main/res/layout/nav_drawer.xml" value="0.176" />

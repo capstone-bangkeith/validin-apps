@@ -11,6 +11,7 @@ import android.os.Looper
 import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toolbar
@@ -25,6 +26,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.safiraak.validin.R
 import com.safiraak.validin.data.RecognitionData
+import com.safiraak.validin.data.Result
+import com.safiraak.validin.data.SetDataKtp
 import com.safiraak.validin.databinding.ActivityCameraTempBinding
 import com.safiraak.validin.ml.DetectWithMetadata
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
@@ -32,6 +35,9 @@ import com.safiraak.validin.utils.CamUtils
 import com.safiraak.validin.utils.ImageAnalyzer
 import com.safiraak.validin.utils.YuvToRgbConverter
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.model.Model
@@ -51,6 +57,8 @@ class CameraTempActivity : AppCompatActivity() {
     private lateinit var camera: Camera
     private lateinit var binding: ActivityCameraTempBinding
     private val cameraExecutor = Executors.newSingleThreadExecutor()
+
+    private lateinit var photoMultiPart : MultipartBody.Part
 
     private val viewFinder by lazy { findViewById<PreviewView>(R.id.viewFinder) }
 
@@ -78,12 +86,70 @@ class CameraTempActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (!alreadyTaken){
                         takePhoto(it.location)
-                        alreadyTaken = true }
+                        alreadyTaken = true
+                    }
+                }, captureDelay)
+            }
+        }
+        recogViewModel.recognitionResponse.observe(this) {
+            when(it) {
+                is Result.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    val nama = it.data?.data?.ktp?.nama
+                    val nik = it.data?.data?.ktp?.nik
+                    val alamat = it.data?.data?.ktp?.alamat
+                    val tl = it.data?.data?.ktp?.tanggalLahir
+                    val jk = it.data?.data?.ktp?.jenisKelamin
+                    val prov = it.data?.data?.ktp?.provinsi
+                    val kab = it.data?.data?.ktp?.kota
+                    val kec = it.data?.data?.ktp?.kecamatan
+                    val agama = it.data?.data?.ktp?.agama
+                    val statPer = it.data?.data?.ktp?.statusPerkawinan
+                    val pek = it.data?.data?.ktp?.pekerjaan
+                    val kwn = it.data?.data?.ktp?.kewarganegaraan
+                    val rtrw = it.data?.data?.ktp?.rtRw
+                    val keldes = it.data?.data?.ktp?.kelDesa
+                    val ktpUrl = it.data?.data?.user?.ktpUrl
+                    val verified = it.data?.data?.user?.validated
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java)
+                            .putExtra(VerificationActivity1.EXTRA_DATA_KTP, SetDataKtp(nik,prov, kab, kec, nama, jk, tl, agama, statPer, pek, kwn, ktpUrl,rtrw, keldes, alamat, verified)))
+                    }, captureDelay)
+                }
+                is Result.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+                is Result.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        alreadyTaken = false
+        recogViewModel.recognitionData.observe(this) {
+            binding.recognitionName.text = it.label
+            binding.recognitionProb.text = it.probabilityString
+            if (it.confidence > 0.99) {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    if (!alreadyTaken){
+                        takePhoto(it.location)
+                        alreadyTaken = true
+                    }
                 }, captureDelay)
             }
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        cameraExecutor.isShutdown
+        imageAnalyzer.clearAnalyzer()
+        finish()
+    }
     private fun allPermissionGranted() : Boolean = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
@@ -122,7 +188,6 @@ class CameraTempActivity : AppCompatActivity() {
                 }
             imageCapture = ImageCapture.Builder().build()
 
-
             val camSelect =
                 if (cameraProvider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA))
                     CameraSelector.DEFAULT_BACK_CAMERA else CameraSelector.DEFAULT_FRONT_CAMERA
@@ -140,9 +205,15 @@ class CameraTempActivity : AppCompatActivity() {
         val imageCapture = imageCapture ?: return
 
         val file = CamUtils().makeFile(application)
+        val requestPhoto = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+
+        photoMultiPart = MultipartBody.Part.createFormData("ktp", file.name, requestPhoto)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(file).build()
-
+        val left = location.left
+        val top = location.top
+        val right = location.right
+        val bottom = location.bottom
         imageCapture.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
@@ -152,11 +223,10 @@ class CameraTempActivity : AppCompatActivity() {
                 }
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
-                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-                    recogViewModel.photoUpload(file, location)
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java))
-                    }, captureDelay)
+                    Toast.makeText(baseContext, "$location", Toast.LENGTH_SHORT).show()
+                    Log.d("LOCATION","$location")
+                    recogViewModel.photoUpload(photoMultiPart, left, top, right, bottom)
+
                     Log.d(TAG, msg)
                 }
             }

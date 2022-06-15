@@ -34,6 +34,7 @@ class UserRepository @Inject constructor (val application: Application) {
                     _user.postValue(auth.currentUser)
                     _isLogout.postValue(false)
                 } else {
+                    Log.w(TAG, "SignUp: Failure", task.exception)
                 }
             }
     }
@@ -45,6 +46,7 @@ class UserRepository @Inject constructor (val application: Application) {
                     _user.postValue(auth.currentUser)
                     _isLogout.postValue(false)
                 } else {
+                    Log.w(TAG, "SignIn: Failure", task.exception)
                 }
             }
     }
@@ -79,6 +81,6 @@ class UserRepository @Inject constructor (val application: Application) {
     }
 
     companion object {
-        val TAG = "UserRepository"
+        const val TAG = "UserRepository"
     }
 }

@@ -13,6 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Validin">
         <activity
             android:name=".presentation.view.main.CheckDataActivity"
@@ -33,11 +34,6 @@
             android:name=".presentation.view.setting.SettingActivity"
             android:exported="true"
             android:label="SettingActivity"
-            android:theme="@style/Theme.Validin.NoActionBar" />
-        <activity
-            android:name=".presentation.view.verify.CameraxActivity"
-            android:exported="true"
-            android:label="CameraxActivity"
             android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
             android:name=".presentation.view.setting.AccountActivity"
