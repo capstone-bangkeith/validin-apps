@@ -20,6 +20,7 @@
                 style="@style/validin_title"/>
 
             <LinearLayout
+                android:id="@+id/ll_verif_stat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -27,6 +28,7 @@
                 android:background="@drawable/rounded_unverified_label">
 
                 <TextView
+                    android:id="@+id/tv_verif_stat"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="6dp"
@@ -48,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="?attr/actionBarSize"
             android:background="@drawable/rounded_app_bar_background"
+            android:backgroundTint="?attr/colorPrimary"
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,7 +143,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -193,7 +196,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -247,7 +250,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

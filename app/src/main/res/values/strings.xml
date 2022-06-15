@@ -17,6 +17,10 @@
     <string name="sign_in_lower">Sign In</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="user_name">User Name</string>
+    <string name="reset_pass">Reset Password Email Sent</string>
+    <string name="mismatch_pass">Password mismatch</string>
+    <string name="title_pass_rst">We will send you reset email at :</string>
+    <string name="send">Send</string>
 
     <!--homepage-->
     <string name="open">Open</string>
@@ -25,12 +29,16 @@
     <string name="hello">Hello!</string>
     <string name="welcome">Welcome Back </string>
     <string name="icon_ocr">Icon OCR</string>
-    <string name="title_verify_home">Try to verify your KTP now!</string>
+    <string name="title_verify_home">Try to verify your KTP\nnow!</string>
     <string name="icon_how_to_use">Icon how to use</string>
     <string name="title_how_to_use">How\nTo\nUse</string>
     <string name="icon_data_privacy">Icon data privacy</string>
     <string name="title_privacy_policy">Privacy\nPolicy</string>
     <string name="to_page_about">To page about this apps</string>
+    <string name="not_imp">not implemented</string>
+    <string name="feedback_click">Feedback Clicked</string>
+    <string name="verify_status0">Verified</string>
+    <string name="title_check_data">Check Verified Data\nNow!</string>
 
     <!--verify page-->
     <string name="next">Next</string>
@@ -43,7 +51,7 @@
     <string name="kabupaten">KABUPATEN</string>
     <string name="provinsi">PROVINSI</string>
     <string name="rtrw">RT/RW</string>
-
+    <string name="no_data">null</string>
     <string name="confirm_data">Confirm Your Data</string>
     <string name="verif2_nama">Nama</string>
     <string name="verif2_alamat">Alamat</string>
@@ -55,6 +63,13 @@
     <string name="verif2_pekerjaan">Pekerjaan</string>
     <string name="verif2_kewarga">Kewarganegaraan</string>
     <string name="verif2_berlaku">Berlaku Hingga</string>
+    <string name="kawin">Kawin</string>
+    <string name="no_kawin">Tidak Kawin</string>
+    <string name="wni">WNI</string>
+    <string name="wna">WNA</string>
+    <string name="verif_confirm">Confirm</string>
+    <string name="dot">:</string>
+    <string name="some_text">Some text</string>
 
     <!--account-->
     <string name="username">Riyanto</string>
@@ -63,6 +78,9 @@
     <string name="change_password">Change Password</string>
     <string name="sign_out">Sign Out</string>
     <string name="user_photo_profile">User photo profile</string>
+    <string name="cg_pass">Change Your Password?</string>
+    <string name="done_cg_pass">Password changed</string>
+    <string name="done_cg_uname">Username changed</string>
 
     <!--drawer-->
     <string name="title_account">Account</string>
@@ -75,17 +93,31 @@
     <string name="save_name">Save My Name</string>
 
     <!--Tutorial page-->
-    <string name="tutorial_p1">To verify, press the button "Try verifying your KTP now!".</string>
+    <string name="tutorial_p1">To verify, press the button Try verifying your KTP now!</string>
     <string name="tutorial_p2.1">Place your KTP in provided frame. Then the system will read whether the card you scanned is a verified KTP.</string>
     <string name="tutorial_p2.2">If the KTP has been detected, the KTP image will be taken.</string>
     <string name="tutorial_p3">After the previous process is successful, the data in the KTP is retrieved automatically using OCR. This data will be process to validate.</string>
-    <string name="tutorial_p4.1">If the validation is declared successful, you can edit some data that is not suitable due to the readings from the system Please adjust the data in your KTP!</string>
+    <string name="tutorial_p4.1">You can edit some data that is not suitable due to the readings from the system. Please adjust the data in your KTP!</string>
     <string name="tutorial_p4.2">If you have finished editing please confirm and complete the validation process.</string>
     <string name="back_button">Back to Home</string>
-    <string name="tutorialp1_img_desc">Press button "Try verifying your KTP now!".</string>
+    <string name="tutorialp1_img_desc">Press button Try verifying your KTP now!</string>
     <string name="tutorialp2.1_img_desc">Camera detect KTP.</string>
     <string name="tutorialp2.2_img_desc">KTP detected.</string>
     <string name="tutorialp3_img_desc">OCR on detected KTP.</string>
-    <string name="tutorialp4.1_img_desc">Fill form confirmation</string>
+    <string name="tutorialp4.1_img_desc">Fill form confirmation.</string>
     <string name="tutorialp4.2_img_desc">Press confirm button.</string>
+
+    <!--Camera-->
+    <string name="permis_deny">Permission denied</string>
+    <string name="not_taken">Can not take</string>
+    <string name="capt_photo">Capture Photo</string>
+    <string name="capt_again">Capture Again</string>
+    <string name="no_detect">KTP NOT DETECTED ON CAMERA</string>
+    <string name="instrct">Please place your KTP inside\nthe box and avoid any\nmovement so the KTP doesn’t blur</string>
+
+    <!--Setting-->
+    <string name="language">Language</string>
+    <string name="set_lang">Set Language</string>
+    <string name="theme">Theme</string>
+    <string name="dark_mode">Switch to dark mode</string>
 </resources>

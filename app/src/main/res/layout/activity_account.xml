@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.view.setting.AccountActivity"
-    android:background="@color/light_blue_container">
+    android:background="?attr/colorPrimary">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -85,7 +85,7 @@
             style="@style/text_disp_black"
             android:textAllCaps="false"
             android:background="@drawable/rounded_unverified_label"
-            app:backgroundTint="@color/white"
+            app:backgroundTint="?attr/colorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email" />
@@ -101,7 +101,7 @@
             style="@style/text_disp_black"
             android:textAllCaps="false"
             android:background="@drawable/rounded_unverified_label"
-            app:backgroundTint="@color/white"
+            app:backgroundTint="?attr/colorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_edit_name" />

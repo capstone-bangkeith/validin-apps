@@ -40,7 +40,7 @@ class PopUpUsernameFragment(val title: String) : AppCompatDialogFragment() {
             context as PopUpUsernameListener
         } catch (e: ClassCastException) {
             throw ClassCastException(
-                context.toString() + "not implemented"
+                context.toString() + getString(R.string.not_imp)
             )
         }
     }

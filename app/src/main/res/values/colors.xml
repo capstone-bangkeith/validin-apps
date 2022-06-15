@@ -15,4 +15,6 @@
     <color name="light_orange">#FB8D39</color>
     <color name="red_back">#EA2020</color>
     <color name="red_light">#FCDADA</color>
+    <color name="deep_blue">#112B3C</color>
+    <color name="deep_green">#437582</color>
 </resources>

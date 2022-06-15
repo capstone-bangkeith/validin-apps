@@ -36,12 +36,12 @@ class PopUpEditPass : DialogFragment() {
         val buttonConfirmEdit = dialog!!.findViewById<Button>(R.id.button_change)
         dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
         etEditPass.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-        tvEditPass.text = "Change Your Password?"
+        tvEditPass.text = getString(R.string.cg_pass)
         buttonConfirmEdit.setOnClickListener {
             val newPassword = etEditPass.text.trim()
             auth.currentUser?.updatePassword(newPassword.toString())?.addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(context, "Password changed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.done_cg_pass), Toast.LENGTH_SHORT).show()
                 }
             }
         }

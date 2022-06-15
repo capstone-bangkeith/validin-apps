@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
         android:paddingVertical="8dp"
-        android:text="Please place your KTP inside\nthe box and avoid any\nmovement so the KTP doesn’t blur"
+        android:text="@string/instrct"
         android:textAlignment="center"
         style="@style/text_disp_black"/>
 

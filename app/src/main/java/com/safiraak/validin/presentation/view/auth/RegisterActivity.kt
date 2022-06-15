@@ -20,6 +20,7 @@ import com.safiraak.validin.databinding.ActivityRegisterBinding
 import com.safiraak.validin.presentation.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.safiraak.validin.presentation.view.main.MainActivity
+import java.util.*
 
 @AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
@@ -50,7 +51,14 @@ class RegisterActivity : AppCompatActivity() {
                 ds.isUnderlineText = false
             }
         }
-        loginText.setSpan(clickableSpan,25,32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        val language = Locale.getDefault().language
+
+        if (language == "en") {
+            loginText.setSpan(clickableSpan,25,32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        } else if (language == "in") {
+            loginText.setSpan(clickableSpan,18,25, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
         binding.tvRegister.apply {
             text = loginText
             movementMethod = LinkMovementMethod.getInstance()
@@ -65,7 +73,7 @@ class RegisterActivity : AppCompatActivity() {
             val email = binding.etEmailField.text.toString().trim()
             val password = binding.etConfirmpasswordField.text.toString().trim()
             if (binding.etPasswordField.text.toString() != binding.etConfirmpasswordField.text.toString()) {
-                binding.etConfirmpasswordField.error = "Password mismatch"
+                binding.etConfirmpasswordField.error = getString(R.string.mismatch_pass)
                 return@setOnClickListener
             }
             userViewModel.userRegister(email, password)

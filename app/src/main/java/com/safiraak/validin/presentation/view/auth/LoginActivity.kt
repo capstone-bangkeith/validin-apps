@@ -1,6 +1,7 @@
 package com.safiraak.validin.presentation.view.auth
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,7 @@ import com.safiraak.validin.presentation.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.safiraak.validin.presentation.view.main.MainActivity
 import java.lang.Exception
+import java.util.*
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
@@ -85,7 +87,14 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
         }
-        registerText.setSpan(clickableSpan,28,36, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        val language = Locale.getDefault().language
+
+        if(language == "en") {
+            registerText.setSpan(clickableSpan,28,36, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        } else if (language == "in") {
+            registerText.setSpan(clickableSpan,18,26, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
         binding.tvRegister.apply {
             text = registerText
             movementMethod = LinkMovementMethod.getInstance()

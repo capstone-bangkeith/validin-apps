@@ -41,7 +41,7 @@ class PopUpEditUname : DialogFragment() {
             val updates = userProfileChangeRequest { displayName = newUname.toString() }
             auth.currentUser?.updateProfile(updates)?.addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(context, "Username changed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.done_cg_uname), Toast.LENGTH_SHORT).show()
                 }
             }
         }
