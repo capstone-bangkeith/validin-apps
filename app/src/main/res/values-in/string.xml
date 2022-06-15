@@ -62,6 +62,10 @@
     <string name="verif2_status">Status\nPerkawinan</string>
     <string name="verif2_pekerjaan">Pekerjaan</string>
     <string name="verif2_kewarga">Kewarganegaraan</string>
+    <string name="verif2_ttl">Tanggal Lahir</string>
+    <string name="verif2_jk">Jenis Kelamin</string>
+    <string name="verif2_kabkot">Kab/Kota</string>
+    <string name="verif2_provinsi">Provinsi</string>
     <string name="verif2_berlaku">Berlaku Hingga</string>
     <string name="kawin">Kawin</string>
     <string name="no_kawin">Tidak Kawin</string>
@@ -121,4 +125,5 @@
     <string name="tutorial_p4.1">Kamu dapat mengedit data yang tidak sesuai akibat pembacaan sistem. Tolong sesuaikan dengan data KTP.</string>
     <string name="tutorialp2.1_img_desc">Kamera deteksi KTP.</string>
     <string name="hello_blank_fragment">Halo fragment kosong</string>
+
 </resources>
