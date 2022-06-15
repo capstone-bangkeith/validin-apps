@@ -10,7 +10,7 @@ import retrofit2.http.Part
 
 interface RecognitionService {
     @Multipart
-    @POST("/ktp/ocr2")
+    @POST("/ktp/ocr2?rotate=1")
     suspend fun postRecognitionFile(
         @Part ktp: MultipartBody.Part,
         @Part("left") left: Float,
