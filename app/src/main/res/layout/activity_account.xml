@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.view.setting.AccountActivity"
-    android:background="@color/light_blue_container">
+    android:background="?attr/colorPrimary">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -31,16 +31,24 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize">
 
-        <ImageView
-            android:id="@+id/img_profile"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:src="@drawable/pierre"
+            app:cardCornerRadius="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/user_photo_profile" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_profile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/pierre"
+                android:contentDescription="@string/user_photo_profile" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/uname"
@@ -50,7 +58,7 @@
             android:gravity="center"
             android:paddingTop="8dp"
             android:text="@string/username"
-            app:layout_constraintTop_toBottomOf="@+id/img_profile"
+            app:layout_constraintTop_toBottomOf="@+id/card_profile"
             tools:layout_editor_absoluteX="0dp" />
 
         <TextView
@@ -77,7 +85,7 @@
             style="@style/text_disp_black"
             android:textAllCaps="false"
             android:background="@drawable/rounded_unverified_label"
-            app:backgroundTint="@color/white"
+            app:backgroundTint="?attr/colorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email" />
@@ -93,7 +101,7 @@
             style="@style/text_disp_black"
             android:textAllCaps="false"
             android:background="@drawable/rounded_unverified_label"
-            app:backgroundTint="@color/white"
+            app:backgroundTint="?attr/colorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_edit_name" />

@@ -1,13 +1,8 @@
 package com.safiraak.validin.presentation.view.verify
 
 import android.Manifest
-import android.annotation.SuppressLint
-import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.Matrix
 import android.graphics.RectF
 import android.os.Build
 import android.os.Bundle
@@ -19,6 +14,7 @@ import android.util.Size
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
@@ -50,8 +46,6 @@ import java.util.*
 import java.util.concurrent.Executors
 import kotlin.math.min
 
-
-
 typealias RecognitionListener = (recognition: RecognitionData) -> Unit
 
 @AndroidEntryPoint
@@ -78,6 +72,7 @@ class CameraTempActivity : AppCompatActivity() {
         binding = ActivityCameraTempBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+
         if (allPermissionGranted()) {
             startCamera()
         } else {
@@ -87,7 +82,7 @@ class CameraTempActivity : AppCompatActivity() {
         recogViewModel.recognitionData.observe(this) {
             binding.recognitionName.text = it.label
             binding.recognitionProb.text = it.probabilityString
-            if (it.confidence > 0.99) {
+            if (it.confidence > 0.97) {
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (!alreadyTaken){
                         takePhoto(it.location)
@@ -168,7 +163,7 @@ class CameraTempActivity : AppCompatActivity() {
             if (allPermissionGranted()) {
                 startCamera()
             } else {
-                showMessage("Permission denied")
+                showMessage(getString(R.string.permis_deny))
                 finish()
             }
         }
@@ -192,13 +187,13 @@ class CameraTempActivity : AppCompatActivity() {
                 }
             imageCapture = ImageCapture.Builder().build()
 
-            val cameraSelector =
+            val camSelect =
                 if (cameraProvider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA))
                     CameraSelector.DEFAULT_BACK_CAMERA else CameraSelector.DEFAULT_FRONT_CAMERA
 
             try {
                 cameraProvider.unbindAll()
-                camera = cameraProvider.bindToLifecycle(this, cameraSelector, preview,imageCapture, imageAnalyzer)
+                camera = cameraProvider.bindToLifecycle(this, camSelect, preview,imageCapture, imageAnalyzer)
                 preview.setSurfaceProvider(viewFinder.surfaceProvider)
             } catch (exc: Exception) {
                 Log.e(TAG, "Uses case binding failed", exc)
