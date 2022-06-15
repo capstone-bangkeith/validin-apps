@@ -110,9 +110,10 @@ class CameraTempActivity : AppCompatActivity() {
                     val rtrw = it.data?.data?.ktp?.rtRw
                     val keldes = it.data?.data?.ktp?.kelDesa
                     val ktpUrl = it.data?.data?.user?.ktpUrl
+                    val verified = it.data?.data?.user?.validated
                     Handler(Looper.getMainLooper()).postDelayed({
                         startActivity(Intent(this@CameraTempActivity, VerificationActivity1::class.java)
-                            .putExtra(VerificationActivity1.EXTRA_DATA_KTP, SetDataKtp(nik,prov, kab, kec, nama, jk, tl, agama, statPer, pek, kwn, ktpUrl,rtrw, keldes)))
+                            .putExtra(VerificationActivity1.EXTRA_DATA_KTP, SetDataKtp(nik,prov, kab, kec, nama, jk, tl, agama, statPer, pek, kwn, ktpUrl,rtrw, keldes, alamat, verified)))
                     }, captureDelay)
                 }
                 is Result.Loading -> {

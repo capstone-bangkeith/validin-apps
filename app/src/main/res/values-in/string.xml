@@ -120,4 +120,5 @@
     <string name="tutorial_p3">Setelah proses sebelumnya berhasil, data pada KTP akan diambil otomatis menggunakan OCR. Data ini akan digunakan untuk memvalidasi.</string>
     <string name="tutorial_p4.1">Kamu dapat mengedit data yang tidak sesuai akibat pembacaan sistem. Tolong sesuaikan dengan data KTP.</string>
     <string name="tutorialp2.1_img_desc">Kamera deteksi KTP.</string>
+    <string name="hello_blank_fragment">Halo fragment kosong</string>
 </resources>

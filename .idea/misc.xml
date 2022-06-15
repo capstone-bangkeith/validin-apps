@@ -7,6 +7,7 @@
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout-v29/activity_account.xml" value="0.2115036231884058" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_account.xml" value="0.12613981762917933" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_camera_temp.xml" value="0.1" />
+<<<<<<< Updated upstream
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_check_data.xml" value="0.4" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_login.xml" value="0.10144927536231885" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_main.xml" value="0.16197916666666667" />
@@ -15,6 +16,9 @@
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_tutorial.xml" value="0.1" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_1.xml" value="0.4" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_2.xml" value="0.4" />
+=======
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_2.xml" value="0.19021739130434784" />
+>>>>>>> Stashed changes
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/fragment_pop_up_username.xml" value="0.24139492753623187" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/main_app_bar.xml" value="0.16197916666666667" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/nav_drawer.xml" value="0.12613981762917933" />

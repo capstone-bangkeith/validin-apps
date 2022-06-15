@@ -18,5 +18,7 @@ class SetDataKtp(
     var kwn: String?,
     var url: String?,
     var rtrw: String?,
-    var keldes: String?
+    var keldes: String?,
+    var alamat: String?,
+    var verified: Boolean?
     ) : Parcelable

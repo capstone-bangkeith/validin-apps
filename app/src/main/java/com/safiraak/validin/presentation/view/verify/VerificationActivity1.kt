@@ -26,7 +26,8 @@ class VerificationActivity1 : AppCompatActivity() {
         dataKtp(setDataKtp = ktp)
         binding.verifButNext.setOnClickListener { startActivity(Intent(this, VerificationActivity2::class.java)) }
         binding.verifButCapagain.setOnClickListener {
-            startActivity(Intent(this, CameraTempActivity::class.java))
+            startActivity(Intent(this, CameraTempActivity::class.java)
+                .putExtra(VerificationActivity2.DATA_EXTRA_KTP, ktp))
             finish()
         }
     }
