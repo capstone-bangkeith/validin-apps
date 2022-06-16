@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     private val recogViewModel: RecognitionViewModel by viewModels()
     private var verifiedState: Boolean? = false
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

@@ -53,6 +53,7 @@ class VerificationActivity2 : AppCompatActivity() {
             val kwn = findViewById<RadioButton>(kwnId).text.toString().toRequestBody("text/plain".toMediaTypeOrNull())
             recogViewModel.finalformUp(prov, kota, nik, nama, ttl, jk, alamat, rtrw, keldes, kec, agama, statPer, pekerjaan, kwn)
             Log.d("provEdit", prov.toString())
+            startActivity(Intent(this@VerificationActivity2, FinishActivity::class.java))
         }
     }
 

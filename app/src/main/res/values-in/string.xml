@@ -125,5 +125,7 @@
     <string name="tutorial_p4.1">Kamu dapat mengedit data yang tidak sesuai akibat pembacaan sistem. Tolong sesuaikan dengan data KTP.</string>
     <string name="tutorialp2.1_img_desc">Kamera deteksi KTP.</string>
     <string name="hello_blank_fragment">Halo fragment kosong</string>
-
+    <string name="finish">SELESAI!</string>
+    <string name="thankyou">Terima kasih telah berpartisipasi \n dalam program Know Your Customer kami!</string>
+    <string name="finish_text">Data yang telah anda masukkan \n akan divalidasi ulang\n oleh tim kami secepat mungkin.\n Jika anda belum menerima \n konfirmasi dalam 3x24 jam. \n Tolong hubungi layanan pengguna kami. \nTerima kasih.</string>
 </resources>
