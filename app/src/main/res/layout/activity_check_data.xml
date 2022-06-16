@@ -31,16 +31,7 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
-        android:id="@+id/iv_ktp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:contentDescription="KTP Captured"
-        android:src="@drawable/sample1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -69,11 +60,13 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginHorizontal="84dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="128dp"
         android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_ktp">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
 
         <TextView
@@ -81,7 +74,7 @@
             style="@style/text_disp_black.bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:text="@string/nik"
             app:layout_constraintBottom_toTopOf="@+id/tv_name_vrfd"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,12 +92,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_nik_vrfd" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_fill_nik"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_nik"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_nik"
             app:layout_constraintTop_toTopOf="@id/tv_nik_vrfd" />
@@ -133,11 +127,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_name_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_nama"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_name"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_name"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_name" />
@@ -150,9 +146,9 @@
             android:layout_marginTop="4dp"
             android:text="@string/jenis_kel"
             android:textAllCaps="true"
-            app:layout_constraintBottom_toTopOf="@+id/tv_ttl_vrfd"
+            app:layout_constraintBottom_toTopOf="@+id/tv_name_vrfd"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name_vrfd" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_kec_vrfd" />
 
         <TextView
             android:id="@+id/tv_ts_jk"
@@ -166,47 +162,16 @@
             app:layout_constraintTop_toTopOf="@id/tv_jk_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_jk"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_jk"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_jk"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_jk" />
-
-        <TextView
-            android:id="@+id/tv_ttl_vrfd"
-            style="@style/text_disp_black.bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="@string/tgl_lhr"
-            android:textAllCaps="true"
-            app:layout_constraintBottom_toTopOf="@+id/tv_kec_vrfd"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_jk_vrfd" />
-
-        <TextView
-            android:id="@+id/tv_ts_ttl"
-            style="@style/text_disp_black.bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=":"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_ttl_vrfd"
-            app:layout_constraintStart_toEndOf="@id/tv_kwn_vrfd"
-            app:layout_constraintTop_toTopOf="@id/tv_ttl_vrfd" />
-
-        <TextView
-            style="@style/text_disp_black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="null"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_ts_ttl"
-            app:layout_constraintStart_toEndOf="@+id/tv_ts_ttl"
-            app:layout_constraintTop_toTopOf="@+id/tv_ts_ttl" />
 
         <TextView
             android:id="@+id/tv_kec_vrfd"
@@ -218,7 +183,7 @@
             android:textAllCaps="true"
             app:layout_constraintBottom_toTopOf="@+id/tv_kab_vrfd"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_ttl_vrfd" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_jk_vrfd" />
 
         <TextView
             android:id="@+id/tv_ts_kec"
@@ -232,11 +197,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_kec_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_kec"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_kec"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_kec"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_kec" />
@@ -265,11 +232,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_kab_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_kab"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_kab"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_kab"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_kab" />
@@ -298,11 +267,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_prov_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_prov"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_prov"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_prov"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_prov" />
@@ -331,11 +302,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_rtrw_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_rtrw"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_rtrw"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_rtrw"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_rtrw" />
@@ -364,11 +337,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_keldes_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_keldes"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_keldes"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_keldes"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_keldes" />
@@ -397,11 +372,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_agama_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_agama"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_agama"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_agama"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_agama" />
@@ -430,11 +407,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_sp_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_sp"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_sp"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_sp"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_sp" />
@@ -463,11 +442,13 @@
             app:layout_constraintTop_toTopOf="@id/tv_pkj_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_pkrj"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_pkj"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_pkj"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_pkj" />
@@ -478,9 +459,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/verif2_kewarga"
             android:textAllCaps="true"
-            app:layout_constraintBottom_toTopOf="@+id/tv_mb_vrfd"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_pkj_vrfd" />
 
@@ -496,48 +478,17 @@
             app:layout_constraintTop_toTopOf="@id/tv_kwn_vrfd" />
 
         <TextView
+            android:id="@+id/tv_fill_kwn"
             style="@style/text_disp_black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="null"
+            android:text="@string/no_data"
+            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ts_kwn"
             app:layout_constraintStart_toEndOf="@+id/tv_ts_kwn"
             app:layout_constraintTop_toTopOf="@+id/tv_ts_kwn" />
 
-        <TextView
-            android:id="@+id/tv_mb_vrfd"
-            style="@style/text_disp_black.bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/verif2_berlaku"
-            android:textAllCaps="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_kwn_vrfd" />
-
-        <TextView
-            android:id="@+id/tv_ts_mb"
-            style="@style/text_disp_black.bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text=":"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_mb_vrfd"
-            app:layout_constraintStart_toEndOf="@id/tv_kwn_vrfd"
-            app:layout_constraintTop_toTopOf="@id/tv_mb_vrfd" />
-
-        <TextView
-            style="@style/text_disp_black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="null"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_ts_mb"
-            app:layout_constraintStart_toEndOf="@+id/tv_ts_mb"
-            app:layout_constraintTop_toTopOf="@+id/tv_ts_mb" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
