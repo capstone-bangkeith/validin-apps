@@ -3,7 +3,7 @@ package com.safiraak.validin.data
 import android.graphics.RectF
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.safiraak.validin.data.remote.RecognitionRequest
+import com.safiraak.validin.data.remote.FinalFormResponse
 import com.safiraak.validin.data.remote.RecognitionResponse
 import com.safiraak.validin.data.remote.RecognitionService
 import okhttp3.MultipartBody
@@ -32,6 +32,27 @@ class RecognitionRepository @Inject constructor(retrofit: Retrofit){
             } else {
                 Result.Error("Response is not successful")
             }
+        } catch (e: Exception) {
+            Result.Error("Error Upload Data please try again : " + e.message)
+        }
+    }
+
+    suspend fun finalformUpload(provinsi: String, kota: String, nik: String,
+                                nama: String, ttl: String, jeniskel: String,
+                                alamat: String, rtrw: String, keldes: String,
+                                kec: String, agama: String, statPer: String, pekerjaan: String, kwn: String): Result<FinalFormResponse> {
+        return try {
+            val response = retrofitRecogService.postFinalForm(provinsi, kota, nik, nama, ttl, jeniskel, alamat, rtrw, keldes, kec, agama, statPer, pekerjaan, kwn)
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    if (body != null) {
+                        Result.Success(body)
+                    } else {
+                        Result.Error("Body is null")
+                    }
+                } else {
+                    Result.Error("Response is not successful")
+                }
         } catch (e: Exception) {
             Result.Error("Error Upload Data please try again : " + e.message)
         }

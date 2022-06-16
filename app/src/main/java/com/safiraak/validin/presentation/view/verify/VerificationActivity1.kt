@@ -24,10 +24,12 @@ class VerificationActivity1 : AppCompatActivity() {
         supportActionBar?.hide()
         val ktp = intent.getParcelableExtra<SetDataKtp>(EXTRA_DATA_KTP) as SetDataKtp
         dataKtp(setDataKtp = ktp)
-        binding.verifButNext.setOnClickListener { startActivity(Intent(this, VerificationActivity2::class.java)) }
-        binding.verifButCapagain.setOnClickListener {
-            startActivity(Intent(this, CameraTempActivity::class.java)
+        binding.verifButNext.setOnClickListener {
+            startActivity(Intent(this, VerificationActivity2::class.java)
                 .putExtra(VerificationActivity2.DATA_EXTRA_KTP, ktp))
+        }
+        binding.verifButCapagain.setOnClickListener {
+            startActivity(Intent(this, CameraTempActivity::class.java))
             finish()
         }
     }

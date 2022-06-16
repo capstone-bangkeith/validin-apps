@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.Auth
 import com.google.firebase.auth.FirebaseAuth
 import com.safiraak.validin.data.*
+import com.safiraak.validin.data.remote.FinalFormResponse
 import com.safiraak.validin.data.remote.RecognitionRequest
 import com.safiraak.validin.data.remote.RecognitionResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,6 +24,8 @@ class RecognitionViewModel @Inject constructor(
     val recognitionData: LiveData<RecognitionData> = _recognitionData
     private val _recognitionResponse = MutableLiveData<Result<RecognitionResponse>>()
     val recognitionResponse: LiveData<Result<RecognitionResponse>> = _recognitionResponse
+    private val _finalformResponse = MutableLiveData<Result<FinalFormResponse>>()
+    val finalformResponse: LiveData<Result<FinalFormResponse>> = _finalformResponse
 
 
     fun updateData(recognitions: RecognitionData) {
@@ -35,6 +38,17 @@ class RecognitionViewModel @Inject constructor(
         _recognitionResponse.postValue(Result.Loading())
         viewModelScope.launch {
             _recognitionResponse.postValue(repository.photoUpload(photo, left, top, right, bottom))
+        }
+    }
+
+    fun finalformUp(provinsi: String, kota: String, nik: String,
+                    nama: String, ttl: String, jeniskel: String,
+                    alamat: String, rtrw: String, keldes: String,
+                    kec: String, agama: String, statPer: String, pekerjaan: String, kwn: String) {
+        _finalformResponse.postValue(Result.Loading())
+        viewModelScope.launch {
+            _finalformResponse.postValue(repository.finalformUpload(provinsi, kota, nik, nama, ttl, jeniskel, alamat,
+                rtrw, keldes, kec, agama, statPer, pekerjaan, kwn))
         }
     }
 }
