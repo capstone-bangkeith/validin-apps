@@ -3,6 +3,8 @@ package com.safiraak.validin.presentation.view.verify
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.RectF
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
@@ -32,6 +34,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import org.tensorflow.lite.gpu.CompatibilityList
+import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.support.model.Model
+import java.io.File
+import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.Executors
 
@@ -54,6 +61,7 @@ class CameraTempActivity : AppCompatActivity() {
     private val recogViewModel: RecognitionViewModel by viewModels()
     private val captureDelay = 2000L
     private var alreadyTaken = false
+    private var getFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,6 +87,7 @@ class CameraTempActivity : AppCompatActivity() {
                 }, captureDelay)
             }
         }
+
         recogViewModel.recognitionResponse.observe(this) {
             when(it) {
                 is Result.Success -> {
@@ -195,7 +204,6 @@ class CameraTempActivity : AppCompatActivity() {
 
         val file = CamUtils().makeFile(application)
         val requestPhoto = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-
         photoMultiPart = MultipartBody.Part.createFormData("ktp", file.name, requestPhoto)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(file).build()
@@ -215,7 +223,6 @@ class CameraTempActivity : AppCompatActivity() {
                     Toast.makeText(baseContext, "$location", Toast.LENGTH_SHORT).show()
                     Log.d("LOCATION","$location")
                     recogViewModel.photoUpload(photoMultiPart, left, top, right, bottom)
-
                     Log.d(TAG, msg)
                 }
             }
