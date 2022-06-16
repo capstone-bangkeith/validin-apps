@@ -60,9 +60,9 @@ class RecognitionRepository @Inject constructor(retrofit: Retrofit){
         }
     }
 
-    suspend fun checkData(uid: String) : Result<CheckDataResponse> {
+    suspend fun checkData() : Result<CheckDataResponse> {
         return try {
-            val response = retrofitRecogService.getAllData(uid)
+            val response = retrofitRecogService.getAllData()
             if (response.isSuccessful) {
                 val body = response.body()
                 if (body!=null) {

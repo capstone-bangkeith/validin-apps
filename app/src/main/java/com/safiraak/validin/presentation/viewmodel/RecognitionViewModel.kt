@@ -57,10 +57,10 @@ class RecognitionViewModel @Inject constructor(
         }
     }
 
-    fun checkData(uid: String) {
+    fun checkData() {
         _checkdataResponse.postValue(Result.Loading())
         viewModelScope.launch {
-            _checkdataResponse.postValue(repository.checkData(uid))
+            _checkdataResponse.postValue(repository.checkData())
         }
     }
 }

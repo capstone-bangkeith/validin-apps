@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
@@ -21,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
+import com.safiraak.validin.data.Result
 import com.safiraak.validin.databinding.ActivityMainBinding
 import com.safiraak.validin.presentation.view.setting.AccountActivity
 import com.safiraak.validin.presentation.view.setting.SettingActivity
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     private var getFile: File? = null
     private val userViewModel: UserViewModel by viewModels()
     private val recogViewModel: RecognitionViewModel by viewModels()
-    private val verifiedState: Boolean = false
+    private var verifiedState: Boolean? = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,6 +91,17 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
                 finish()
             }
         }
+
+        recogViewModel.checkData()
+        recogViewModel.checkdataResponse.observe(this){
+            when(it){
+                is Result.Success -> {
+                    verifiedState = it.data?.data?.validated
+                    Log.d("NIK", it.data?.data?.nik.toString())
+                }
+            }
+        }
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
@@ -200,14 +213,14 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     }
 
     fun verifyState() {
-        if (verifiedState) {
+        if (verifiedState == true) {
             binding.mainAppBar.llVerifStat.setBackgroundResource(R.drawable.rounded_verified_label)
             binding.mainAppBar.tvVerifStat.text = getString(R.string.verify_status0)
             binding.mainAppBar.tvTitleOcr.text = getString(R.string.title_check_data)
             binding.mainAppBar.cardCam.setOnClickListener{
                 startActivity(Intent(this, CheckDataActivity::class.java))
             }
-        } else if (!verifiedState) {
+        } else if (verifiedState == false) {
             binding.mainAppBar.cardCam.setOnClickListener{
                 cameraXGo()
             }

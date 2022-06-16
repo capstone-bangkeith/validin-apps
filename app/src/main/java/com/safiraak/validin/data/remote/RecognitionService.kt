@@ -38,6 +38,6 @@ interface RecognitionService {
 
     @GET("/ktp/")
     suspend fun getAllData(
-        @Query("uid") uid: String,
+
     ) : Response<CheckDataResponse>
 }
