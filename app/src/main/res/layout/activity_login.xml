@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.LoginActivity"
+    tools:context=".presentation.view.auth.LoginActivity"
     android:background="@drawable/gradient_background">
 
     <ImageView
@@ -87,9 +87,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_password_field"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:textAppearance="@style/text_input"
             android:layout_height="wrap_content"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            app:passwordToggleEnabled="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -136,6 +138,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_register" />
 
     <Button
+        android:id="@+id/btn_google_login"
         style="@style/button_google_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

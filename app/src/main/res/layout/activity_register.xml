@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.RegisterActivity"
+    tools:context=".presentation.view.auth.RegisterActivity"
     android:background="@drawable/gradient_background">
+
     <ImageView
         android:id="@+id/iv_logo"
         android:layout_width="125dp"
         android:layout_height="125dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="148dp"
         android:contentDescription="@string/logo_image"
         android:src="@drawable/logo_app"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +32,7 @@
     <View
         android:id="@+id/container_regist"
         android:layout_width="348dp"
-        android:layout_height="420dp"
+        android:layout_height="320dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="24dp"
@@ -40,29 +41,7 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_signup"
         app:layout_constraintStart_toStartOf="@+id/tv_signup"
         app:layout_constraintTop_toBottomOf="@+id/tv_signup" />
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_username_layout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:alpha="0.7"
-        app:boxCornerRadiusBottomEnd="10dp"
-        app:boxCornerRadiusBottomStart="10dp"
-        app:boxCornerRadiusTopEnd="10dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/container_regist"
-        app:layout_constraintStart_toStartOf="@+id/container_regist"
-        app:layout_constraintTop_toTopOf="@+id/container_regist"
-        app:startIconDrawable="@drawable/ic_person"
-        app:startIconTint="@color/light_blue_back">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_username_field"
-            android:layout_width="match_parent"
-            android:textAppearance="@style/text_input"
-            android:layout_height="wrap_content"
-            android:hint="@string/user_name" />
-    </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_email_layout"
         android:layout_width="300dp"
@@ -73,9 +52,9 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_username_layout"
-        app:layout_constraintStart_toStartOf="@+id/et_username_layout"
-        app:layout_constraintTop_toBottomOf="@+id/et_username_layout"
+        app:layout_constraintEnd_toEndOf="@+id/container_regist"
+        app:layout_constraintStart_toStartOf="@+id/container_regist"
+        app:layout_constraintTop_toTopOf="@+id/container_regist"
         app:startIconDrawable="@drawable/ic_email"
         app:startIconTint="@color/light_blue_back">
 
@@ -110,6 +89,8 @@
             android:layout_width="match_parent"
             android:textAppearance="@style/text_input"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            app:passwordToggleEnabled="true"
             android:hint="@string/password" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,9 +115,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_confirmpassword_field"
             android:layout_width="match_parent"
-            android:textAppearance="@style/text_input"
             android:layout_height="wrap_content"
-            android:hint="@string/confirm_password" />
+            android:hint="@string/confirm_password"
+            android:textAppearance="@style/text_input"
+            android:inputType="textPassword"
+            app:passwordToggleEnabled="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

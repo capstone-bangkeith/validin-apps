@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_container">
+    android:background="?attr/colorPrimary"
+    tools:context=".presentation.view.verify.VerificationActivity2">
 
 
     <TextView
@@ -23,9 +24,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/verif2_nama"
-        app:layout_constraintBottom_toTopOf="@+id/verif2_alamat_obj"
+        app:layout_constraintBottom_toTopOf="@+id/verif2_ttl_obj"
         app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
         app:layout_constraintTop_toBottomOf="@+id/verif2_textView" />
+
+    <TextView
+        android:id="@+id/verif2_ttl_obj"
+        style="@style/verif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verif2_ttl"
+        app:layout_constraintBottom_toTopOf="@+id/verif2_jk_obj"
+        app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
+        app:layout_constraintTop_toBottomOf="@+id/verif2_nama_obj" />
+
+    <TextView
+        android:id="@+id/verif2_jk_obj"
+        style="@style/verif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verif2_jk"
+        app:layout_constraintBottom_toTopOf="@+id/verif2_alamat_obj"
+        app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
+        app:layout_constraintTop_toBottomOf="@+id/verif2_ttl_obj" />
+
+
 
     <TextView
         android:id="@+id/verif2_alamat_obj"
@@ -35,7 +58,7 @@
         android:text="@string/verif2_alamat"
         app:layout_constraintBottom_toTopOf="@+id/verif2_rtrw_obj"
         app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
-        app:layout_constraintTop_toBottomOf="@+id/verif2_nama_obj" />
+        app:layout_constraintTop_toBottomOf="@+id/verif2_jk_obj" />
 
     <TextView
         android:id="@+id/verif2_rtrw_obj"
@@ -63,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/verif2_kecamatan"
-        app:layout_constraintBottom_toTopOf="@+id/verif2_agama_obj"
+        app:layout_constraintBottom_toTopOf="@+id/verif2_kab_obj"
         app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
         app:layout_constraintTop_toBottomOf="@+id/verif2_keldes_obj" />
 
@@ -75,7 +98,27 @@
         android:text="@string/verif2_Agama"
         app:layout_constraintBottom_toTopOf="@+id/verif2_status_obj"
         app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
+        app:layout_constraintTop_toBottomOf="@+id/verif2_provinsi_obj" />
+
+    <TextView
+        android:id="@+id/verif2_kab_obj"
+        style="@style/verif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verif2_kabkot"
+        app:layout_constraintBottom_toTopOf="@+id/verif2_provinsi_obj"
+        app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
         app:layout_constraintTop_toBottomOf="@+id/verif2_kecam_obj" />
+
+    <TextView
+        android:id="@+id/verif2_provinsi_obj"
+        style="@style/verif_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verif2_provinsi"
+        app:layout_constraintBottom_toTopOf="@+id/verif2_agama_obj"
+        app:layout_constraintStart_toStartOf="@+id/verif2_guideline1v"
+        app:layout_constraintTop_toBottomOf="@+id/verif2_kab_obj" />
 
     <TextView
         android:id="@+id/verif2_status_obj"
@@ -103,24 +146,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/verif2_kewarga"
-        app:layout_constraintBottom_toTopOf="@+id/verif2_berlaku_obj"
+        app:layout_constraintBottom_toTopOf="@+id/verif2_guideline2h"
         app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
         app:layout_constraintTop_toBottomOf="@+id/verif2_pekerjaan_obj" />
-
-    <TextView
-        android:id="@+id/verif2_berlaku_obj"
-        style="@style/verif_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/verif2_berlaku"
-        app:layout_constraintBottom_toBottomOf="@id/verif2_guideline2h"
-        app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"
-        app:layout_constraintTop_toBottomOf="@+id/verif2_kewarga_obj" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_nama_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -139,7 +172,7 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:paddingTop="0dp"
-                android:text="Some text"
+                android:text="@string/some_text"
                 android:textColor="@color/underline"
                 android:textColorHighlight="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -153,7 +186,73 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/verif2_ttl_obj"
+        app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
+        app:layout_constraintStart_toStartOf="@id/verif2_guideline3v"
+        app:layout_constraintTop_toTopOf="@id/verif2_ttl_obj">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/verif2_ttl_edittext"
+                style="@style/verif_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:text="@string/some_text"
+                android:textColor="@color/underline"
+                android:textColorHighlight="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/verif2_jk_obj"
+        app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
+        app:layout_constraintStart_toStartOf="@id/verif2_guideline3v"
+        app:layout_constraintTop_toTopOf="@id/verif2_jk_obj">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/verif2_jk_edittext"
+                style="@style/verif_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:text="@string/some_text"
+                android:textColor="@color/underline"
+                android:textColorHighlight="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_alamat_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -172,7 +271,7 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:paddingTop="0dp"
-                android:text="Some text"
+                android:text="@string/some_text"
                 android:textColor="@color/underline"
                 android:textColorHighlight="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -186,7 +285,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_rtrw_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -205,7 +304,7 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:paddingTop="0dp"
-                android:text="Some text"
+                android:text="@string/some_text"
                 android:textColor="@color/underline"
                 android:textColorHighlight="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -219,7 +318,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_keldes_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -238,7 +337,7 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:paddingTop="0dp"
-                android:text="Some text"
+                android:text="@string/some_text"
                 android:textColor="@color/underline"
                 android:textColorHighlight="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -252,7 +351,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_kecam_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -271,7 +370,7 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:paddingTop="0dp"
-                android:text="Some text"
+                android:text="@string/some_text"
                 android:textColor="@color/underline"
                 android:textColorHighlight="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -285,7 +384,73 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/verif2_kab_obj"
+        app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
+        app:layout_constraintStart_toStartOf="@id/verif2_guideline3v"
+        app:layout_constraintTop_toTopOf="@id/verif2_kab_obj">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/verif2_kab_edittext"
+                style="@style/verif_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:text="@string/some_text"
+                android:textColor="@color/underline"
+                android:textColorHighlight="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/verif2_provinsi_obj"
+        app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
+        app:layout_constraintStart_toStartOf="@id/verif2_guideline3v"
+        app:layout_constraintTop_toTopOf="@id/verif2_provinsi_obj">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/verif2_prov_edittext"
+                style="@style/verif_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:text="@string/some_text"
+                android:textColor="@color/underline"
+                android:textColorHighlight="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_pekerjaan_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -304,7 +469,7 @@
                 android:background="@color/white"
                 android:gravity="center"
                 android:paddingTop="0dp"
-                android:text="Some text"
+                android:text="@string/some_text"
                 android:textColor="@color/underline"
                 android:textColorHighlight="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -318,40 +483,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/verif2_berlaku_obj"
-        app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
-        app:layout_constraintStart_toStartOf="@id/verif2_guideline4v"
-        app:layout_constraintTop_toTopOf="@id/verif2_berlaku_obj">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/verif2_berlaku_edittext"
-                style="@style/verif_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:paddingTop="0dp"
-                android:text="Some text"
-                android:textColor="@color/underline"
-                android:textColorHighlight="@android:color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/white"
+        android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@id/verif2_agama_obj"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
@@ -361,13 +493,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <Spinner
+
+            <EditText
+                android:id="@+id/verif2_agama_edittext"
+                style="@style/verif_text"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:backgroundTint="@color/black"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:text="@string/some_text"
+                android:textColor="@color/underline"
+                android:textColorHighlight="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -415,49 +555,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.69" />
+        app:layout_constraintGuide_percent="0.75" />
 
-    <RadioButton
-        android:id="@+id/verif2_radioButton_kawin"
+    <RadioGroup
+        android:id="@+id/verif2_radioG_sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kawin"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/verif2_status_obj"
-        app:layout_constraintEnd_toStartOf="@+id/verif2_radioButton_tdkkawin"
-        app:layout_constraintStart_toEndOf="@+id/verif2_status_obj"
+        app:layout_constraintEnd_toStartOf="@+id/verif2_guideline2v"
         app:layout_constraintStart_toStartOf="@+id/verif2_guideline3v"
-        app:layout_constraintTop_toTopOf="@+id/verif2_status_obj" />
+        app:layout_constraintTop_toTopOf="@+id/verif2_status_obj">
 
-    <RadioButton
-        android:id="@+id/verif2_radioButton_tdkkawin"
+        <RadioButton
+            android:id="@+id/verif2_radioButton_kawin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/kawin" />
+
+        <RadioButton
+            android:id="@+id/verif2_radioButton_tdkkawin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_kawin" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/verif2_radioG_kwn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tidak Kawin"
-        app:layout_constraintBottom_toBottomOf="@+id/verif2_status_obj"
-        app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
-        app:layout_constraintStart_toEndOf="@+id/verif2_radioButton_kawin"
-        app:layout_constraintTop_toTopOf="@+id/verif2_status_obj" />
-
-    <RadioButton
-        android:id="@+id/verif2_radioButton_wni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WNI"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/verif2_kewarga_obj"
-        app:layout_constraintEnd_toStartOf="@+id/verif2_radioButton_tdkkawin"
-        app:layout_constraintStart_toEndOf="@+id/verif2_kewarga_obj"
+        app:layout_constraintEnd_toStartOf="@+id/verif2_guideline2v"
         app:layout_constraintStart_toStartOf="@+id/verif2_guideline4v"
-        app:layout_constraintTop_toTopOf="@+id/verif2_kewarga_obj" />
+        app:layout_constraintTop_toTopOf="@+id/verif2_kewarga_obj">
 
-    <RadioButton
-        android:id="@+id/verif2_radioButton_wna"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WNA"
-        app:layout_constraintBottom_toBottomOf="@+id/verif2_kewarga_obj"
-        app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
-        app:layout_constraintStart_toEndOf="@+id/verif2_radioButton_kawin"
-        app:layout_constraintTop_toTopOf="@+id/verif2_kewarga_obj" />
+        <RadioButton
+            android:id="@+id/verif2_radioButton_wni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/wni" />
+
+        <RadioButton
+            android:id="@+id/verif2_radioButton_wna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wna" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/verif_but_next"
@@ -466,7 +614,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/light_blue_back"
-        android:text="confirm"
+        android:text="@string/verif_confirm"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@id/verif2_guideline2v"
         app:layout_constraintStart_toStartOf="@id/verif2_guideline1v"

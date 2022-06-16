@@ -2,26 +2,49 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.safiraak.validin">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
     <application
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Validin">
         <activity
-            android:name=".presentation.view.SettingActivity"
-            android:exported="true" />
-        <activity
-            android:name=".presentation.view.AccountActivity"
+            android:name=".presentation.view.main.CheckDataActivity"
             android:exported="true"
-            android:label="AccountActivity"
+            android:label="CheckDataActivity"
             android:theme="@style/Theme.Validin.NoActionBar"/>
         <activity
-            android:name=".presentation.view.RegisterActivity"
+            android:name=".presentation.view.verify.CameraTempActivity"
+            android:exported="true"
+            android:label="CameraTempActivity"
+            android:theme="@style/Theme.Validin.NoActionBar" />
+        <activity
+            android:name=".presentation.view.main.TutorialActivity"
+            android:exported="true"
+            android:label="TutorialActivity"
+            android:theme="@style/Theme.Validin.NoActionBar" />
+        <activity
+            android:name=".presentation.view.setting.SettingActivity"
+            android:exported="true"
+            android:label="SettingActivity"
+            android:theme="@style/Theme.Validin.NoActionBar" />
+        <activity
+            android:name=".presentation.view.setting.AccountActivity"
+            android:exported="true"
+            android:label="AccountActivity"
+            android:theme="@style/Theme.Validin.NoActionBar" />
+        <activity
+            android:name=".presentation.view.auth.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.view.LoginActivity"
+            android:name=".presentation.view.auth.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,20 +53,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.view.MainActivity"
+            android:name=".presentation.view.main.MainActivity"
             android:exported="true"
             android:label="MainActivity"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
-            android:name=".presentation.view.VerificationActivity1"
+            android:name=".presentation.view.verify.VerificationActivity1"
             android:exported="false"
             android:label="VerificationActivity1"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
         <activity
-            android:name=".presentation.view.VerificationActivity2"
+            android:name=".presentation.view.verify.VerificationActivity2"
             android:exported="false"
             android:label="VerificationActivity2"
-            android:theme="@style/Theme.Validin.NoActionBar"/>
+            android:theme="@style/Theme.Validin.NoActionBar" />
     </application>
 
 </manifest>

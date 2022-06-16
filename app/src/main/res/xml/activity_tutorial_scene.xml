@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000"
+        motion:autoTransition="animateToEnd">
+       <KeyFrameSet>
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/img_tutorial1"
+            motion:layout_constraintStart_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintVertical_bias="0.3"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/img_tutorial1"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintVertical_bias="0.4"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp" />
+        <Constraint
+            android:id="@+id/ifv_page1"
+            motion:layout_constraintEnd_toStartOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="32dp"
+            motion:layout_constraintHorizontal_bias="0.2"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_editor_absoluteY="731dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp" >
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page2"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page3"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page1"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page1"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page1">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page3"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page4"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page2"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page2" />
+        <Constraint
+            android:id="@+id/ifv_page3"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page4"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page2"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page2">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page4"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page3"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page3"
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_marginEnd="32dp"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page3">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+    </ConstraintSet>
+    <ConstraintSet
+        android:id="@+id/tutorial2"
+        motion:deriveConstraintsFrom="@+id/end" >
+        <Constraint
+            android:id="@+id/img_tutorial1"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintVertical_bias="0.3"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toStartOf="parent"
+            motion:layout_editor_absoluteX="411dp" />
+        <Constraint
+            android:id="@+id/ifv_page1"
+            motion:layout_constraintEnd_toStartOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="32dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_editor_absoluteY="731dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp" >
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page2"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page3"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page1"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page1"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page1">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/img_tutorial2.1"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="520dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp" />
+        <Constraint
+            android:id="@+id/ifv_page3"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page4"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page2"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page2">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page4"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page3"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page3"
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_marginEnd="32dp"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page3">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/end"
+        motion:constraintSetEnd="@+id/tutorial2" >
+        <OnSwipe motion:dragDirection="dragLeft" />
+    </Transition>
+    <ConstraintSet android:id="@+id/tutorial3" >
+        <Constraint
+            android:id="@+id/img_tutorial2.1"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="520dp"
+            motion:layout_constraintEnd_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="24dp" />
+        <Constraint
+            android:id="@+id/img_tutorial1"
+            motion:layout_constraintStart_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="parent"
+            motion:layout_constraintVertical_bias="0.3"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/img_tutorial3"
+            android:layout_width="0dp"
+            android:layout_height="430dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintVertical_bias="0.445"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp" />
+        <Constraint
+            android:id="@+id/ifv_page1"
+            motion:layout_constraintEnd_toStartOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="32dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_editor_absoluteY="731dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp" >
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page2"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page3"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page1"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page1"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page1" >
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page2"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page3"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page1"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page1"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page1">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page3"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page4"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page2"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page2">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page4"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page3"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page3"
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_marginEnd="32dp"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page3">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/tutorial2"
+        motion:constraintSetEnd="@+id/tutorial3" >
+        <OnSwipe motion:dragDirection="dragLeft" />
+    </Transition>
+    <ConstraintSet android:id="@+id/tutorial4" >
+        <Constraint
+            android:id="@+id/ifv_page1"
+            motion:layout_constraintEnd_toStartOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="32dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_editor_absoluteY="731dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page2"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page3"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page1"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page1"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page1">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page3"
+            motion:layout_constraintEnd_toStartOf="@id/ifv_page4"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page2"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page2"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page2" >
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page4"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page3"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page3"
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_marginEnd="32dp"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page3" >
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ifv_page4"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/ifv_page3"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/ifv_page3"
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_marginEnd="32dp"
+            motion:layout_constraintTop_toTopOf="@+id/ifv_page3">
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/img_tutorial4.1"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="330dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="64dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp" />
+        <Constraint
+            android:id="@+id/img_tutorial4.2"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            motion:layout_constraintTop_toBottomOf="@+id/img_tutorial4.1"
+            android:layout_marginTop="8dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp" />
+        <Constraint
+            android:id="@+id/button_back_home"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            motion:layout_constraintBottom_toTopOf="@id/ifv_page2"
+            android:alpha="1"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/tutorial3"
+        motion:constraintSetEnd="@+id/tutorial4" >
+        <OnSwipe motion:dragDirection="dragLeft" />
+    </Transition>
+</MotionScene>

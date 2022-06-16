@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_container"
-    tools:context=".presentation.view.VerificationActivity1">
+    android:background="?attr/colorPrimary"
+    tools:context=".presentation.view.verify.VerificationActivity1">
 
 
     <TextView
@@ -38,7 +38,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:backgroundTint="?attr/colorSecondary">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/verif_guideline4h"
@@ -84,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="7dp"
-                android:text="null"
+                android:text="@string/no_data"
                 app:layout_constraintBottom_toBottomOf="@id/verif_niktxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_niktxt_obj" />
@@ -105,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="7dp"
-                android:text="null"
+                android:text="@string/no_data"
                 app:layout_constraintBottom_toBottomOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_jeniskeltxt_obj" />
@@ -126,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="7dp"
-                android:text="null"
+                android:text="@string/no_data"
                 app:layout_constraintBottom_toBottomOf="@id/verif_tgltxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_tgltxt_obj" />
@@ -147,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="7dp"
-                android:text="null"
+                android:text="@string/no_data"
                 app:layout_constraintBottom_toBottomOf="@id/verif_kecamattxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_kecamattxt_obj" />
@@ -168,7 +169,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="7dp"
-                android:text="null"
+                android:text="@string/no_data"
                 app:layout_constraintBottom_toBottomOf="@id/verif_kabtxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_kabtxt_obj" />
@@ -189,7 +190,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="7dp"
-                android:text="null"
+                android:text="@string/no_data"
                 app:layout_constraintBottom_toBottomOf="@id/verif_provtxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_provtxt_obj" />
@@ -210,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="7dp"
-                android:text="null"
+                android:text="@string/no_data"
                 app:layout_constraintBottom_toBottomOf="@id/verif_rtrwtxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_rtrwtxt_obj"
@@ -221,7 +222,7 @@
                 style="@style/verif_obj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":"
+                android:text="@string/dot"
                 app:layout_constraintBottom_toBottomOf="@id/verif_rtrwtxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_rtrwtxt_obj" />
@@ -231,7 +232,7 @@
                 style="@style/verif_obj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":"
+                android:text="@string/dot"
                 app:layout_constraintBottom_toBottomOf="@id/verif_provtxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_provtxt_obj" />
@@ -241,7 +242,7 @@
                 style="@style/verif_obj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":"
+                android:text="@string/dot"
                 app:layout_constraintBottom_toBottomOf="@id/verif_kabtxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_kabtxt_obj" />
@@ -251,7 +252,7 @@
                 style="@style/verif_obj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":"
+                android:text="@string/dot"
                 app:layout_constraintBottom_toBottomOf="@id/verif_kecamattxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_kecamattxt_obj" />
@@ -261,7 +262,7 @@
                 style="@style/verif_obj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":"
+                android:text="@string/dot"
                 app:layout_constraintBottom_toBottomOf="@id/verif_tgltxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_tgltxt_obj" />
@@ -271,7 +272,7 @@
                 style="@style/verif_obj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":"
+                android:text="@string/dot"
                 app:layout_constraintBottom_toBottomOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_jeniskeltxt_obj" />
@@ -281,7 +282,7 @@
                 style="@style/verif_obj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=":"
+                android:text="@string/dot"
                 app:layout_constraintBottom_toBottomOf="@id/verif_niktxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_niktxt_obj" />
@@ -373,6 +374,7 @@
         app:layout_constraintTop_toBottomOf="@id/verif_guideline1v"
         tools:layout_editor_absoluteX="106dp"
         tools:layout_editor_absoluteY="78dp"
+        android:contentDescription="@string/capt_photo"
         android:src="@drawable/sample1" />
 
     <Button
@@ -382,7 +384,7 @@
         android:backgroundTint="@color/red_back"
         style="@style/verif_obj"
         android:textColor="@color/white"
-        android:text="Capture Again"
+        android:text="@string/capt_again"
         app:layout_constraintBottom_toBottomOf="@id/verif_guideline9v"
         app:layout_constraintStart_toStartOf="@+id/verif_guideline2h"
         app:layout_constraintTop_toTopOf="@id/verif_guideline7v" />
