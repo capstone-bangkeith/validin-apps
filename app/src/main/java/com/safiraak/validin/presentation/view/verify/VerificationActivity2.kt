@@ -15,7 +15,9 @@ class VerificationActivity2 : AppCompatActivity() {
         supportActionBar?.hide()
 
         val datKtp = intent.getParcelableExtra<SetDataKtp>(DATA_EXTRA_KTP) as SetDataKtp
-
+        binding.verifButNext.setOnClickListener {
+            startActivity(Intent(this@VerificationActivity2, FinishActivity::class.java))
+        }
     }
 
     fun setSomeText(setDataKtp: SetDataKtp) {
