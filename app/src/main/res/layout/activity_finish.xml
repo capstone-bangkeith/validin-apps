@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.view.verify.FinishActivity"
+    android:background="@drawable/gradient_background">
+
+    <ImageView
+        android:id="@+id/logo_gif"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/container_login"
+        android:layout_width="348dp"
+        android:layout_height="400dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-60dp"
+        android:alpha="0.5"
+        android:background="@drawable/container_login"
+        app:layout_constraintEnd_toEndOf="@+id/logo_gif"
+        app:layout_constraintStart_toStartOf="@+id/logo_gif"
+        app:layout_constraintTop_toBottomOf="@+id/logo_gif" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/finish"
+        android:textAlignment="center"
+        android:textAppearance="@style/sign_in"
+        app:layout_constraintEnd_toEndOf="@+id/container_login"
+        app:layout_constraintStart_toStartOf="@+id/container_login"
+        app:layout_constraintTop_toTopOf="@+id/container_login" />
+
+    <TextView
+        android:id="@+id/tv_thankyou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/opensans_regular"
+        android:text="@string/thankyou"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_textDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/opensans_regular"
+        android:textAlignment="center"
+        android:text="@string/finish_text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_thankyou"
+        app:layout_constraintStart_toStartOf="@+id/tv_thankyou"
+        app:layout_constraintTop_toBottomOf="@+id/tv_thankyou" />
+
+    <Button
+        android:id="@+id/button_back_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/back_button"
+        app:layout_constraintEnd_toEndOf="@+id/tv_textDescription"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/tv_textDescription"
+        app:layout_constraintTop_toBottomOf="@+id/tv_textDescription" />
+</androidx.constraintlayout.widget.ConstraintLayout>
