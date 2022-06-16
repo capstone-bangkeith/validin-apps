@@ -72,11 +72,18 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnRegist.setOnClickListener {
             val email = binding.etEmailField.text.toString().trim()
             val password = binding.etConfirmpasswordField.text.toString().trim()
+            val passwordOne = binding.etPasswordField.toString().trim()
             if (binding.etPasswordField.text.toString() != binding.etConfirmpasswordField.text.toString()) {
                 binding.etConfirmpasswordField.error = getString(R.string.mismatch_pass)
                 return@setOnClickListener
             }
-            userViewModel.userRegister(email, password)
+            if (email.isEmpty() || password.isEmpty() || passwordOne.isEmpty()) {
+                binding.etEmailField.error = "Email is Required"
+                binding.etPasswordField.error = "Password is Required"
+                binding.etConfirmpasswordField.error = "Confirm Password is Required"
+            } else {
+                userViewModel.userRegister(email, password)
+            }
         }
     }
 }

@@ -36,9 +36,13 @@ class PopUpForgetPass : DialogFragment() {
         etSetEmail.setText(auth.currentUser?.email)
         buttonConfirm.setOnClickListener {
             val emailAddress = etSetEmail.text.trim().toString()
-            auth.sendPasswordResetEmail(emailAddress).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    Toast.makeText(context, getString(R.string.reset_pass), Toast.LENGTH_SHORT).show()
+            if (emailAddress.isEmpty()) {
+                etSetEmail.error = "Email is Required"
+            } else {
+                auth.sendPasswordResetEmail(emailAddress).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        Toast.makeText(context, getString(R.string.reset_pass), Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }

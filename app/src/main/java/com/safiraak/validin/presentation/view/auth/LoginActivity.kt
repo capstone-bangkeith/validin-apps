@@ -119,9 +119,13 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmailField.text.toString().trim()
             val password = binding.etPasswordField.text.toString().trim()
-            //firebaseAuthWithEmailPassword(email, password)
-            userViewModel.userLogin(email, password)
-
+            if (email.isEmpty() || password.isEmpty()) {
+                binding.etEmailField.error = "Email is required"
+                binding.etPasswordField.error = "Password is required"
+            } else {
+                //firebaseAuthWithEmailPassword(email, password)
+                userViewModel.userLogin(email, password)
+            }
         }
 
         binding.tvForgetpassword.setOnClickListener {

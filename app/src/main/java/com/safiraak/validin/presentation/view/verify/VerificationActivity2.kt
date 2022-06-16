@@ -1,5 +1,6 @@
 package com.safiraak.validin.presentation.view.verify
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
