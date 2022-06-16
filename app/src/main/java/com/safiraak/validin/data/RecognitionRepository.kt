@@ -7,6 +7,7 @@ import com.safiraak.validin.data.remote.FinalFormResponse
 import com.safiraak.validin.data.remote.RecognitionResponse
 import com.safiraak.validin.data.remote.RecognitionService
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Retrofit
 import javax.inject.Inject
 
@@ -37,10 +38,10 @@ class RecognitionRepository @Inject constructor(retrofit: Retrofit){
         }
     }
 
-    suspend fun finalformUpload(provinsi: String, kota: String, nik: String,
-                                nama: String, ttl: String, jeniskel: String,
-                                alamat: String, rtrw: String, keldes: String,
-                                kec: String, agama: String, statPer: String, pekerjaan: String, kwn: String): Result<FinalFormResponse> {
+    suspend fun finalformUpload(provinsi: RequestBody, kota: RequestBody, nik: RequestBody,
+                                nama: RequestBody, ttl: RequestBody, jeniskel: RequestBody,
+                                alamat: RequestBody, rtrw: RequestBody, keldes: RequestBody,
+                                kec: RequestBody, agama: RequestBody, statPer: RequestBody, pekerjaan: RequestBody, kwn: RequestBody): Result<FinalFormResponse> {
         return try {
             val response = retrofitRecogService.postFinalForm(provinsi, kota, nik, nama, ttl, jeniskel, alamat, rtrw, keldes, kec, agama, statPer, pekerjaan, kwn)
                 if (response.isSuccessful) {

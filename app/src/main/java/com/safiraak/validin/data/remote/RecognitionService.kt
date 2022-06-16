@@ -20,20 +20,20 @@ interface RecognitionService {
     @Multipart
     @POST("/ktp/")
     suspend fun postFinalForm(
-        @Part("provinsi") provinsi: String,
-        @Part("kota") kota: String,
-        @Part("nik") nik: String,
-        @Part("nama") nama: String,
-        @Part("ttl") ttl: String,
-        @Part("jenis_kelamin") jenis_kelamin: String,
-        @Part("alamat") alamat: String,
-        @Part("rt_rw") rt_rw: String,
-        @Part("kel_desa") kel_desa: String,
-        @Part("kecamatan") kecamatan: String,
-        @Part("agama") agama: String,
-        @Part("status_perkawinan") status_perkawinan: String,
-        @Part("pekerjaan") pekerjaan: String,
-        @Part("kewarganegaraan") kewarganegaraan: String,
+        @Part("provinsi") provinsi: RequestBody,
+        @Part("kota") kota: RequestBody,
+        @Part("nik") nik: RequestBody,
+        @Part("nama") nama: RequestBody,
+        @Part("ttl") ttl: RequestBody,
+        @Part("jenis_kelamin") jenis_kelamin: RequestBody,
+        @Part("alamat") alamat: RequestBody,
+        @Part("rt_rw") rt_rw: RequestBody,
+        @Part("kel_desa") kel_desa: RequestBody,
+        @Part("kecamatan") kecamatan: RequestBody,
+        @Part("agama") agama: RequestBody,
+        @Part("status_perkawinan") status_perkawinan: RequestBody,
+        @Part("pekerjaan") pekerjaan: RequestBody,
+        @Part("kewarganegaraan") kewarganegaraan: RequestBody,
     ) : Response<FinalFormResponse>
 
 //    @GET("/ktp/")

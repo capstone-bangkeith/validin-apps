@@ -11,7 +11,12 @@ import com.safiraak.validin.data.SetDataKtp
 
 import com.safiraak.validin.databinding.ActivityVerification2Binding
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
+
+
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
 
 @AndroidEntryPoint
 class VerificationActivity2 : AppCompatActivity() {
@@ -28,28 +33,26 @@ class VerificationActivity2 : AppCompatActivity() {
             setSomeText(datKtp)
         }
 
-        val prov = binding.verif2ProvEdittext.text.toString()
-        val kota = binding.verif2KabEdittext.text.toString()
-        val nik = datKtp?.nik.toString()
-        val nama = binding.verif2NamaEdittext.text.toString()
-        val ttl = binding.verif2TtlEdittext.text.toString()
-        var jk = binding.verif2JkEdittext.text.toString()
-        val alamat = binding.verif2AlamatEdittext.text.toString()
-        val rtrw = binding.verif2RtrwEdittext.text.toString()
-        val keldes = binding.verif2KeldesEdittext.text.toString()
-        val kec = binding.verif2KecamEdittext.text.toString()
-        val agama = binding.verif2AgamaEdittext.text.toString()
+        val prov = RequestBody.create("text/plain".toMediaTypeOrNull(), binding.verif2ProvEdittext.text.toString())
+        val kota = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2KabEdittext.text.toString())
+        val nik = RequestBody.create("text/plain".toMediaTypeOrNull(),datKtp?.nik.toString())
+        val nama = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2NamaEdittext.text.toString())
+        val ttl = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2TtlEdittext.text.toString())
+        val jk = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2JkEdittext.text.toString())
+        val alamat = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2AlamatEdittext.text.toString())
+        val rtrw = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2RtrwEdittext.text.toString())
+        val keldes = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2KeldesEdittext.text.toString())
+        val kec = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2KecamEdittext.text.toString())
+        val agama = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2AgamaEdittext.text.toString())
         val statPerId = binding.verif2RadioGSp.checkedRadioButtonId
-        val statPer = findViewById<RadioButton>(statPerId).text.toString()
-        val pekerjaan = binding.verif2PekerjaanEdittext.text.toString()
+        val statPer = RequestBody.create("text/plain".toMediaTypeOrNull(),findViewById<RadioButton>(statPerId).text.toString())
+        val pekerjaan = RequestBody.create("text/plain".toMediaTypeOrNull(),binding.verif2PekerjaanEdittext.text.toString())
         val kwnId = binding.verif2RadioGKwn.checkedRadioButtonId
-        val kwn = findViewById<RadioButton>(kwnId).text.toString()
-
-        jk = jk.substring(1, jk.length-1)
+        val kwn = RequestBody.create("text/plain".toMediaTypeOrNull(),findViewById<RadioButton>(kwnId).text.toString())
 
         binding.verifButNext.setOnClickListener {
             recogViewModel.finalformUp(prov, kota, nik, nama, ttl, jk, alamat, rtrw, keldes, kec, agama, statPer, pekerjaan, kwn)
-            Log.d("jk", jk)
+            Log.d("provEdit", prov.toString())
         }
     }
 

@@ -14,6 +14,7 @@ import com.safiraak.validin.data.remote.RecognitionResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 @HiltViewModel
@@ -41,10 +42,11 @@ class RecognitionViewModel @Inject constructor(
         }
     }
 
-    fun finalformUp(provinsi: String, kota: String, nik: String,
-                    nama: String, ttl: String, jeniskel: String,
-                    alamat: String, rtrw: String, keldes: String,
-                    kec: String, agama: String, statPer: String, pekerjaan: String, kwn: String) {
+    fun finalformUp(provinsi: RequestBody, kota: RequestBody, nik: RequestBody,
+                    nama: RequestBody, ttl: RequestBody, jeniskel: RequestBody,
+                    alamat: RequestBody, rtrw: RequestBody, keldes: RequestBody,
+                    kec: RequestBody, agama: RequestBody, statPer: RequestBody, pekerjaan: RequestBody, kwn: RequestBody
+    ) {
         _finalformResponse.postValue(Result.Loading())
         viewModelScope.launch {
             _finalformResponse.postValue(repository.finalformUpload(provinsi, kota, nik, nama, ttl, jeniskel, alamat,
