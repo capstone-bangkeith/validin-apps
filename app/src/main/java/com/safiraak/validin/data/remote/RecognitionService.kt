@@ -37,7 +37,5 @@ interface RecognitionService {
     ) : Response<FinalFormResponse>
 
     @GET("/ktp/")
-    suspend fun getAllData(
-
-    ) : Response<CheckDataResponse>
+    suspend fun getAllData() : Response<CheckDataResponse>
 }
