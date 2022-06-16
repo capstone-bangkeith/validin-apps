@@ -26,6 +26,7 @@ import com.safiraak.validin.presentation.view.setting.AccountActivity
 import com.safiraak.validin.presentation.view.setting.SettingActivity
 import com.safiraak.validin.presentation.view.auth.LoginActivity
 import com.safiraak.validin.presentation.view.verify.CameraTempActivity
+import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
 import com.safiraak.validin.presentation.viewmodel.ThemeViewModel
 import com.safiraak.validin.presentation.viewmodel.ThemeViewModelFactory
 import com.safiraak.validin.presentation.viewmodel.UserViewModel
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
     private lateinit var auth: FirebaseAuth
     private var getFile: File? = null
     private val userViewModel: UserViewModel by viewModels()
+    private val recogViewModel: RecognitionViewModel by viewModels()
     private val verifiedState: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {

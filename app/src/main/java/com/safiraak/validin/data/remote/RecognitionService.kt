@@ -36,8 +36,8 @@ interface RecognitionService {
         @Part("kewarganegaraan") kewarganegaraan: RequestBody,
     ) : Response<FinalFormResponse>
 
-//    @GET("/ktp/")
-//    suspend fun getAllData(
-//
-//    ) : Response
+    @GET("/ktp/")
+    suspend fun getAllData(
+        @Query("uid") uid: String,
+    ) : Response<CheckDataResponse>
 }

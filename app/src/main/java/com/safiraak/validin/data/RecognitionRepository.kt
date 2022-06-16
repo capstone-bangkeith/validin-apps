@@ -3,6 +3,7 @@ package com.safiraak.validin.data
 import android.graphics.RectF
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.safiraak.validin.data.remote.CheckDataResponse
 import com.safiraak.validin.data.remote.FinalFormResponse
 import com.safiraak.validin.data.remote.RecognitionResponse
 import com.safiraak.validin.data.remote.RecognitionService
@@ -54,6 +55,24 @@ class RecognitionRepository @Inject constructor(retrofit: Retrofit){
                 } else {
                     Result.Error("Response is not successful")
                 }
+        } catch (e: Exception) {
+            Result.Error("Error Upload Data please try again : " + e.message)
+        }
+    }
+
+    suspend fun checkData(uid: String) : Result<CheckDataResponse> {
+        return try {
+            val response = retrofitRecogService.getAllData(uid)
+            if (response.isSuccessful) {
+                val body = response.body()
+                if (body!=null) {
+                    Result.Success(body)
+                } else {
+                    Result.Error("Body is null")
+                }
+            } else {
+                Result.Error("Response is not successful")
+            }
         } catch (e: Exception) {
             Result.Error("Error Upload Data please try again : " + e.message)
         }

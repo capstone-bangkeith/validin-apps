@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.Auth
 import com.google.firebase.auth.FirebaseAuth
 import com.safiraak.validin.data.*
+import com.safiraak.validin.data.remote.CheckDataResponse
 import com.safiraak.validin.data.remote.FinalFormResponse
 import com.safiraak.validin.data.remote.RecognitionRequest
 import com.safiraak.validin.data.remote.RecognitionResponse
@@ -27,6 +28,8 @@ class RecognitionViewModel @Inject constructor(
     val recognitionResponse: LiveData<Result<RecognitionResponse>> = _recognitionResponse
     private val _finalformResponse = MutableLiveData<Result<FinalFormResponse>>()
     val finalformResponse: LiveData<Result<FinalFormResponse>> = _finalformResponse
+    private val _checkdataResponse = MutableLiveData<Result<CheckDataResponse>>()
+    val checkdataResponse: LiveData<Result<CheckDataResponse>> = _checkdataResponse
 
 
     fun updateData(recognitions: RecognitionData) {
@@ -51,6 +54,13 @@ class RecognitionViewModel @Inject constructor(
         viewModelScope.launch {
             _finalformResponse.postValue(repository.finalformUpload(provinsi, kota, nik, nama, ttl, jeniskel, alamat,
                 rtrw, keldes, kec, agama, statPer, pekerjaan, kwn))
+        }
+    }
+
+    fun checkData(uid: String) {
+        _checkdataResponse.postValue(Result.Loading())
+        viewModelScope.launch {
+            _checkdataResponse.postValue(repository.checkData(uid))
         }
     }
 }
