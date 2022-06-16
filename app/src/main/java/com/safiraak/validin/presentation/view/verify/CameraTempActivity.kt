@@ -110,6 +110,7 @@ class CameraTempActivity : AppCompatActivity() {
                 is Result.Error -> {
                     showProgressBar(false)
                     Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+
                 }
             }
         }
