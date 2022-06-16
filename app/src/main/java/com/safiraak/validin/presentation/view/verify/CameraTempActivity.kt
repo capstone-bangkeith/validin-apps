@@ -4,17 +4,14 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.RectF
-import android.os.Build
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
@@ -22,29 +19,21 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.MutableLiveData
-import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.safiraak.validin.R
 import com.safiraak.validin.data.RecognitionData
 import com.safiraak.validin.data.Result
 import com.safiraak.validin.data.SetDataKtp
 import com.safiraak.validin.databinding.ActivityCameraTempBinding
-import com.safiraak.validin.ml.DetectWithMetadata
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
 import com.safiraak.validin.utils.CamUtils
 import com.safiraak.validin.utils.ImageAnalyzer
-import com.safiraak.validin.utils.YuvToRgbConverter
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
-import org.tensorflow.lite.gpu.CompatibilityList
-import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.support.model.Model
-import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.Executors
-import kotlin.math.min
 
 typealias RecognitionListener = (recognition: RecognitionData) -> Unit
 
@@ -78,7 +67,6 @@ class CameraTempActivity : AppCompatActivity() {
         } else {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
-
         recogViewModel.recognitionData.observe(this) {
             binding.recognitionName.text = it.label
             binding.recognitionProb.text = it.probabilityString
@@ -94,7 +82,7 @@ class CameraTempActivity : AppCompatActivity() {
         recogViewModel.recognitionResponse.observe(this) {
             when(it) {
                 is Result.Success -> {
-                    binding.progressBar.visibility = View.GONE
+                    showProgressBar(false)
                     val nama = it.data?.data?.ktp?.nama
                     val nik = it.data?.data?.ktp?.nik
                     val alamat = it.data?.data?.ktp?.alamat
@@ -117,11 +105,12 @@ class CameraTempActivity : AppCompatActivity() {
                     }, captureDelay)
                 }
                 is Result.Loading -> {
-                    binding.progressBar.visibility = View.VISIBLE
+                    showProgressBar(true)
                 }
                 is Result.Error -> {
-                    binding.progressBar.visibility = View.GONE
+                    showProgressBar(false)
                     Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+
                 }
             }
         }
@@ -234,6 +223,15 @@ class CameraTempActivity : AppCompatActivity() {
     }
     private fun showMessage(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+    }
+    fun showProgressBar(show: Boolean){
+        if(show){
+            Glide.with(applicationContext).load(R.drawable.finish).into(binding.progressBar)
+            binding.progressBar.visibility = View.VISIBLE
+        }
+        else{
+            binding.progressBar.visibility = View.INVISIBLE
+        }
     }
     companion object{
         private const val TAG = "CameraTempActivity"

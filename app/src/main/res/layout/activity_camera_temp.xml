@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-
     </androidx.camera.view.PreviewView>
     <View
         android:id="@+id/overlay"
@@ -77,11 +76,12 @@
             android:textAppearance="?attr/textAppearanceHeadline6"
             tools:text="99%" />
     </LinearLayout>
-    <ProgressBar
+
+    <ImageView
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="160dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
