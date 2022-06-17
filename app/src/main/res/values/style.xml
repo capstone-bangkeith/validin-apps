@@ -84,9 +84,6 @@
         <item name="cornerRadius">
             24dp
         </item>
-        <item name="android:layout_marginTop">
-            -24dp
-        </item>
     </style>
 
     <style name="validin_title">
