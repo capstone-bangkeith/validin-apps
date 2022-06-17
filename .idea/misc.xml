@@ -3,11 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_account.xml" value="0.20425724637681159" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_camera_temp.xml" value="0.1" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_check_data.xml" value="0.4" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_finish.xml" value="0.259375" />
-        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_main.xml" value="0.23731884057971014" />
+        <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_check_data.xml" value="0.25333333333333335" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/activity_verification_2.xml" value="0.4" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/fragment_pop_up_username.xml" value="0.24139492753623187" />
         <entry key="..\:/Kotlin/Validin/app/src/main/res/layout/popup_edit.xml" value="0.25833333333333336" />
