@@ -53,15 +53,14 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        userViewModel.getIdTokenForUser()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //FirebaseAuth
         auth = Firebase.auth
-
         setSupportActionBar(binding.mainAppBar.mainToolbar)
-        userViewModel.getIdTokenForUser()
+
         toggle = ActionBarDrawerToggle(this, binding.homeDrawerAct, R.string.open, R.string.close)
         toggle.drawerArrowDrawable.color = ContextCompat.getColor(applicationContext, R.color.black)
         binding.homeDrawerAct.addDrawerListener(toggle)
@@ -92,20 +91,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
             }
         }
 
-        recogViewModel.checkData()
-        recogViewModel.checkdataResponse.observe(this){
-            when(it){
-                is Result.Success -> {
-                    if (it.data?.data?.validated == true){
-                        verifiedState = true
-                    } else if (it.data?.data?.validated == false) {
-                        verifiedState = false
-                    }
-                    verifyState()
-                    Log.d("NIK", it.data?.data?.nik.toString())
-                }
-            }
-        }
+
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -123,6 +109,32 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
                 R.id.logout -> { logOut() }
             }
             true
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser?.displayName == null || auth.currentUser?.displayName!!.isEmpty()){
+            val popUpUsernameFragment = PopUpUsernameFragment(getString(R.string.input_username_message))
+            popUpUsernameFragment.show(supportFragmentManager,"Pop Up Username")
+        }
+        recogViewModel.checkData()
+        recogViewModel.checkdataResponse.observe(this){
+            when(it){
+                is Result.Success -> {
+                    if (it.data?.data?.validated == true){
+                        verifiedState = true
+                    } else if (it.data?.data?.validated == false) {
+                        verifiedState = false
+                    }
+                    verifyState()
+                    Log.d("NIK", it.data?.data?.nik.toString())
+                }
+                is Result.Error -> {
+                    verifiedState = false
+                    verifyState()
+                }
+            }
         }
     }
 
@@ -158,14 +170,6 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
                 startActivity(Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 finish()
             }
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (auth.currentUser?.displayName == null || auth.currentUser?.displayName!!.isEmpty()){
-            val popUpUsernameFragment = PopUpUsernameFragment(getString(R.string.input_username_message))
-            popUpUsernameFragment.show(supportFragmentManager,"Pop Up Username")
         }
     }
 
@@ -212,13 +216,13 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
         val themeViewModel = ViewModelProvider(this, ThemeViewModelFactory(pref)).get(
             ThemeViewModel::class.java
         )
-        themeViewModel.getThemeSet().observe(this, { isDarkMode: Boolean ->
+        themeViewModel.getThemeSet().observe(this) { isDarkMode: Boolean ->
             if (isDarkMode) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
-        })
+        }
     }
 
     fun verifyState() {
