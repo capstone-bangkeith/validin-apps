@@ -1,23 +1,17 @@
 package com.safiraak.validin.presentation.view.verify
 
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.view.get
+import androidx.appcompat.app.AppCompatActivity
 import com.safiraak.validin.data.SetDataKtp
-
 import com.safiraak.validin.databinding.ActivityVerification2Binding
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
-
-
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 
 @AndroidEntryPoint

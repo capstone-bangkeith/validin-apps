@@ -7,9 +7,6 @@ import android.graphics.Matrix
 import android.util.Log
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.data.RecognitionData
 import com.safiraak.validin.ml.DetectWithMetadata
 import com.safiraak.validin.presentation.view.verify.RecognitionListener

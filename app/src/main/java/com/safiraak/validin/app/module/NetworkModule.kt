@@ -3,7 +3,6 @@ package com.safiraak.validin.app.module
 import com.safiraak.validin.BuildConfig
 import com.safiraak.validin.app.Config
 import com.safiraak.validin.data.AuthInterceptor
-import com.safiraak.validin.data.SetDataKtp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

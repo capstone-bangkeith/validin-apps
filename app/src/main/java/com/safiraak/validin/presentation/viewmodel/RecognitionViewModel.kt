@@ -1,16 +1,14 @@
 package com.safiraak.validin.presentation.viewmodel
 
-import android.graphics.RectF
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.gms.auth.api.Auth
-import com.google.firebase.auth.FirebaseAuth
-import com.safiraak.validin.data.*
+import com.safiraak.validin.data.RecognitionData
+import com.safiraak.validin.data.RecognitionRepository
+import com.safiraak.validin.data.Result
 import com.safiraak.validin.data.remote.CheckDataResponse
 import com.safiraak.validin.data.remote.FinalFormResponse
-import com.safiraak.validin.data.remote.RecognitionRequest
 import com.safiraak.validin.data.remote.RecognitionResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

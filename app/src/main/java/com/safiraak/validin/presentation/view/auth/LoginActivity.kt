@@ -1,10 +1,8 @@
 package com.safiraak.validin.presentation.view.auth
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -15,21 +13,19 @@ import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivityLoginBinding
+import com.safiraak.validin.presentation.view.main.MainActivity
 import com.safiraak.validin.presentation.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import com.safiraak.validin.presentation.view.main.MainActivity
-import java.lang.Exception
 import java.util.*
 
 @AndroidEntryPoint

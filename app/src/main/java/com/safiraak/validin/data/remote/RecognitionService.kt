@@ -1,6 +1,5 @@
 package com.safiraak.validin.data.remote
 
-import android.graphics.RectF
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response

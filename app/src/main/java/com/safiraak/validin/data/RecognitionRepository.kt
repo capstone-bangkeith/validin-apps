@@ -1,6 +1,5 @@
 package com.safiraak.validin.data
 
-import android.graphics.RectF
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.safiraak.validin.data.remote.CheckDataResponse

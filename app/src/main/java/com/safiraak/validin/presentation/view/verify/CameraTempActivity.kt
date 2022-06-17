@@ -220,7 +220,6 @@ class CameraTempActivity : AppCompatActivity() {
                 }
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
-                    Toast.makeText(baseContext, "$location", Toast.LENGTH_SHORT).show()
                     Log.d("LOCATION","$location")
                     recogViewModel.photoUpload(photoMultiPart, left, top, right, bottom)
                     Log.d(TAG, msg)

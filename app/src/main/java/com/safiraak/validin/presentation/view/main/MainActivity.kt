@@ -128,6 +128,7 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
 
     override fun onBackPressed() {
         super.onBackPressed()
+        finishAffinity()
         finish()
     }
 

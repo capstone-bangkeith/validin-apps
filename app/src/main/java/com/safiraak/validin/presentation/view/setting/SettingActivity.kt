@@ -11,7 +11,6 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import com.safiraak.validin.R
 import com.safiraak.validin.databinding.ActivitySettingBinding
 import com.safiraak.validin.presentation.viewmodel.ThemeViewModel
 import com.safiraak.validin.presentation.viewmodel.ThemeViewModelFactory

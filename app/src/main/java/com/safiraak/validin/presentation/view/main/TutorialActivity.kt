@@ -3,7 +3,6 @@ package com.safiraak.validin.presentation.view.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.safiraak.validin.databinding.ActivityMainBinding
 import com.safiraak.validin.databinding.ActivityTutorialBinding
 
 class TutorialActivity : AppCompatActivity() {

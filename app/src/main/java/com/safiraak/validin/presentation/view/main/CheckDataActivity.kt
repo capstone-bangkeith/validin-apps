@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
-import com.safiraak.validin.R
 import com.safiraak.validin.data.Result
 import com.safiraak.validin.databinding.ActivityCheckDataBinding
 import com.safiraak.validin.presentation.viewmodel.RecognitionViewModel
