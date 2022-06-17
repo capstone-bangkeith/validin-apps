@@ -29,8 +29,12 @@ class PopUpUsernameFragment(val title: String) : AppCompatDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSaveUsername.setOnClickListener {
             val username = binding.pwUsernameField.text.toString().trim()
-            listener?.getUsername(username)
-            dialog?.dismiss()
+            if (username.isEmpty()) {
+                binding.pwUsernameField.error = "Username is Required"
+            } else {
+                listener?.getUsername(username)
+                dialog?.dismiss()
+            }
         }
     }
 

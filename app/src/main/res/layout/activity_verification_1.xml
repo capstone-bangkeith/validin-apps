@@ -180,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/provinsi"
-                app:layout_constraintBottom_toTopOf="@+id/verif_rtrwtxt_obj"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
                 app:layout_constraintTop_toBottomOf="@+id/verif_kabtxt_obj" />
 
@@ -194,38 +194,6 @@
                 app:layout_constraintBottom_toBottomOf="@id/verif_provtxt_obj"
                 app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
                 app:layout_constraintTop_toTopOf="@id/verif_provtxt_obj" />
-
-            <TextView
-                android:id="@+id/verif_rtrwtxt_obj"
-                style="@style/verif_obj"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/rtrw"
-                app:layout_constraintBottom_toBottomOf="@id/verif_guideline8v"
-                app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
-                app:layout_constraintTop_toBottomOf="@+id/verif_provtxt_obj" />
-
-            <TextView
-                android:id="@+id/verif_rtrwtxt"
-                style="@style/verif_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="7dp"
-                android:text="@string/no_data"
-                app:layout_constraintBottom_toBottomOf="@id/verif_rtrwtxt_obj"
-                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
-                app:layout_constraintTop_toTopOf="@id/verif_rtrwtxt_obj"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/is1"
-                style="@style/verif_obj"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dot"
-                app:layout_constraintBottom_toBottomOf="@id/verif_rtrwtxt_obj"
-                app:layout_constraintStart_toEndOf="@id/verif_jeniskeltxt_obj"
-                app:layout_constraintTop_toTopOf="@id/verif_rtrwtxt_obj" />
 
             <TextView
                 android:id="@+id/is2"

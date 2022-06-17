@@ -66,7 +66,6 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
         toggle.drawerArrowDrawable.color = ContextCompat.getColor(applicationContext, R.color.black)
         binding.homeDrawerAct.addDrawerListener(toggle)
         toggle.syncState()
-
         userViewModel.user.observe(this) { user ->
             if (user != null) {
                 binding.apply {
@@ -122,6 +121,11 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
             }
             true
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
     override fun onResume() {
