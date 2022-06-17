@@ -180,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/provinsi"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/verif_guideline8v"
                 app:layout_constraintStart_toStartOf="@+id/verif_guideline4h"
                 app:layout_constraintTop_toBottomOf="@+id/verif_kabtxt_obj" />
 

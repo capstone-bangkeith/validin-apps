@@ -96,7 +96,12 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
         recogViewModel.checkdataResponse.observe(this){
             when(it){
                 is Result.Success -> {
-                    verifiedState = it.data?.data?.validated
+                    if (it.data?.data?.validated == true){
+                        verifiedState = true
+                    } else if (it.data?.data?.validated == false) {
+                        verifiedState = false
+                    }
+                    verifyState()
                     Log.d("NIK", it.data?.data?.nik.toString())
                 }
             }
@@ -106,8 +111,6 @@ class MainActivity : AppCompatActivity(), PopUpUsernameFragment.PopUpUsernameLis
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         getThemeS()
-
-        verifyState()
 
         binding.mainAppBar.cardInsctruction.setOnClickListener { startActivity(Intent(this, TutorialActivity::class.java)) }
 
